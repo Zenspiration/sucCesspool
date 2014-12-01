@@ -1,6 +1,7 @@
 package com.parse.starter;
 
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 //@ParseClassName("Goal")
 public class Goal extends ParseObject{
@@ -20,4 +21,10 @@ public class Goal extends ParseObject{
     	//ParseObject= goal
     }
 
+	public void setAuthor(ParseUser currentUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+
