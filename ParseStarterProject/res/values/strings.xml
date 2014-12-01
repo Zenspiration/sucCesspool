@@ -35,5 +35,13 @@
     <string name="progress_signup">Signing you up&#8230;</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
+    
+     <!-- Strings related to Goal -->
+    <string name="enter_goal">Dive In!</string>
+    <string name="cancel_goal">Cancel</string>
+    <string name="describe_goal">Describe your goal</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_new">Add a New Goal</string>
+    <string name="menu_title">My Goals</string>
 
 </resources>
