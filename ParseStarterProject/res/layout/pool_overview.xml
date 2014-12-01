@@ -18,7 +18,7 @@
         android:text="@string/not_logged_in"
         android:textAlignment="center"
         android:textSize="18sp" />
-
+ 
     <ListView
         android:id="@+id/todo_list_view"
         android:layout_width="match_parent"
