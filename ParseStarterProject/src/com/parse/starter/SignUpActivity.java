@@ -39,8 +39,8 @@ public class SignUpActivity extends Activity {
     usernameEditText = (EditText) findViewById(R.id.username_edit_text);
     passwordEditText = (EditText) findViewById(R.id.password_edit_text);
     passwordAgainEditText = (EditText) findViewById(R.id.password_again_edit_text);
-    firstNameEditText= (EditText) findViewById(R.id.editText1);
-    lastNameEditText= (EditText) findViewById(R.id.editText2);
+    firstNameEditText= (EditText) findViewById(R.id.firstName_edit_text);
+    lastNameEditText= (EditText) findViewById(R.id.lastName_edit_text);
     passwordAgainEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
       @Override
       public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -108,6 +108,8 @@ public class SignUpActivity extends Activity {
     ParseUser user = new ParseUser();
     user.setUsername(username);
     user.setPassword(password);
+    user.put("firstName", firstName);
+    user.put("lastName", lastName);
     
 
     // Call the Parse signup method
@@ -128,3 +130,4 @@ public class SignUpActivity extends Activity {
     });
   }
 }
+
