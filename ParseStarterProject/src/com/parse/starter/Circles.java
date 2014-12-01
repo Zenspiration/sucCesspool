@@ -3,11 +3,11 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ParseClassName("Pool")
-	  public class Pool extends ParseObject {
+@ParseClassName("Circles")
+	  public class Circles extends ParseObject {
 	   
-	 //pulling each of the items & setting them: Pool Title, First User, Goals, (Second User, Third User...).  
-	      public Pool() {
+	 //pulling each of the items & setting them: Circles Title, First User, Goals, (Second User, Third User...).  
+	      public Circles() {
 	          // A default constructor is required.
 	      }
 	   
