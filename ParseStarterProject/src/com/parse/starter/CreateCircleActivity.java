@@ -34,6 +34,8 @@ public class CreateCircleActivity extends ActionBarActivity {
                 //the following line from Stack Overflow rounds the money value to 2 decimal points
                 String moneyPerDayRounded = String.format("%.2f", moneyPerDay);
                 
+
+
                 TextView display = (TextView)findViewById(R.id.displayMoneyPerDay);
                 display.setText("Each day is worth $" + moneyPerDayRounded + ".");
         	}
