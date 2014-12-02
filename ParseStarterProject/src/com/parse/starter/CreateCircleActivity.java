@@ -1,4 +1,4 @@
-package com.cpsc112yale.successpoolapp;
+package com.parse.starter;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
