@@ -1,3 +1,5 @@
+package com.parse.starter;
+
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -7,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.parse.ParseClassName;
+import android.app.Activity;
+import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
 
 	public class PoolOverview extends ListActivity {
