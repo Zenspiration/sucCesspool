@@ -1,12 +1,11 @@
 package com.parse.starter;
 
-import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ParseClassName("Goal")
-public class Goal extends ParseObject{
-	public Goal() {
+//@ParseClassName("Goal")
+public class Pool extends ParseObject{
+	public Pool() {
         // A default constructor is required.
     }
  
@@ -28,4 +27,3 @@ public class Goal extends ParseObject{
 	}
 
 }
-

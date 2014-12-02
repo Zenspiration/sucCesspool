@@ -76,6 +76,7 @@ public final class R {
     }
     public static final class menu {
         public static final int activity_goal_list=0x7f070000;
+        public static final int activity_pool_list=0x7f070001;
     }
     public static final class string {
         public static final int action_new=0x7f050022;
