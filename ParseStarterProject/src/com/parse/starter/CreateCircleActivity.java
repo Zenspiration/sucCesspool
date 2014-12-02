@@ -1,18 +1,19 @@
 package com.parse.starter;
 
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+import android.app.ListActivity;
 
-public class CreateCircleActivity extends ActionBarActivity {
+public class CreateCircleActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_create_circle);
         
         //when user clicks "Click me to calculate money per day",
         	//app takes user input for inputCycle Length and inputMoneyCommitted
