@@ -30,10 +30,9 @@ public final class R {
         public static final int buttonInviteFriends=0x7f08000c;
         public static final int cancel_button=0x7f080016;
         public static final int displayMoneyPerDay=0x7f080009;
-        public static final int editText1=0x7f080018;
-        public static final int editText2=0x7f080019;
         public static final int edittext_action_login=0x7f080011;
         public static final int edittext_action_signup=0x7f08001d;
+        public static final int firstName_edit_text=0x7f080018;
         public static final int goal_button=0x7f080015;
         public static final int goal_edittext=0x7f080014;
         public static final int inputCircleName=0x7f080003;
@@ -45,6 +44,7 @@ public final class R {
         public static final int labelInviteFriends=0x7f08000b;
         public static final int labelMoneyCommittedSign=0x7f080008;
         public static final int labelTitle=0x7f080001;
+        public static final int lastName_edit_text=0x7f080019;
         public static final int loggedin_info=0x7f080023;
         public static final int login_button=0x7f080022;
         public static final int login_form=0x7f08000e;
