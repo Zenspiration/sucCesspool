@@ -4,6 +4,10 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -12,6 +16,7 @@ import com.parse.ParseClassName;
 import android.app.Activity;
 import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 
 	public class PoolOverview extends ListActivity {
 	 
@@ -35,7 +40,7 @@ import android.app.ListActivity;
 	
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
-			getMenuInflater().inflate(R.menu.activity_meal_list, menu);
+			getMenuInflater().inflate(R.menu.activity_pool_list, menu);
 			return true;
 		}
 	
