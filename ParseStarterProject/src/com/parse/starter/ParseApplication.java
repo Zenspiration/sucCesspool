@@ -1,13 +1,18 @@
 package com.parse.starter;
 
 import android.app.Application;
-
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 public class ParseApplication extends Application {
 
+	  private static ConfigHelper configHelper;
+
+	  public ParseApplication() {
+	  }
+	 
   @Override
   public void onCreate() {
     super.onCreate();
@@ -23,5 +28,12 @@ public class ParseApplication extends Application {
     defaultACL.setPublicReadAccess(true);
     
     ParseACL.setDefaultACL(defaultACL, true);
+    ParseObject.registerSubclass(Goal.class);
+    configHelper = new ConfigHelper();
+    configHelper.fetchConfigIfNeeded();
+  }
+  
+  public static ConfigHelper getConfigHelper() {
+    return configHelper;
   }
 }
