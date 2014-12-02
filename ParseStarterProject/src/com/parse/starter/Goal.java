@@ -1,9 +1,10 @@
 package com.parse.starter;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-//@ParseClassName("Goal")
+@ParseClassName("Goal")
 public class Goal extends ParseObject{
 	public Goal() {
         // A default constructor is required.
