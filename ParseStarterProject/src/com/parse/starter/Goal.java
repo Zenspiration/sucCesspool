@@ -10,6 +10,14 @@ public class Goal extends ParseObject{
         // A default constructor is required.
     }
  
+	public boolean isCompleted(){
+		return getBoolean("completed");
+	}
+	
+	public void setCompleted(boolean complete) {
+		put ("completed", complete);
+	}
+	
     public String getTitle() {
         return getString("title");
     }

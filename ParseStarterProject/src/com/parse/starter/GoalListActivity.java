@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.parse.ParseQueryAdapter;
 
@@ -17,23 +21,22 @@ public class GoalListActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getListView().setClickable(false);
+		
 
 		mainAdapter = new ParseQueryAdapter<Goal>(this, Goal.class);
 		mainAdapter.setTextKey("Your goals for today!");
+		getListView().setOnItemClickListener((OnItemClickListener) mainAdapter);
 
-		setListAdapter(mainAdapter);
+	
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_goal_list, menu);
 		return true;
 	}
+	
 
-	/*
-	 * Posting meals and refreshing the list will be controlled from the Action
-	 * Bar.
-	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -51,6 +54,17 @@ public class GoalListActivity extends ListActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	//http://www.michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Goal goal = mainAdapter.getItem(position);
+		goal.setCompleted(!goal.isCompleted());
+		
+		if(goal.isCompleted()) {
+			goal.setTitle("Goal Completed!");
+		}
+		updateGoalList();
+	}
+	
 	private void updateGoalList() {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
@@ -65,8 +79,6 @@ public class GoalListActivity extends ListActivity {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == Activity.RESULT_OK) {
-			// If a new post has been added, update
-			// the list of posts
 			updateGoalList();
 		}
 	}

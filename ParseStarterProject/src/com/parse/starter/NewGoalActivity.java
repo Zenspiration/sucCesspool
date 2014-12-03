@@ -24,7 +24,6 @@ public class NewGoalActivity extends Activity {
 
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
-	        goal = new Goal();
 	        requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	        super.onCreate(savedInstanceState);
@@ -67,7 +66,7 @@ public class NewGoalActivity extends Activity {
 	    }
 	    
 	    private void postGoal () {
-	        String text = goalEditText.getText().toString().trim();
+	        String text = goalEditText.getText().toString();
 
 	        // Set up a progress dialog
 	        final ProgressDialog dialog = new ProgressDialog(NewGoalActivity.this);
@@ -78,6 +77,7 @@ public class NewGoalActivity extends Activity {
 	        Goal goal = new Goal();
 	     
 	        goal.setTitle(text);
+	        goal.setCompleted(false);
 	        ParseACL acl = new ParseACL();
 
 	        // Give public read access
