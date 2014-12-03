@@ -24,17 +24,18 @@ public final class R {
     public static final class id {
         public static final int RelativeLayout1=0x7f080000;
         public static final int action_button=0x7f080012;
-        public static final int action_new=0x7f080028;
-        public static final int action_refresh=0x7f080027;
+        public static final int action_new=0x7f080031;
+        public static final int action_refresh=0x7f080030;
         public static final int buttonCalculate=0x7f08000a;
         public static final int buttonInviteFriends=0x7f08000c;
-        public static final int cancel_button=0x7f080016;
+        public static final int cancel_button=0x7f08001f;
+        public static final int create_pool_button=0x7f080015;
         public static final int displayMoneyPerDay=0x7f080009;
         public static final int edittext_action_login=0x7f080011;
-        public static final int edittext_action_signup=0x7f08001d;
-        public static final int firstName_edit_text=0x7f080018;
-        public static final int goal_button=0x7f080015;
-        public static final int goal_edittext=0x7f080014;
+        public static final int edittext_action_signup=0x7f080026;
+        public static final int firstName_edit_text=0x7f080021;
+        public static final int goal_button=0x7f08001e;
+        public static final int goal_edittext=0x7f08001d;
         public static final int inputCircleName=0x7f080003;
         public static final int inputCycleLength=0x7f080005;
         public static final int inputMoneyCommitted=0x7f080006;
@@ -44,25 +45,33 @@ public final class R {
         public static final int labelInviteFriends=0x7f08000b;
         public static final int labelMoneyCommittedSign=0x7f080008;
         public static final int labelTitle=0x7f080001;
-        public static final int lastName_edit_text=0x7f080019;
-        public static final int loggedin_info=0x7f080023;
-        public static final int login_button=0x7f080022;
+        public static final int lastName_edit_text=0x7f080022;
+        public static final int loggedin_info=0x7f08002c;
+        public static final int login_button=0x7f08002b;
         public static final int login_form=0x7f08000e;
-        public static final int menu_title=0x7f080026;
-        public static final int no_todos_view=0x7f080025;
+        public static final int menu_title=0x7f08002f;
+        public static final int no_todos_view=0x7f08002e;
         public static final int password=0x7f080010;
-        public static final int password_again_edit_text=0x7f08001c;
-        public static final int password_edit_text=0x7f08001b;
-        public static final int signup_button=0x7f080021;
-        public static final int signup_form=0x7f080017;
+        public static final int password_again_edit_text=0x7f080025;
+        public static final int password_edit_text=0x7f080024;
+        public static final int set_goals_button=0x7f080018;
+        public static final int signup_button=0x7f08002a;
+        public static final int signup_form=0x7f080020;
+        public static final int textAchieve=0x7f080017;
+        public static final int textCreate=0x7f080014;
         public static final int textMoneyCommitted=0x7f08000d;
+        public static final int textReview=0x7f08001a;
         public static final int textView1=0x7f080013;
-        public static final int textview_1=0x7f08001e;
-        public static final int textview_2=0x7f08001f;
-        public static final int textview_3=0x7f080020;
-        public static final int todo_list_view=0x7f080024;
+        public static final int textView2=0x7f080016;
+        public static final int textView3=0x7f080019;
+        public static final int textview_1=0x7f080027;
+        public static final int textview_2=0x7f080028;
+        public static final int textview_3=0x7f080029;
+        public static final int todo_list_view=0x7f08002d;
         public static final int username=0x7f08000f;
-        public static final int username_edit_text=0x7f08001a;
+        public static final int username_edit_text=0x7f080023;
+        public static final int view_goals_button=0x7f08001b;
+        public static final int view_pools_button=0x7f08001c;
     }
     public static final class layout {
         public static final int activity_create_circle=0x7f030000;
@@ -79,6 +88,7 @@ public final class R {
         public static final int activity_pool_list=0x7f070001;
     }
     public static final class string {
+        public static final int achieve_text=0x7f050039;
         public static final int action_new=0x7f050022;
         public static final int action_refresh=0x7f050021;
         public static final int action_settings=0x7f050027;
@@ -92,6 +102,8 @@ public final class R {
         public static final int circle_name=0x7f050029;
         public static final int circle_name_text=0x7f05002a;
         public static final int create_a_new_circle=0x7f050028;
+        public static final int create_pool_button=0x7f050035;
+        public static final int create_text=0x7f050038;
         public static final int cycle_length=0x7f05002b;
         public static final int cycle_length_days=0x7f05002d;
         public static final int cycle_length_number=0x7f05002c;
@@ -128,7 +140,9 @@ public final class R {
         public static final int prompt_password_again=0x7f050013;
         public static final int prompt_post=0x7f050009;
         public static final int prompt_username=0x7f050011;
+        public static final int review_text=0x7f05003a;
         public static final int search_distance=0x7f050006;
+        public static final int set_goals_button=0x7f050036;
         public static final int settings_distance_format=0x7f05000c;
         public static final int signup=0x7f050001;
         public static final int slogan=0x7f050004;
@@ -137,6 +151,10 @@ public final class R {
         public static final int title_activity_login=0x7f05000f;
         public static final int title_activity_settings=0x7f050005;
         public static final int title_activity_signup=0x7f050010;
+        public static final int view_goals_button=0x7f050037;
+        /**  Strings related to Homepage 
+         */
+        public static final int view_pools_button=0x7f050034;
     }
     public static final class style {
         /** 
