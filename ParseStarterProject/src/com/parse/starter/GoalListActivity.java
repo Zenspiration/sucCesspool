@@ -24,7 +24,7 @@ public class GoalListActivity extends ListActivity {
 		
 
 		mainAdapter = new ParseQueryAdapter<Goal>(this, Goal.class);
-		mainAdapter.setTextKey("Your goals for today!");
+		mainAdapter.setTextKey("title");
 		getListView().setOnItemClickListener((OnItemClickListener) mainAdapter);
 
 	
