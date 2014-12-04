@@ -29,6 +29,7 @@ public class ParseApplication extends Application {
     
     ParseACL.setDefaultACL(defaultACL, true);
     ParseObject.registerSubclass(Goal.class);
+    ParseObject.registerSubclass(Circle.class);
     configHelper = new ConfigHelper();
     configHelper.fetchConfigIfNeeded();
   }

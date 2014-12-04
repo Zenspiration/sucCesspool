@@ -5,20 +5,20 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ParseClassName("Circles")
-	  public class Circles extends ParseObject {
+@ParseClassName("Circle")
+	  public class Circle extends ParseObject {
 	   
 	 //pulling each of the items & setting them: Circles Title, First User, Goals, (Second User, Third User...).  
-	      public Circles() {
+	      public Circle() {
 	          // A default constructor is required.
 	      }
 	   
-	      public String getPoolTitle() {
-	          return getString("poolTitle");
+	      public String getCircleName() {
+	          return getString("circleName");
 	      }
 	   
-	      public void setPoolTitle(String title) {
-	          put("title", title);
+	      public void setCircleName(String name) {
+	          put("name", name);
 	      }
 	   
 	      public ParseUser getFirstUser() {
@@ -44,5 +44,13 @@ import com.parse.ParseUser;
 	      public void setFirstUsersPoints(int points) {
 	          put("points", points);
 	      } 
+	      
+	      public double moneyPerDay(){
+	    	  return getInt("money per day");
+	      }
+	      
+	      public void setMoneyPerDay(double money){
+	    	  put("money per day", money);
+	      }
 
 	}

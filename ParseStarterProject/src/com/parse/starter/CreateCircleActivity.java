@@ -44,6 +44,13 @@ public class CreateCircleActivity extends ListActivity {
                 	validationErrorMessage.append(getString(R.string.money_committed_error));
                 }
                 
+                //displays validation error
+                if (validationError) {
+                    Toast.makeText(CreateCircleActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
+                        .show();
+                    return;
+                  }
+                
                 double moneyPerDay = Math.round(moneyCommitted / cycleLength);
             	//the following line from Stack Overflow rounds the money value to 2 decimal points
                 String moneyPerDayRounded = String.format("%.2f", moneyPerDay);
@@ -52,6 +59,11 @@ public class CreateCircleActivity extends ListActivity {
 
                 TextView display = (TextView)findViewById(R.id.displayMoneyPerDay);
                 display.setText("Each day is worth $" + moneyPerDayRounded + ".");
+                
+                Circle c1= new Circle();
+                c1.setCircleName(inputCircleName.getText().toString());
+                c1.setFirstUsersPoints((int)moneyCommitted);
+                c1.setMoneyPerDay(moneyPerDay);
         	}
         });
     }

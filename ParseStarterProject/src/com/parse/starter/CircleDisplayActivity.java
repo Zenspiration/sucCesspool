@@ -18,9 +18,9 @@ import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 
-	public class PoolOverview extends ListActivity {
+	public class CircleDisplayActivity extends ListActivity {
 	 
-		private ParseQueryAdapter<Pool> mainAdapter;  
+		private ParseQueryAdapter<Circle> mainAdapter;  
 		
 		@Override
 		//List out facts about the pool 
@@ -28,7 +28,7 @@ import android.content.Intent;
 			super.onCreate(savedInstanceState);
 			getListView().setClickable(false);
 	
-			mainAdapter = new ParseQueryAdapter<Pool>(this, Pool.class);
+			mainAdapter = new ParseQueryAdapter<Pool>(this, Circle.class);
 			mainAdapter.setTextKey("title");
 			mainAdapter.setTextKey("start date");
 			mainAdapter.setTextKey("end date");
@@ -65,7 +65,7 @@ import android.content.Intent;
 			switch (item.getItemId()) {
 	
 			case R.id.action_refresh: {
-				updatePoolList();
+				updateCircleList();
 				break;
 			}
 	
@@ -73,7 +73,7 @@ import android.content.Intent;
 			return super.onOptionsItemSelected(item);
 		}
 	
-		private void updatePoolList() {
+		private void updateCircleList() {
 			mainAdapter.loadObjects();
 			setListAdapter(mainAdapter);
 		}
@@ -83,7 +83,7 @@ import android.content.Intent;
 			if (resultCode == Activity.RESULT_OK) {
 				// If a new post has been added, update
 				// the list of posts
-				updatePoolList();
+				updateCircleList();
 			}
 		}
 	
