@@ -86,7 +86,7 @@ public final class R {
         /**  Strings related to Create Cirlce 
          */
         public static final int app_name=0x7f050026;
-        public static final int calculate_money_per_day=0x7f050031;
+        public static final int calculate_money_per_day=0x7f050033;
         public static final int cancel_goal=0x7f05001f;
         public static final int character_count_placeholder=0x7f05000e;
         public static final int circle_name=0x7f050029;
@@ -94,6 +94,7 @@ public final class R {
         public static final int create_a_new_circle=0x7f050028;
         public static final int cycle_length=0x7f05002b;
         public static final int cycle_length_days=0x7f05002d;
+        public static final int cycle_length_error=0x7f05002e;
         public static final int cycle_length_number=0x7f05002c;
         public static final int describe_goal=0x7f050020;
         /**  Strings related to Goal 
@@ -106,15 +107,16 @@ public final class R {
         public static final int error_join=0x7f050018;
         public static final int error_mismatched_passwords=0x7f050017;
         public static final int first_name=0x7f05001c;
-        public static final int invite_friends=0x7f050032;
-        public static final int invite_friends_button=0x7f050033;
+        public static final int invite_friends=0x7f050034;
+        public static final int invite_friends_button=0x7f050035;
         public static final int last_name=0x7f05001d;
         public static final int login=0x7f050000;
         public static final int logout_full=0x7f050007;
         public static final int menu_title=0x7f050023;
-        public static final int money_committed=0x7f05002e;
-        public static final int money_committed_number=0x7f050030;
-        public static final int money_committed_sign=0x7f05002f;
+        public static final int money_committed=0x7f05002f;
+        public static final int money_committed_error=0x7f050032;
+        public static final int money_committed_number=0x7f050031;
+        public static final int money_committed_sign=0x7f050030;
         public static final int no_items=0x7f050025;
         public static final int not_logged_in=0x7f050024;
         public static final int parse=0x7f050003;

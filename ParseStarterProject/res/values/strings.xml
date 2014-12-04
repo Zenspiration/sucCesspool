@@ -55,10 +55,12 @@
     <string name="cycle_length">How many days will your circle be active?</string>
     <string name="cycle_length_number">Choose your cycle</string>
     <string name="cycle_length_days">Days</string>
+    <string name="cycle_length_error">Please enter a number for cycle length.</string>
     
     <string name="money_committed">How much money will you commit over this cycle?</string>
     <string name="money_committed_sign">$</string>
     <string name="money_committed_number">Choose your commitment</string>
+    <string name="money_committed_error">Please enter a number for money committed.</string>
     
 	<string name="calculate_money_per_day">Click me to calculate money per day</string>
     

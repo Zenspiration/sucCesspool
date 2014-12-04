@@ -26,16 +26,29 @@ public class CreateCircleActivity extends ListActivity {
         		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
                 EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
                 EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
+                double cycleLength=0;
+                double moneyCommitted=0;
+                boolean validationError = false;
+                StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
+                try{
+                	cycleLength = Integer.parseInt(inputCycleLength.getText().toString());	
+                } catch (Exception e){
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.cycle_length_error));
+                }
                 
-                double cycleLength = Integer.parseInt(inputCycleLength.getText().toString());
-                double moneyCommitted = Integer.parseInt(inputMoneyCommitted.getText().toString());
+                try{
+                	moneyCommitted = Integer.parseInt(inputMoneyCommitted.getText().toString());
+                } catch (Exception e){
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.money_committed_error));
+                }
                 
                 double moneyPerDay = Math.round(moneyCommitted / cycleLength);
-                
-                //the following line from Stack Overflow rounds the money value to 2 decimal points
+            	//the following line from Stack Overflow rounds the money value to 2 decimal points
                 String moneyPerDayRounded = String.format("%.2f", moneyPerDay);
-                
-
+                //put the doubles inside of a try catch in case users input a non-integer. put the money per day and rounded in there
+                //because otherwise there were errors saying that cycle length and money committed didn't exist
 
                 TextView display = (TextView)findViewById(R.id.displayMoneyPerDay);
                 display.setText("Each day is worth $" + moneyPerDayRounded + ".");
