@@ -42,15 +42,6 @@
         <requestFocus />
     </EditText>
 
-    <TextView
-        android:id="@+id/labelCycleLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inputCircleName"
-        android:text="@string/cycle_length"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <EditText
         android:id="@+id/inputCycleLength"
         android:layout_width="match_parent"
@@ -63,49 +54,14 @@
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/inputMoneyCommitted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/labelCycleLengthDays"
-        android:text="@string/money_committed"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/labelMoneyCommittedSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/inputMoneyCommitted"
         android:text="@string/money_committed_sign"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/displayMoneyPerDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/buttonCalculate"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/labelInviteFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/displayMoneyPerDay"
-        android:text="@string/invite_friends"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/buttonInviteFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/labelInviteFriends"
-        android:text="@string/invite_friends_button" />
-
+        android:textAppearance="?android:attr/textAppearanceMedium" />    
+    
     <TextView
         android:id="@+id/labelCycleLengthDays"
         android:layout_width="wrap_content"
@@ -115,16 +71,6 @@
         android:layout_toRightOf="@+id/labelCircleName"
         android:text="@string/cycle_length_days"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/buttonCalculate"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/displayMoneyPerDay"
-        android:layout_below="@+id/textMoneyCommitted"
-        android:layout_marginTop="18dp"
-        android:text="@string/calculate_money_per_day" />
 
     <EditText
         android:id="@+id/textMoneyCommitted"
@@ -136,5 +82,45 @@
         android:ems="10"
         android:hint="@string/money_committed_number"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputCharity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/labelCharity"
+        android:layout_below="@+id/labelCharity"
+        android:ems="10"
+        android:hint="@string/choose_charity_input"
+        android:inputType="textAutoCorrect" />
+
+    <TextView
+        android:id="@+id/labelCycleLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputCycleLength"
+        android:layout_below="@+id/inputCircleName"
+        android:layout_marginTop="14dp"
+        android:text="@string/cycle_length"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/inputMoneyCommitted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/labelMoneyCommittedSign"
+        android:layout_below="@+id/inputCycleLength"
+        android:layout_marginTop="14dp"
+        android:text="@string/money_committed"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/labelCharity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textMoneyCommitted"
+        android:layout_below="@+id/textMoneyCommitted"
+        android:layout_marginTop="23dp"
+        android:text="@string/choose_charity"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

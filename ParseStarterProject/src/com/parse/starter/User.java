@@ -36,7 +36,7 @@ public class User {
 		if (completedAllGoals(x))
 		
 		{
-			System.out.println("CONGRATS");
+			System.out.println("CONGRATULATIONS"); //ADD IN CODE: you have earned "X" dollars back today! -Lucia
 			//maybe program in other rewards like a gif, if we have time 
 		}
 	}

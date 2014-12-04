@@ -18,8 +18,8 @@ import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 
-	public class CircleDisplayActivity extends ListActivity {
-	 
+	public class CircleDisplayActivity extends ListActivity { }
+/*	 
 		private ParseQueryAdapter<Circle> mainAdapter;  
 		
 		@Override
@@ -56,10 +56,9 @@ import android.content.Intent;
 			return true;
 		}
 	
-		/*
-		 * Posting meals and refreshing the list will be controlled from the Action
-		 * Bar.
-		 */
+		//Posting meals and refreshing the list will be controlled from the Action
+		 // Bar.
+		 
 		@Override
 		public boolean onOptionsItemSelected(MenuItem item) {
 			switch (item.getItemId()) {
@@ -88,3 +87,5 @@ import android.content.Intent;
 		}
 	
 	}
+	
+*/

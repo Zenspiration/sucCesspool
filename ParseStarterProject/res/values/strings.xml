@@ -47,17 +47,17 @@
     <string name="goals_completed">Congratulations! You\'ve achieved all your goals for today</string>
 
     <!-- Strings related to Create Cirlce -->
-    <string name="app_name">SuccessPoolApp</string>
+    <string name="app_name">SuccessPool</string>
     <string name="action_settings">Settings</string>
-    <string name="create_a_new_circle">Create a New Circle</string>
+    <string name="create_a_new_circle">Create a New Pool</string>
     
-    <string name="circle_name">Give your circle a name:</string>
+    <string name="circle_name">Give your pool a name:</string>
     <string name="circle_name_text">Choose your name</string>
     
-    <string name="cycle_length">How many days will your circle be active?</string>
+    <string name="cycle_length">How many days will your pool be active?</string>
     <string name="cycle_length_number">Choose your cycle</string>
     <string name="cycle_length_days">Days</string>
-    <string name="cycle_length_error">Please enter a number for cycle length.</string>
+    <string name="cycle_length_error">Please enter a valid number of days.</string>
     
     <string name="money_committed">How much money will you commit over this cycle?</string>
     <string name="money_committed_sign">$</string>
@@ -66,8 +66,8 @@
     
 	<string name="calculate_money_per_day">Click me to calculate money per day</string>
     
-    <string name="invite_friends">Who will keep you accountable?</string>
-    <string name="invite_friends_button">Choose your friends</string>
+    <string name="choose_charity">If goals remain uncompleted at the end of this cycle, some of your money committed will go towards a charity of your choice. Where will your money go?</string>
+    <string name="choose_charity_input">Choose your charity</string>
     
     <!-- Strings related to Homepage -->
     <string name="view_pools_button">View Your Circle</string>
