@@ -8,8 +8,6 @@ import com.parse.ParseUser;
 
 public class ParseApplication extends Application {
 
-	  private static ConfigHelper configHelper;
-
 	  public ParseApplication() {
 	  }
 	 
@@ -29,6 +27,7 @@ public class ParseApplication extends Application {
     
     ParseACL.setDefaultACL(defaultACL, true);
     ParseObject.registerSubclass(Goal.class);
+<<<<<<< Updated upstream
     ParseObject.registerSubclass(Circle.class);
     configHelper = new ConfigHelper();
     configHelper.fetchConfigIfNeeded();
@@ -36,5 +35,10 @@ public class ParseApplication extends Application {
   
   public static ConfigHelper getConfigHelper() {
     return configHelper;
+=======
+    ParseObject.registerSubclass(Pool.class);
+
+>>>>>>> Stashed changes
   }
+ 
 }

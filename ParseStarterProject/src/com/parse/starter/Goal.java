@@ -26,14 +26,17 @@ public class Goal extends ParseObject{
         put("title", title);
     }
     
+    public void setAuthor(String author) {
+        put("userId", author);
+    }
+    
+    public void setPool(String pool) {
+    	put("poolId", pool);
+    }
+    
     public void saveGoal(){
     	//ParseObject= goal
     }
-
-	public void setAuthor(ParseUser currentUser) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
 
