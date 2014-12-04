@@ -64,6 +64,7 @@ public class CreateCircleActivity extends ListActivity {
                 c1.setCircleName(inputCircleName.getText().toString());
                 c1.setFirstUsersPoints((int)moneyCommitted);
                 c1.setMoneyPerDay(moneyPerDay);
+                c1.saveInBackground();
         	}
         });
     }
