@@ -65,8 +65,6 @@ public class NewGoalFragment extends Fragment {
 
 				// Associate the meal with the current user
 				goal.setAuthor(ParseUser.getCurrentUser().getObjectId());
-				
-				
 				goal.saveInBackground(new SaveCallback() {
 
 					@Override
