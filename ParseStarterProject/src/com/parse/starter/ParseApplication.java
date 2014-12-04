@@ -27,18 +27,7 @@ public class ParseApplication extends Application {
     
     ParseACL.setDefaultACL(defaultACL, true);
     ParseObject.registerSubclass(Goal.class);
-<<<<<<< Updated upstream
     ParseObject.registerSubclass(Circle.class);
-    configHelper = new ConfigHelper();
-    configHelper.fetchConfigIfNeeded();
-  }
-  
-  public static ConfigHelper getConfigHelper() {
-    return configHelper;
-=======
-    ParseObject.registerSubclass(Pool.class);
-
->>>>>>> Stashed changes
   }
  
 }

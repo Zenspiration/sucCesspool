@@ -22,7 +22,7 @@ public class MainActivity extends ListActivity {
 	        {
 	        	public void onClick(View v)
 	        	{
-	        		Intent intent = new Intent(MainActivity.this, PoolOverview.class);
+	        		Intent intent = new Intent(MainActivity.this, CircleDisplayActivity.class);
 	        		startActivity(intent);
 	        	}
 	        });
