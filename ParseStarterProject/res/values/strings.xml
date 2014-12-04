@@ -66,7 +66,14 @@
     
     <string name="invite_friends">Who will keep you accountable?</string>
     <string name="invite_friends_button">Choose your friends</string>
-        
-
-
+    
+    <!-- Strings related to Homepage -->
+    <string name="view_pools_button">View Your Circle</string>
+    <string name="create_pool_button">Create a New Circle</string>
+    <string name="set_goals_button">Set Your Goals</string>
+    <string name="view_goals_button">View Your Goals</string>
+    <string name="create_text">Step 1: Create</string>
+    <string name="achieve_text">Step 2: Achieve</string>
+    <string name="review_text">Step 3: Review</string>
+    
 </resources>

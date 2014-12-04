@@ -23,16 +23,28 @@ import android.content.Intent;
 		private ParseQueryAdapter<Pool> mainAdapter;  
 		
 		@Override
-		//List of users & goals 
+		//List out facts about the pool 
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			getListView().setClickable(false);
 	
 			mainAdapter = new ParseQueryAdapter<Pool>(this, Pool.class);
 			mainAdapter.setTextKey("title");
-			mainAdapter.setTextKey("users");
-			mainAdapter.setTextKey("goals");
+			mainAdapter.setTextKey("start date");
+			mainAdapter.setTextKey("end date");
 			mainAdapter.setTextKey("points");
+	
+			// Default view is all users & goals 
+			setListAdapter(mainAdapter);
+		}
+		//List out facts about each user 
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			getListView().setClickable(false);
+	
+			mainAdapter = new ParseQueryAdapter<Users>(this, User.class);
+			mainAdapter.setTextKey("username");
+			mainAdapter.setTextKey("current points");
 	
 			// Default view is all users & goals 
 			setListAdapter(mainAdapter);
