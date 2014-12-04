@@ -18,7 +18,7 @@ public class User {
 	{
 		for (int i = 0; i < x.goals.length; i++)
 		{
-			if (x.goals[i].equals("completed")) 
+			if (x.goals[i].equals("completed")) //should we make whether EACH goal is completed into a boolean array? (in addition to whether all goals are completed) -Lucia
 			{
 				System.out.println("You have completed all your goals!");
 				return true; 
@@ -33,7 +33,7 @@ public class User {
 	
 	public static void rewardUser(User x)
 	{
-		if (completedAllGoals)
+		if (completedAllGoals(x))
 		
 		{
 			System.out.println("CONGRATS");
