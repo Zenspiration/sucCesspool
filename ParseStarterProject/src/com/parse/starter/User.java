@@ -1,5 +1,7 @@
 package com.parse.starter;
 
+import com.parse.ParseUser;
+
 public class User {
 
 	String userName; 
@@ -40,6 +42,8 @@ public class User {
 			//maybe program in other rewards like a gif, if we have time 
 		}
 	}
+	
+	
 	
 	/*  
 	 *  Put this section of code into another file for an example set-up w/o user input 

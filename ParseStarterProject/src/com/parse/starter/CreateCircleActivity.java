@@ -1,7 +1,10 @@
 package com.parse.starter;
 
 //import android.support.v7.app.ActionBarActivity;
+<<<<<<< HEAD
 import com.parse.ParseObject;
+=======
+>>>>>>> origin/master
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -84,6 +87,15 @@ ParseUser currentUser = ParseUser.getCurrentUser();
                 TextView display = (TextView)findViewById(R.id.displayMoneyPerDay);
                 display.setText("Each day is worth $" + moneyPerDayRounded + ".");
                 
+<<<<<<< HEAD
+=======
+                Circle c1= new Circle();
+                c1.setCircleName(inputCircleName.getText().toString());
+                c1.setFirstUsersPoints((int)moneyCommitted);
+                c1.setMoneyPerDay(moneyPerDay);
+                c1.setFirstUser(ParseUser.getCurrentUser());
+                c1.saveInBackground();
+>>>>>>> origin/master
         	}
         });
     }
