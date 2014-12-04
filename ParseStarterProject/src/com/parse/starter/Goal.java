@@ -34,6 +34,11 @@ public class Goal extends ParseObject{
     	put("poolId", pool);
     }
     
+    //Links to CreateCircleActivity
+    public void setMoneyValue(int money, int numberOfGoals) {
+    	put("value", money/numberOfGoals);
+    }
+    
     public void saveGoal(){
     	//ParseObject= goal
     }
