@@ -19,7 +19,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 
 	public class CircleDisplayActivity extends ListActivity { }
-/*	 
+	 
 		private ParseQueryAdapter<Circle> mainAdapter;  
 		
 		@Override
@@ -88,4 +88,3 @@ import android.content.Intent;
 	
 	}
 	
-*/

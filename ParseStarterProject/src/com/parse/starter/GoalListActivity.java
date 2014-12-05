@@ -85,8 +85,6 @@ public class GoalListActivity extends ListActivity {
 		setListAdapter(mainAdapter);
 	}
 	
-	private 
-	
 	private boolean[] areAllGoalsCompleted() {
 		boolean[] goalCompletion = new boolean[mainAdapter.getCount()];
 		for (int i = 0; i< mainAdapter.getCount(); i++) {
