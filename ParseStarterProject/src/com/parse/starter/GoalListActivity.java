@@ -12,20 +12,24 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 public class GoalListActivity extends ListActivity {
+	ParseUser currentUser = ParseUser.getCurrentUser();
 
-	private ParseQueryAdapter<Goal> mainAdapter;
-
+	private CustomAdapter mainAdapter;
+	private ListView listView;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getListView().setClickable(false);
-		
+		setContentView(R.layout.activity_goal_list);
+		mainAdapter = new CustomAdapter(this);
 
-		mainAdapter = new ParseQueryAdapter<Goal>(this, Goal.class);
-		mainAdapter.setTextKey("title");
-		getListView().setOnItemClickListener((OnItemClickListener) mainAdapter);
+		listView = (ListView) findViewById(R.id.goal_list);
+		listView.setAdapter(mainAdapter);
+		mainAdapter.loadObjects();
+		listView.setOnItemClickListener((OnItemClickListener) mainAdapter);
 
 	
 	}
@@ -62,6 +66,17 @@ public class GoalListActivity extends ListActivity {
 		if(goal.isCompleted()) {
 			goal.setTitle("Goal Completed!");
 		}
+		boolean[] goalsCompleted = areAllGoalsCompleted();
+		boolean allGoalsCompleted = true;
+		for (int i = 0; i < goalsCompleted.length; i++) {
+			if (goalsCompleted[i] == false) {
+				allGoalsCompleted = false;
+			}
+			if (allGoalsCompleted) {
+				popUp();
+			}
+			
+		}
 		updateGoalList();
 	}
 	
@@ -69,8 +84,20 @@ public class GoalListActivity extends ListActivity {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
 	}
-
-
+	
+	private 
+	
+	private boolean[] areAllGoalsCompleted() {
+		boolean[] goalCompletion = new boolean[mainAdapter.getCount()];
+		for (int i = 0; i< mainAdapter.getCount(); i++) {
+			if (mainAdapter.getItem(i).isCompleted()) {
+				goalCompletion[i] = true;
+			}
+		}
+		return goalCompletion;
+	}
+	
+	
 	private void newGoal() {
 		Intent i = new Intent(this, NewGoalActivity.class);
 		startActivityForResult(i, 0);
