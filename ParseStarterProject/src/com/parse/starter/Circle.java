@@ -52,5 +52,21 @@ import com.parse.ParseUser;
 	      public void setMoneyPerDay(double money){
 	    	  put("money per day", money);
 	      }
+	      
+	      public int getCycleLength(){
+	    	  return getInt("cycle length");
+	      }
+	      
+	      public void setCycleLength(int cycleLength){
+	    	  put("cycle length", cycleLength);
+	      }
+	      
+	      public String getCharity(){
+	    	  return getString("charity");
+	      }
+	      
+	      public void setCharity(String charity){
+	    	  put("charity", charity);
+	      }
 
 	}
