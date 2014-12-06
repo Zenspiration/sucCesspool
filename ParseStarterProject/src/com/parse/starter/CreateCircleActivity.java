@@ -64,6 +64,7 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         c1.setCycleLength((int)cycleLength);
         c1.setCharity(inputCharity.getText().toString());
         c1.setFirstUser(currentUser);
+        c1.setUserId(currentUser.getObjectId());
         c1.saveInBackground();
     }
    }

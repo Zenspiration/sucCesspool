@@ -65,21 +65,11 @@ import com.parse.ParseUser;
 	      public void setDollarsCommitted(double money){
 	    	  put("dollars", money);
 	      }
-	      
-	      public int getCycleLength(){
-	    	  return getInt("cycle length");
+	      public String getUserId(){
+	    	  return getString("userId");
 	      }
-	      
-	      public void setCycleLength(int cycleLength){
-	    	  put("cycle length", cycleLength);
-	      }
-	      
-	      public String getCharity(){
-	    	  return getString("charity");
-	      }
-	      
-	      public void setCharity(String charity){
-	    	  put("charity", charity);
+	      public void setUserId(String userId){
+	    	  put("user Id", userId);
 	      }
 
 	}
