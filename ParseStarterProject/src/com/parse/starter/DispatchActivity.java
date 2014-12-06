@@ -3,7 +3,8 @@ package com.parse.starter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 /**
@@ -19,11 +20,23 @@ public class DispatchActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Check if there is current user info
-    if (ParseUser.getCurrentUser() != null) {
+    ParseUser user= ParseUser.getCurrentUser();
+    String userId=user.getObjectId();
+    if (user != null) {
       // Start an intent for the logged in activity
-      startActivity(new Intent(this, MainActivity.class));
+    	// Query all the circles that exist
+    	ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
+    	query.whereEqualTo("userId", userId);
+    	//if their user Id exist under a circle, send them to MainActivity.java.
+    	if (query!=null){
+    		startActivity(new Intent(this, MainActivity.class));
+    	} 
+    	//if their user Id does NOT exist under a circle (ie. they don't have a circle) send them to CreateCircleActivity.java
+    	else{
+    		startActivity(new Intent(this, CreateCircleActivity.class));
+    	}
     } else {
-      // Start and intent for the logged out activity
+      // Start an intent for the logged out activity
       startActivity(new Intent(this, WelcomeActivity.class));
     }
   }
