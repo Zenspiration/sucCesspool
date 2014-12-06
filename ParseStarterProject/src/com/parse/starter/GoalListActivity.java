@@ -72,9 +72,9 @@ public class GoalListActivity extends ListActivity {
 			if (goalsCompleted[i] == false) {
 				allGoalsCompleted = false;
 			}
-			if (allGoalsCompleted) {
-				popUp();
-			}
+//			if (allGoalsCompleted) {
+//				popUp();
+//			}
 			
 		}
 		updateGoalList();
