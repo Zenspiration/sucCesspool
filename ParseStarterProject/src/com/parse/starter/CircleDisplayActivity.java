@@ -24,7 +24,7 @@ import android.content.Intent;
 		
 		@Override
 		//List out facts about the pool 
-		public void onCreate(Bundle savedInstanceState) {
+			public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			getListView().setClickable(false);
 	
@@ -60,6 +60,7 @@ import android.content.Intent;
 		 // Bar.
 		 
 		@Override
+
 		public boolean onOptionsItemSelected(MenuItem item) {
 			switch (item.getItemId()) {
 	

@@ -45,7 +45,7 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         
         //makes sure inputMoneyCommitted is an integer
         try{
-        	moneyCommitted = Integer.parseInt(inputMoneyCommitted.getText().toString());
+        	moneyCommitted = Double.parseDouble(inputMoneyCommitted.getText().toString());
         } catch (Exception e){
         	validationError=true;
         	validationErrorMessage.append(getString(R.string.money_committed_error));
@@ -60,17 +60,13 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         
         Circle c1= new Circle();
         c1.setCircleName(inputCircleName.getText().toString());
-        c1.setFirstUsersPoints((int)moneyCommitted);
+        c1.setDollarsCommitted(moneyCommitted);
         c1.setCycleLength((int)cycleLength);
         c1.setCharity(inputCharity.getText().toString());
         c1.setFirstUser(currentUser);
         c1.saveInBackground();
-        
-        ParseObject dollars = new ParseObject("dollars");
-        dollars.put("value", moneyCommitted);
-        dollars.put("user", currentUser);
-        dollars.saveInBackground();
-       
+    }
+   }
         
 /*        {
         	public void onClick(View v)
@@ -116,5 +112,4 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         }
         return super.onOptionsItemSelected(item);
     } */
-}
-}
+
