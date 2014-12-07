@@ -1,6 +1,7 @@
 package com.parse.starter;
 
 import com.parse.ParseObject;
+
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
@@ -17,6 +18,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
+import android.os.CountDownTimer;
 
 	public class CircleDisplayActivity extends ListActivity { 
 	 
@@ -73,6 +75,6 @@ import android.content.Intent;
 				updateCircleList();
 			}
 		}
+}
 	
-	}
 	
