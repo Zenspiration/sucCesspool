@@ -69,7 +69,7 @@ import com.parse.ParseUser;
 	    	  return getString("userId");
 	      }
 	      public void setUserId(String userId){
-	    	  put("user Id", userId);
+	    	  put("userId", userId);
 	      }
 
 	}
