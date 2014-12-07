@@ -1,8 +1,17 @@
 package com.parse.starter;
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+=======
+import com.parse.ParseObject;
+
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
+
+>>>>>>> origin/master
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +25,7 @@ import com.parse.ParseUser;
 import com.parse.ParseObject;
 
 //import android.support.v7.app.ActionBarActivity;
+<<<<<<< HEAD
 
 
 
@@ -99,6 +109,29 @@ import com.parse.ParseObject;
 //			// Default view is all users & goals 
 //			setListAdapter(mainAdapter);
 //		}
+=======
+import android.content.Intent;
+import android.os.CountDownTimer;
+
+	public class CircleDisplayActivity extends ListActivity { 
+	 
+		private ParseQueryAdapter<Circle> mainAdapter;
+		
+		@Override
+		//List out facts about the pool 
+			public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			getListView().setClickable(false);
+			
+			mainAdapter = new ParseQueryAdapter<ParseObject>(this, "Circle");
+			mainAdapter.setTextKey("username");
+	 
+			// Initialize ListView, connect to my todo list, and set initial view to mainAdapter
+			listView = (ListView) findViewById(R.id.todo_list_view);
+			listView.setAdapter(mainAdapter);
+			mainAdapter.loadObjects();
+		}
+>>>>>>> origin/master
 	
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
@@ -133,6 +166,6 @@ import com.parse.ParseObject;
 				updateCircleList();
 			}
 		}
+}
 	
-	}
 	
