@@ -83,4 +83,13 @@
     <string name="text1">Title View</string>
     <string name="timestamp">Your item has been outstanding for: </string>
     
+    <!--  Strings from CircleDisplay -->
+    <string name="labelCircleName">Your Pool: </string>
+    <string name="labelCommitment1">Your Commitment: </string>
+    <string name="labelCommitment2">You have committed $</string>
+    <string name="labelCommitment3"> over </string>
+    <string name="labelCommitment4"> days.</string>    
+    <string name="labelCharity">Your Charity: </string>
+    
+    
 </resources>

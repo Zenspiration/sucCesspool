@@ -1,39 +1,89 @@
 package com.parse.starter;
 
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
-import com.parse.ParseUser;
-
+import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.parse.ParseClassName;
-import android.app.Activity;
-import android.app.ListActivity;
-//import android.support.v7.app.ActionBarActivity;
-import android.content.Intent;
 
-	public class CircleDisplayActivity extends ListActivity { 
-	 
-		private ParseQueryAdapter<Circle> mainAdapter;  
-//		
-//		@Override
-//		//List out facts about the pool 
-//			public void onCreate(Bundle savedInstanceState) {
-//			super.onCreate(savedInstanceState);
-//			getListView().setClickable(false);
-//	
-//			mainAdapter = new ParseQueryAdapter<Pool>(this, Circle.class);
-//			mainAdapter.setTextKey("title");
-//			mainAdapter.setTextKey("start date");
-//			mainAdapter.setTextKey("end date");
-//			mainAdapter.setTextKey("points");
-//	
+import com.parse.ParseQueryAdapter;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.ParseObject;
+
+//import android.support.v7.app.ActionBarActivity;
+
+
+
+	public class CircleDisplayActivity //extends ParseQueryAdapter<Circle> 
+	{ 
+		ParseUser currentUser = ParseUser.getCurrentUser();
+
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
+		String inputCircleName = Circle.getString("score");
+		double inputMoneyCommitted = Circle.getDouble("playerName");
+		String inputCycleLength = Circle.getString("score");
+		String inputCharity = Circle.getString("score");
+
+		
+		/*query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
+		  public void done(ParseObject object, ParseException e) {
+		    if (e == null) {
+		      // object will be your game score
+		    } else {
+		      // something went wrong
+		    }
+		  }
+		}); */
+		
+		
+		public View getItemView(Circle circle, View v, ViewGroup parent) 
+		{
+			super.getItemView(circle, v, parent);
+			
+		    TextView circleNameTextView = (TextView) v.findViewById(R.id.inputCircleName);
+	        circleNameTextView.setText(circle.getCircleName().toString());
+	        
+	        TextView moneyCommittedTextView = (TextView) v.findViewById(R.id.inputMoneyCommitted);
+	        moneyCommittedTextView.setText(circle.getDollarsCommitted());
+	        
+	        TextView cycleLengthTextView = (TextView) v.findViewById(R.id.inputCycleLength);
+	        cycleLengthTextView.setText(circle.getCycleLength());
+
+	        TextView charityTextView = (TextView) v.findViewById(R.id.inputCharity);
+	        charityTextView.setText(circle.getCharity().toString());
+	        
+	        return v;			
+		}
+		
+		public void onCreate(Bundle savedInstanceState) 
+		{
+			super.onCreate(savedInstanceState);
+			
+			mainAdapter = new ParseQueryAdapter<Circle>(this, Circle.class);
+			//mainAdapter = new ParseQueryAdapter<ParseObject>(this, "Todo");
+
+			mainAdapter.setTextKey("circle name");
+			mainAdapter.setTextKey("cycle length");
+			mainAdapter.setTextKey("money committed");
+			mainAdapter.setTextKey("charity");
+
+			setListAdapter(mainAdapter);
+			
+			//getListView().setClickable(false);
+			 			
+		}
+	
+			private ParseQueryAdapter<Circle> mainAdapter; 
+			{
+				
+			}
+			
+			
 //			// Default view is all users & goals 
 //			setListAdapter(mainAdapter);
 //		}
@@ -55,10 +105,7 @@ import android.content.Intent;
 			getMenuInflater().inflate(R.menu.activity_pool_list, menu);
 			return true;
 		}
-	
-		//Posting meals and refreshing the list will be controlled from the Action
-		 // Bar.
-		 
+			 
 		@Override
 
 		public boolean onOptionsItemSelected(MenuItem item) {

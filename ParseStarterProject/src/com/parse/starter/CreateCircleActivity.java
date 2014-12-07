@@ -14,7 +14,8 @@ import android.app.ListActivity;
 public class CreateCircleActivity extends ListActivity {
 
 ParseUser currentUser = ParseUser.getCurrentUser();
-    @Override
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_circle);
