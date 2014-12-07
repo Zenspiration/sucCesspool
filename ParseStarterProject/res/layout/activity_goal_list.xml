@@ -6,8 +6,25 @@
     
     <ListView
         android:id="@+id/goal_list"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="195dp" >
+
     </ListView>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title View"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your item has been outstanding for: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    
 
 </LinearLayout>

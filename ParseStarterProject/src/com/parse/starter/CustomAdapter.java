@@ -29,20 +29,20 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 	}
 
 	// Customize the layout by overriding getItemView
-	@Override
-	public View getItemView(ParseObject object, View v, ViewGroup parent) {
-		if (v == null) {
-			v = View.inflate(getContext(), R.layout.activity_goal_list, null);
-		}
-
-		// Add the title view
-		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
-		titleTextView.setText(object.getString("title"));
-
-		// Add a reminder of how long this item has been outstanding
-		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
-		timestampView.setText(object.getCreatedAt().toString());
-		return v;
-	}
+//	@Override
+//	public View getItemView(ParseObject object, View v, ViewGroup parent) {
+//		if (v == null) {
+//			v = View.inflate(getContext(), R.layout.activity_goal_list, null);
+//		}
+//
+//		// Add the title view
+//		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
+//		titleTextView.setText(object.getString("title"));
+//
+//		// Add a reminder of how long this item has been outstanding
+//		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
+//		timestampView.setText(object.getCreatedAt().toString());
+//		return v;
+//	}
 
 }
