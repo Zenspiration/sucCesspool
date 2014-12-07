@@ -18,37 +18,37 @@ import android.app.ListActivity;
 //import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 
-	public class CircleDisplayActivity extends ListActivity { }
+	public class CircleDisplayActivity extends ListActivity { 
 	 
 		private ParseQueryAdapter<Circle> mainAdapter;  
-		
-		@Override
-		//List out facts about the pool 
-			public void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			getListView().setClickable(false);
-	
-			mainAdapter = new ParseQueryAdapter<Pool>(this, Circle.class);
-			mainAdapter.setTextKey("title");
-			mainAdapter.setTextKey("start date");
-			mainAdapter.setTextKey("end date");
-			mainAdapter.setTextKey("points");
-	
-			// Default view is all users & goals 
-			setListAdapter(mainAdapter);
-		}
-		//List out facts about each user 
-		public void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			getListView().setClickable(false);
-	
-			mainAdapter = new ParseQueryAdapter<Users>(this, User.class);
-			mainAdapter.setTextKey("username");
-			mainAdapter.setTextKey("current points");
-	
-			// Default view is all users & goals 
-			setListAdapter(mainAdapter);
-		}
+//		
+//		@Override
+//		//List out facts about the pool 
+//			public void onCreate(Bundle savedInstanceState) {
+//			super.onCreate(savedInstanceState);
+//			getListView().setClickable(false);
+//	
+//			mainAdapter = new ParseQueryAdapter<Pool>(this, Circle.class);
+//			mainAdapter.setTextKey("title");
+//			mainAdapter.setTextKey("start date");
+//			mainAdapter.setTextKey("end date");
+//			mainAdapter.setTextKey("points");
+//	
+//			// Default view is all users & goals 
+//			setListAdapter(mainAdapter);
+//		}
+//		//List out facts about each user 
+//		public void onCreate(Bundle savedInstanceState) {
+//			super.onCreate(savedInstanceState);
+//			getListView().setClickable(false);
+//	
+//			mainAdapter = new ParseQueryAdapter<Users>(this, User.class);
+//			mainAdapter.setTextKey("username");
+//			mainAdapter.setTextKey("current points");
+//	
+//			// Default view is all users & goals 
+//			setListAdapter(mainAdapter);
+//		}
 	
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
