@@ -20,7 +20,7 @@ public class WelcomeActivity extends Activity {
     
     ParseUser currentUser = ParseUser.getCurrentUser();
     if (currentUser != null) {
-    	Intent intent = new Intent(WelcomeActivity.this, DispatchActivity.class);
+    	Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
     } else {
     	// Log in button click handler
         Button loginButton = (Button) findViewById(R.id.login_button);
