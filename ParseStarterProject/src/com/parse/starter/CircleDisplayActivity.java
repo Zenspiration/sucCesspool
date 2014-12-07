@@ -1,17 +1,15 @@
 package com.parse.starter;
 
-<<<<<<< HEAD
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
-=======
-import com.parse.ParseObject;
 
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
->>>>>>> origin/master
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,9 +23,6 @@ import com.parse.ParseUser;
 import com.parse.ParseObject;
 
 //import android.support.v7.app.ActionBarActivity;
-<<<<<<< HEAD
-
-
 
 	public class CircleDisplayActivity //extends ParseQueryAdapter<Circle> 
 	{ 
