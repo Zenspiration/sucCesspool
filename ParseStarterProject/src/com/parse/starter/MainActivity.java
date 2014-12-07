@@ -15,30 +15,9 @@ public class MainActivity extends Activity {
 
   public MainActivity() {
   }
-
-<<<<<<< HEAD
-	        Button setGoalsButton = (Button)findViewById(R.id.set_goals_button);
-	        setGoalsButton.setOnClickListener(new View.OnClickListener() 
-	        {
-	        	public void onClick(View v)
-	        	{
-	        		Intent intent = new Intent(MainActivity.this, NewGoalActivity.class);
-	        		startActivity(intent);
-	        	}
-	        });
-	        
-	        Button viewGoalsButton = (Button)findViewById(R.id.view_goals_button);
-	        viewGoalsButton.setOnClickListener(new View.OnClickListener() 
-	        {
-	        	public void onClick(View v)
-	        	{
-	        		Intent intent = new Intent(MainActivity.this, GoalListActivity.class);
-	        		startActivity(intent);
-	        	}
-	        });	
-	       	}
-=======
-  @Override
+  
+  @SuppressWarnings("unused")
+@Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Check if there is current user info
@@ -47,23 +26,23 @@ public class MainActivity extends Activity {
     if (user != null) {
       // Start an intent for the logged in activity
     	// Query all the circles that exist
-    	ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
+    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
     	query.whereEqualTo("userId", userId);
-    	//if their user Id exist under a circle, send them to MainActivity.java.
+    	//if their user Id exist under a circle, send them to CircleDisplayActivity.java.
     	if (query!=null){
-    		startActivity(new Intent(this, MainActivity.class));
+    		startActivity(new Intent(this, CircleDisplayActivity.class));
     	} 
     	//if their user Id does NOT exist under a circle (ie. they don't have a circle) send them to CreateCircleActivity.java
-    	else{
+    	else {
     		startActivity(new Intent(this, CreateCircleActivity.class));
     	}
-    } else {
+    } 
+    else 
+    {
       // Start an intent for the logged out activity
       startActivity(new Intent(this, WelcomeActivity.class));
     }
   }
->>>>>>> origin/master
-
 }
 
 //package com.parse.starter;

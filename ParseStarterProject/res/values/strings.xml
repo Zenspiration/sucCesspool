@@ -47,6 +47,7 @@
     <string name="goals_completed">Congratulations! You\'ve achieved all your goals for today</string>
     <string name="goal_list_header">Your Goals for This Cycle</string>
     <string name="goal_moneyearned">You have earned back: </string>
+    <string name="create_new_circle">Dive Into a New Pool</string>
 
     <!-- Strings related to Create Circle -->
     <string name="app_name">SuccessPool</string>

@@ -111,10 +111,10 @@ public class GoalListActivity extends ListActivity {
 	                     LayoutParams.WRAP_CONTENT); 
 	             final TextView message = (TextView) findViewById (R.id.goals_completed);
 	      	           
-	             ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
+	             ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
 		 			query.whereEqualTo("userId", currentUser.getObjectId());
-		 			query.getFirstInBackground(new GetCallback<ParseObject>() {
-		 			public void done(ParseObject circle, ParseException e) {
+		 			query.getFirstInBackground(new GetCallback<Circle>() {
+		 			public void done(Circle circle, ParseException e) {
 		 				// TODO Auto-generated method stub
 		 				   if (e == null) {
 		 			            String dollarsCommitted = circle.getString("dollars");
@@ -132,6 +132,20 @@ public class GoalListActivity extends ListActivity {
 			@Override
 			public void onDismiss() {
 				archiveCompletedGoals();// TODO Auto-generated method stub			
+				updateGoalList();
+				ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
+		 			query.whereEqualTo("userId", currentUser.getObjectId());
+		 			query.getFirstInBackground(new GetCallback<Circle>() {
+		 			public void done(Circle circle, ParseException e) {
+		 				// TODO Auto-generated method stub
+		 				   if (e == null) {
+		 			            circle.setArchived(true); 
+		 				   } 
+		 			}
+		 		});
+		 		Intent intent = new Intent(GoalListActivity.this, CreateCircleActivity.class);
+		 		startActivity(intent);
+				
 			}
 	    	
 	    });
