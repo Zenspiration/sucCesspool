@@ -20,35 +20,22 @@ import android.content.Intent;
 
 	public class CircleDisplayActivity extends ListActivity { 
 	 
-		private ParseQueryAdapter<Circle> mainAdapter;  
-//		
-//		@Override
-//		//List out facts about the pool 
-//			public void onCreate(Bundle savedInstanceState) {
-//			super.onCreate(savedInstanceState);
-//			getListView().setClickable(false);
-//	
-//			mainAdapter = new ParseQueryAdapter<Pool>(this, Circle.class);
-//			mainAdapter.setTextKey("title");
-//			mainAdapter.setTextKey("start date");
-//			mainAdapter.setTextKey("end date");
-//			mainAdapter.setTextKey("points");
-//	
-//			// Default view is all users & goals 
-//			setListAdapter(mainAdapter);
-//		}
-//		//List out facts about each user 
-//		public void onCreate(Bundle savedInstanceState) {
-//			super.onCreate(savedInstanceState);
-//			getListView().setClickable(false);
-//	
-//			mainAdapter = new ParseQueryAdapter<Users>(this, User.class);
-//			mainAdapter.setTextKey("username");
-//			mainAdapter.setTextKey("current points");
-//	
-//			// Default view is all users & goals 
-//			setListAdapter(mainAdapter);
-//		}
+		private ParseQueryAdapter<Circle> mainAdapter;
+		
+		@Override
+		//List out facts about the pool 
+			public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			getListView().setClickable(false);
+			
+			mainAdapter = new ParseQueryAdapter<ParseObject>(this, "Circle");
+			mainAdapter.setTextKey("username");
+	 
+			// Initialize ListView, connect to my todo list, and set initial view to mainAdapter
+			listView = (ListView) findViewById(R.id.todo_list_view);
+			listView.setAdapter(mainAdapter);
+			mainAdapter.loadObjects();
+		}
 	
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
