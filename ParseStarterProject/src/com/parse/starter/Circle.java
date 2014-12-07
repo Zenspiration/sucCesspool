@@ -13,6 +13,14 @@ import com.parse.ParseUser;
 	          // A default constructor is required.
 	      }
 	   
+	      public boolean isArchived(){
+	  		return getBoolean("archive");
+	  	  }
+	  	
+	      public void setArchived(boolean archive) {
+	  		put ("archive", archive);
+	  	  }
+	      
 	      public String getCircleName() {
 	          return getString("circleName");
 	      }
@@ -69,7 +77,7 @@ import com.parse.ParseUser;
 	    	  return getString("userId");
 	      }
 	      public void setUserId(String userId){
-	    	  put("user Id", userId);
+	    	  put("userId", userId);
 	      }
 
 	}

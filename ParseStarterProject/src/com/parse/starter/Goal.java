@@ -18,6 +18,13 @@ public class Goal extends ParseObject{
 		put ("completed", complete);
 	}
 	
+	public boolean isArchived(){
+		return getBoolean("archive");
+	}
+	public void setArchived(boolean archive) {
+		put ("archive", archive);
+	}
+	
     public String getTitle() {
         return getString("title");
     }

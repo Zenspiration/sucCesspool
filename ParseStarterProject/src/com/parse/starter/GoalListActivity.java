@@ -1,24 +1,37 @@
 package com.parse.starter;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.PopupWindow.OnDismissListener;
+import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 public class GoalListActivity extends ListActivity {
 	ParseUser currentUser = ParseUser.getCurrentUser();
-
 	private CustomAdapter mainAdapter;
 	private ListView listView;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +44,8 @@ public class GoalListActivity extends ListActivity {
 		mainAdapter.loadObjects();
 		listView.setOnItemClickListener((OnItemClickListener) mainAdapter);
 
-	
+		
+		
 	}
 	
 	@Override
@@ -59,6 +73,7 @@ public class GoalListActivity extends ListActivity {
 	}
 
 	//http://www.michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/
+	
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Goal goal = mainAdapter.getItem(position);
 		goal.setCompleted(!goal.isCompleted());
@@ -72,9 +87,9 @@ public class GoalListActivity extends ListActivity {
 			if (goalsCompleted[i] == false) {
 				allGoalsCompleted = false;
 			}
-//			if (allGoalsCompleted) {
-//				popUp();
-//			}
+			if (allGoalsCompleted) {
+				popUp();
+			}
 			
 		}
 		updateGoalList();
@@ -83,6 +98,54 @@ public class GoalListActivity extends ListActivity {
 	private void updateGoalList() {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
+	}
+	
+	private void popUp() {
+		LayoutInflater layoutInflater 
+	     = (LayoutInflater)getBaseContext()
+	      .getSystemService(LAYOUT_INFLATER_SERVICE);  
+	    View popupView = layoutInflater.inflate(R.layout.popup, null);  
+	             final PopupWindow popupWindow = new PopupWindow(
+	               popupView, 
+	               LayoutParams.WRAP_CONTENT,  
+	                     LayoutParams.WRAP_CONTENT); 
+	             final TextView message = (TextView) findViewById (R.id.goals_completed);
+	      	           
+	             ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
+		 			query.whereEqualTo("userId", currentUser.getObjectId());
+		 			query.getFirstInBackground(new GetCallback<ParseObject>() {
+		 			public void done(ParseObject circle, ParseException e) {
+		 				// TODO Auto-generated method stub
+		 				   if (e == null) {
+		 			            String dollarsCommitted = circle.getString("dollars");
+		 			            String charity = circle.getString("charity");
+		 			 
+		 			           message.setText("Congratulations! You have completed your goals for this cycle and earned back $" + dollarsCommitted +
+		 			        		   "/n Please still consider donating to " + charity + " though! :)");
+		 				      	 
+		 				   } 
+		 			}
+		 		});
+	            
+	    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+			@Override
+			public void onDismiss() {
+				archiveCompletedGoals();// TODO Auto-generated method stub			
+			}
+	    	
+	    });
+		        
+	                
+	             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+	     @Override
+	     public void onClick(View v) {
+	      // TODO Auto-generated method stub
+	      popupWindow.dismiss();
+	     }});
+	               
 	}
 	
 	private boolean[] areAllGoalsCompleted() {
@@ -95,6 +158,11 @@ public class GoalListActivity extends ListActivity {
 		return goalCompletion;
 	}
 	
+	private void archiveCompletedGoals() {
+		for (int i=0; i < mainAdapter.getCount(); i++) {
+			mainAdapter.getItem(i).setCompleted(true);
+		}
+	}
 	
 	private void newGoal() {
 		Intent i = new Intent(this, NewGoalActivity.class);

@@ -62,11 +62,13 @@ public class NewGoalFragment extends Fragment {
 				// When the user clicks "Save," upload the meal to Parse
 				// Add data to the meal object:
 				goal.setTitle(goalName.getText().toString());
+				goal.setCompleted(false);
+				goal.setArchived(false);
 
 				// Associate the meal with the current user
 				goal.setAuthor(ParseUser.getCurrentUser().getObjectId());
 				goal.saveInBackground(new SaveCallback() {
-
+			
 					@Override
 					public void done(ParseException e) {
 						if (e == null) {

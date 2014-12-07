@@ -10,16 +10,16 @@
      android:orientation="vertical" 
      android:layout_margin="1dp"
      android:background="@android:color/darker_gray">
-     >
+     
      <LinearLayout 
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical" 
       android:layout_margin="20dp">
       <TextView
+          android:id="@+id/goals_completed"
           android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/goals_completed" />
+          android:layout_height="wrap_content" />
       <ImageView
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
