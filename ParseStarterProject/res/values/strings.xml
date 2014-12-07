@@ -45,6 +45,7 @@
     <string name="not_logged_in">Not Logged In</string>
     <string name="no_items">No Items</string>
     <string name="goals_completed">Congratulations! You\'ve achieved all your goals for today</string>
+    <string name="goal_list">Goal List</string>
 
     <!-- Strings related to Create Cirlce -->
     <string name="app_name">SuccessPool</string>

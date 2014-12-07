@@ -1,10 +1,7 @@
 package com.parse.starter;
 
 //import android.support.v7.app.ActionBarActivity;
-<<<<<<< HEAD
 import com.parse.ParseObject;
-=======
->>>>>>> origin/master
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -48,7 +45,7 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         
         //makes sure inputMoneyCommitted is an integer
         try{
-        	moneyCommitted = Integer.parseInt(inputMoneyCommitted.getText().toString());
+        	moneyCommitted = Double.parseDouble(inputMoneyCommitted.getText().toString());
         } catch (Exception e){
         	validationError=true;
         	validationErrorMessage.append(getString(R.string.money_committed_error));
@@ -63,16 +60,14 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         
         Circle c1= new Circle();
         c1.setCircleName(inputCircleName.getText().toString());
-        c1.setFirstUsersPoints((int)moneyCommitted);
+        c1.setDollarsCommitted(moneyCommitted);
         c1.setCycleLength((int)cycleLength);
         c1.setCharity(inputCharity.getText().toString());
+        c1.setFirstUser(currentUser);
+        c1.setUserId(currentUser.getObjectId());
         c1.saveInBackground();
-        
-        ParseObject dollars = new ParseObject("dollars");
-        dollars.put("value", moneyCommitted);
-        dollars.put("user", currentUser);
-        dollars.saveInBackground();
-       
+    }
+   }
         
 /*        {
         	public void onClick(View v)
@@ -87,15 +82,14 @@ ParseUser currentUser = ParseUser.getCurrentUser();
                 TextView display = (TextView)findViewById(R.id.displayMoneyPerDay);
                 display.setText("Each day is worth $" + moneyPerDayRounded + ".");
                 
-<<<<<<< HEAD
-=======
+
                 Circle c1= new Circle();
                 c1.setCircleName(inputCircleName.getText().toString());
                 c1.setFirstUsersPoints((int)moneyCommitted);
                 c1.setMoneyPerDay(moneyPerDay);
                 c1.setFirstUser(ParseUser.getCurrentUser());
                 c1.saveInBackground();
->>>>>>> origin/master
+
         	}
         });
     }
@@ -119,4 +113,4 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         }
         return super.onOptionsItemSelected(item);
     } */
-}
+

@@ -111,8 +111,6 @@ public class SignUpActivity extends Activity {
     user.put("firstName", firstName);
     user.put("lastName", lastName);
     
-    user.saveInBackground();
-    
 
     // Call the Parse signup method
     user.signUpInBackground(new SignUpCallback() {

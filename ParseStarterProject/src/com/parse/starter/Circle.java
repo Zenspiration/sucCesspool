@@ -21,6 +21,13 @@ import com.parse.ParseUser;
 	          put("name", name);
 	      }
 	   
+	      public int getCycleLength() {
+	    	  return getInt("cycleLength");
+	      }
+	      public void setCycleLength(int days) {
+	    	  put("cycleLength", days);
+	      }
+	      
 	      public ParseUser getFirstUser() {
 	          return getParseUser("firstUser");
 	      }
@@ -37,6 +44,13 @@ import com.parse.ParseUser;
 	          put("goals", goals);
 	      } 
 	      
+	      public String getCharity() {
+	    	  return getString("charity");
+	      }
+	      public void setCharity(String charity) {
+	    	  put("charity", charity);
+	      }
+	     	      
 	      public int getFirstUsersPoints() {
 	          return getInt("points");
 	      }
@@ -45,12 +59,17 @@ import com.parse.ParseUser;
 	          put("points", points);
 	      } 
 	      
-	      public double moneyPerDay(){
-	    	  return getInt("money per day");
+	      public double getDollarsCommitted(){
+	    	  return getDouble("dollars");
 	      }
-	      
-	      public void setMoneyPerDay(double money){
-	    	  put("money per day", money);
+	      public void setDollarsCommitted(double money){
+	    	  put("dollars", money);
+	      }
+	      public String getUserId(){
+	    	  return getString("userId");
+	      }
+	      public void setUserId(String userId){
+	    	  put("user Id", userId);
 	      }
 
 	}

@@ -19,12 +19,12 @@ import android.app.ListActivity;
 import android.content.Intent;
 
 	public class CircleDisplayActivity extends ListActivity { }
-/*	 
+	 
 		private ParseQueryAdapter<Circle> mainAdapter;  
 		
 		@Override
 		//List out facts about the pool 
-		public void onCreate(Bundle savedInstanceState) {
+			public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			getListView().setClickable(false);
 	
@@ -60,6 +60,7 @@ import android.content.Intent;
 		 // Bar.
 		 
 		@Override
+
 		public boolean onOptionsItemSelected(MenuItem item) {
 			switch (item.getItemId()) {
 	
@@ -88,4 +89,3 @@ import android.content.Intent;
 	
 	}
 	
-*/
