@@ -90,6 +90,9 @@ import com.parse.ParseObject;
 			final TextView inputDollarsCommitted = (TextView)findViewById(R.id.inputMoneyCommitted);
 			final TextView inputCharity = (TextView)findViewById(R.id.inputCharity);
 			
+			//text view for the timer 
+			final TextView timeRemaining= (TextView) findViewById(R.id.timeRemaining);
+			
 			super.onCreate(savedInstanceState);
 
 	    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");	    	
@@ -111,11 +114,28 @@ import com.parse.ParseObject;
 		    	     	inputCycleLength.setText(cycleLength);
 		    	     	inputDollarsCommitted.setText(dollarsCommitted);
 		    	     	inputCharity.setText(charity);
+		    	     	
+		    	     	//sets up a timer
+		    	     	
+		    	    	int millisecondsInCycle=cycleLength*24*60*60*1000;
+		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
+		    			    public void onTick(long millisUntilFinished) {
+		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
+		    			    	int hours= millisUntilFinishedInt/3600000;
+		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
+		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
+		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
+		    			    }
+		    			    public void onFinish() {
+		    			       timeRemaining.setText("done!");
+		    			    }
+		    			  };
+		    	    	  aCounter.start();
 		    	    } 
 	
 		    	}
 	    	});
-		}  
+		}
 	}
 	
 

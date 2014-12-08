@@ -9,7 +9,7 @@
     android:layout_height="fill_parent" />
     
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/timeRemaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -28,7 +28,7 @@
         android:text="@string/create_pool_button" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/labelTimeRemaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
