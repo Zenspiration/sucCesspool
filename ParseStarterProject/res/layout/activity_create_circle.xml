@@ -123,4 +123,12 @@
         android:text="@string/choose_charity"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+    <Button
+        android:id="@+id/buttonCreatePool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/inputCharity"
+        android:text="@string/buttonCreatePool" />
+
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.*;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 
 public class CreateCircleActivity extends Activity {
 
@@ -21,52 +22,58 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_circle);
         
-        //FIX EDITTEXT STUFF BELOW...
-        
-        /*
-		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
-        EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
-        EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
-        EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
+        Button buttonCreatePool = (Button)findViewById(R.id.buttonCreatePool);
+        buttonCreatePool.setOnClickListener(new View.OnClickListener() 
+        {
+        	public void onClick(View v)
+        	{
+        		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
+                EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
+                EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
+                EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
 
-        double cycleLength=0;
-        double moneyCommitted=0;
-        boolean validationError = false;
-        StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
-        
-        //makes sure inputCycleLength is an integer
-        try{
-        	cycleLength = Integer.parseInt(inputCycleLength.getText().toString());	
-        } catch (Exception e){
-        	validationError=true;
-        	validationErrorMessage.append(getString(R.string.cycle_length_error));
-        }
-        
-        //makes sure inputMoneyCommitted is an integer
-        try{
-        	moneyCommitted = Double.parseDouble(inputMoneyCommitted.getText().toString());
-        } catch (Exception e){
-        	validationError=true;
-        	validationErrorMessage.append(getString(R.string.money_committed_error));
-        }
-        
-        //displays validation error
-        if (validationError) {
-            Toast.makeText(CreateCircleActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
-                .show();
-            return;
-          }
-        
-        Circle c1= new Circle();
-        c1.setCircleName(inputCircleName.getText().toString());
-        //c1.setDollarsCommitted(inputMoneyCommitted);
-        //c1.setCycleLength((int)inputCycleLength);
-        c1.setCharity(inputCharity.getText().toString());
-        c1.setFirstUser(currentUser);
-        c1.setUserId(currentUser.getObjectId());
-        c1.saveInBackground();
- */
-    }
+                double cycleLength=0;
+                double moneyCommitted=0;
+                boolean validationError = false;
+                StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
+                
+                //makes sure inputCycleLength is an integer
+                try{
+                	cycleLength = Integer.parseInt(inputCycleLength.getText().toString());	
+                } catch (Exception e){
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.cycle_length_error));
+                }
+                
+                //makes sure inputMoneyCommitted is an integer
+                try{
+                	moneyCommitted = Double.parseDouble(inputMoneyCommitted.getText().toString());
+                } catch (Exception e){
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.money_committed_error));
+                }
+                
+                //displays validation error
+                if (validationError) {
+                    Toast.makeText(CreateCircleActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
+                        .show();
+                    return;
+                  }
+                
+                Circle c1= new Circle();
+                c1.setCircleName(inputCircleName.getText().toString());
+                //c1.setDollarsCommitted(inputMoneyCommitted);
+                //c1.setCycleLength((int)inputCycleLength);
+                c1.setCharity(inputCharity.getText().toString());
+                c1.setFirstUser(currentUser);
+                c1.setUserId(currentUser.getObjectId());
+                c1.saveInBackground();
+        		
+        		Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
+        		startActivity(intent);
+        	}
+        });    
+     }
     
    }
 

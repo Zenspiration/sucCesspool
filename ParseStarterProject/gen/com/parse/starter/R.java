@@ -23,21 +23,22 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f080000;
-        public static final int action_button=0x7f080019;
-        public static final int action_new=0x7f080036;
-        public static final int action_refresh=0x7f080035;
-        public static final int cancel_button=0x7f080031;
-        public static final int create_pool_button=0x7f08001b;
-        public static final int dismiss=0x7f080033;
-        public static final int edittext_action_login=0x7f080018;
-        public static final int edittext_action_signup=0x7f080029;
-        public static final int firstName_edit_text=0x7f080024;
-        public static final int fragmentContainer=0x7f080022;
-        public static final int goal_list=0x7f080013;
-        public static final int goal_list_header=0x7f080012;
-        public static final int goal_moneyearned=0x7f080014;
-        public static final int goal_name=0x7f08002f;
-        public static final int goals_completed=0x7f080032;
+        public static final int action_button=0x7f08001a;
+        public static final int action_new=0x7f080037;
+        public static final int action_refresh=0x7f080036;
+        public static final int buttonCreatePool=0x7f080012;
+        public static final int cancel_button=0x7f080032;
+        public static final int create_pool_button=0x7f08001c;
+        public static final int dismiss=0x7f080034;
+        public static final int edittext_action_login=0x7f080019;
+        public static final int edittext_action_signup=0x7f08002a;
+        public static final int firstName_edit_text=0x7f080025;
+        public static final int fragmentContainer=0x7f080023;
+        public static final int goal_list=0x7f080014;
+        public static final int goal_list_header=0x7f080013;
+        public static final int goal_moneyearned=0x7f080015;
+        public static final int goal_name=0x7f080030;
+        public static final int goals_completed=0x7f080033;
         public static final int inputCharity=0x7f080007;
         public static final int inputCircleName=0x7f080002;
         public static final int inputCycleLength=0x7f08000b;
@@ -53,30 +54,30 @@ public final class R {
         public static final int labelMoneyCommittedSign=0x7f08000f;
         public static final int labelTimeRemaining=0x7f08000a;
         public static final int labelTitle=0x7f08000d;
-        public static final int lastName_edit_text=0x7f080025;
-        public static final int login_button=0x7f08002e;
-        public static final int login_form=0x7f080015;
-        public static final int menu_title=0x7f080034;
-        public static final int password=0x7f080017;
-        public static final int password_again_edit_text=0x7f080028;
-        public static final int password_edit_text=0x7f080027;
-        public static final int save_button=0x7f080030;
-        public static final int set_goals_button=0x7f08001d;
-        public static final int signup_button=0x7f08002d;
-        public static final int signup_form=0x7f080023;
-        public static final int textAchieve=0x7f08001c;
-        public static final int textCreate=0x7f08001a;
+        public static final int lastName_edit_text=0x7f080026;
+        public static final int login_button=0x7f08002f;
+        public static final int login_form=0x7f080016;
+        public static final int menu_title=0x7f080035;
+        public static final int password=0x7f080018;
+        public static final int password_again_edit_text=0x7f080029;
+        public static final int password_edit_text=0x7f080028;
+        public static final int save_button=0x7f080031;
+        public static final int set_goals_button=0x7f08001e;
+        public static final int signup_button=0x7f08002e;
+        public static final int signup_form=0x7f080024;
+        public static final int textAchieve=0x7f08001d;
+        public static final int textCreate=0x7f08001b;
         public static final int textMoneyCommitted=0x7f080011;
-        public static final int textReview=0x7f08001f;
-        public static final int textView3=0x7f08001e;
-        public static final int textview_1=0x7f08002a;
-        public static final int textview_2=0x7f08002b;
-        public static final int textview_3=0x7f08002c;
+        public static final int textReview=0x7f080020;
+        public static final int textView3=0x7f08001f;
+        public static final int textview_1=0x7f08002b;
+        public static final int textview_2=0x7f08002c;
+        public static final int textview_3=0x7f08002d;
         public static final int timeRemaining=0x7f080009;
-        public static final int username=0x7f080016;
-        public static final int username_edit_text=0x7f080026;
-        public static final int view_goals_button=0x7f080020;
-        public static final int view_pools_button=0x7f080021;
+        public static final int username=0x7f080017;
+        public static final int username_edit_text=0x7f080027;
+        public static final int view_goals_button=0x7f080021;
+        public static final int view_pools_button=0x7f080022;
     }
     public static final class layout {
         public static final int activity_circle_display=0x7f030000;
@@ -95,7 +96,7 @@ public final class R {
         public static final int activity_pool_list=0x7f070001;
     }
     public static final class string {
-        public static final int achieve_text=0x7f050040;
+        public static final int achieve_text=0x7f050041;
         public static final int action_new=0x7f050022;
         public static final int action_refresh=0x7f050021;
         public static final int action_settings=0x7f05002c;
@@ -103,6 +104,7 @@ public final class R {
         /**  Strings related to Create Circle 
          */
         public static final int app_name=0x7f05002b;
+        public static final int buttonCreatePool=0x7f05003b;
         public static final int calculate_money_per_day=0x7f050038;
         public static final int cancel_goal=0x7f05001f;
         public static final int character_count_placeholder=0x7f05000e;
@@ -112,8 +114,8 @@ public final class R {
         public static final int circle_name_text=0x7f05002f;
         public static final int create_a_new_circle=0x7f05002d;
         public static final int create_new_circle=0x7f05002a;
-        public static final int create_pool_button=0x7f05003c;
-        public static final int create_text=0x7f05003f;
+        public static final int create_pool_button=0x7f05003d;
+        public static final int create_text=0x7f050040;
         public static final int cycle_length=0x7f050030;
         public static final int cycle_length_days=0x7f050032;
         public static final int cycle_length_error=0x7f050033;
@@ -133,14 +135,14 @@ public final class R {
         public static final int goal_list_header=0x7f050028;
         public static final int goal_moneyearned=0x7f050029;
         public static final int goals_completed=0x7f050027;
-        public static final int labelCharity=0x7f050049;
+        public static final int labelCharity=0x7f05004a;
         /**   Strings from CircleDisplay 
          */
-        public static final int labelCircleName=0x7f050044;
-        public static final int labelCommitment1=0x7f050045;
-        public static final int labelCommitment2=0x7f050046;
-        public static final int labelCommitment3=0x7f050047;
-        public static final int labelCommitment4=0x7f050048;
+        public static final int labelCircleName=0x7f050045;
+        public static final int labelCommitment1=0x7f050046;
+        public static final int labelCommitment2=0x7f050047;
+        public static final int labelCommitment3=0x7f050048;
+        public static final int labelCommitment4=0x7f050049;
         public static final int last_name=0x7f05001d;
         public static final int login=0x7f050000;
         public static final int logout_full=0x7f050007;
@@ -162,25 +164,25 @@ public final class R {
         public static final int prompt_password_again=0x7f050013;
         public static final int prompt_post=0x7f050009;
         public static final int prompt_username=0x7f050011;
-        public static final int review_text=0x7f050041;
+        public static final int review_text=0x7f050042;
         public static final int search_distance=0x7f050006;
-        public static final int set_goals_button=0x7f05003d;
+        public static final int set_goals_button=0x7f05003e;
         public static final int settings_distance_format=0x7f05000c;
         public static final int signup=0x7f050001;
         public static final int slogan=0x7f050004;
         /**  Strings from CustomAdapter.java 
          */
-        public static final int text1=0x7f050042;
-        public static final int timestamp=0x7f050043;
+        public static final int text1=0x7f050043;
+        public static final int timestamp=0x7f050044;
         /**  Strings related to login 
          */
         public static final int title_activity_login=0x7f05000f;
         public static final int title_activity_settings=0x7f050005;
         public static final int title_activity_signup=0x7f050010;
-        public static final int view_goals_button=0x7f05003e;
+        public static final int view_goals_button=0x7f05003f;
         /**  Strings related to Homepage 
          */
-        public static final int view_pools_button=0x7f05003b;
+        public static final int view_pools_button=0x7f05003c;
     }
     public static final class style {
         /** 
