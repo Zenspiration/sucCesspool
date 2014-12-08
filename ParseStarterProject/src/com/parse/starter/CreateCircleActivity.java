@@ -60,22 +60,29 @@ ParseUser currentUser = ParseUser.getCurrentUser();
                     return;
                   }
                 
-                Circle c1= new Circle();
+                Circle c1 = new Circle();
                 c1.setCircleName(inputCircleName.getText().toString());
-                //c1.setDollarsCommitted(inputMoneyCommitted);
-                //c1.setCycleLength((int)inputCycleLength);
+                c1.setDollarsCommitted(Double.parseDouble(inputMoneyCommitted.getText().toString()));
+                c1.setCycleLength(Integer.parseInt(inputCycleLength.getText().toString()));
                 c1.setCharity(inputCharity.getText().toString());
                 c1.setFirstUser(currentUser);
                 c1.setUserId(currentUser.getObjectId());
                 c1.saveInBackground();
         		
-        		Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
-        		startActivity(intent);
+        		//Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
+        		//startActivity(intent);
         	}
         });    
      }
     
    }
+
+
+
+
+
+
+
 
 //when user clicks "Click me to calculate money per day",
 //app takes user input for inputCycle Length and inputMoneyCommitted
