@@ -22,6 +22,7 @@ public class NewGoalActivity extends Activity {
 
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
+	    	goal = new Goal();
 	        requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	        super.onCreate(savedInstanceState);
