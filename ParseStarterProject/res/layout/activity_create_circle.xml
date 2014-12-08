@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/labelMoneyCommittedSign"
         android:layout_alignBottom="@+id/labelMoneyCommittedSign"
-        android:layout_toRightOf="@+id/displayMoneyPerDay"
+        android:layout_toRightOf="@+id/labelMoneyCommittedSign"
         android:ems="10"
         android:hint="@string/money_committed_number"
         android:inputType="number" />

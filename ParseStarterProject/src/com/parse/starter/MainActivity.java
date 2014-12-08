@@ -7,10 +7,15 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+
 /**
  * Activity which starts an intent for either the logged in (MainActivity) or logged out
  * (SignUpOrLoginActivity) activity.
  */
+
+//COMMENT THIS CODE BACK IN AFTER TESTING!!!
+
+/*
 public class MainActivity extends Activity {
 
   public MainActivity() {
@@ -44,6 +49,61 @@ public class MainActivity extends Activity {
      }
    }
 }
+*/
+
+import android.app.ListActivity;
+import android.widget.Button;
+import android.view.View;
+
+public class MainActivity extends Activity {
+
+	@Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	        
+	        Button viewPoolsButton = (Button)findViewById(R.id.view_pools_button);
+	        viewPoolsButton.setOnClickListener(new View.OnClickListener() 
+	        {
+	        	public void onClick(View v)
+	        	{
+	        		Intent intent = new Intent(MainActivity.this, CircleDisplayActivity.class);
+	        		startActivity(intent);
+	        	}
+	        });
+	        
+	        Button createPoolButton = (Button)findViewById(R.id.create_pool_button);
+        createPoolButton.setOnClickListener(new View.OnClickListener() 
+	        {
+	        	public void onClick(View v)
+        	{
+	        		Intent intent = new Intent(MainActivity.this, CreateCircleActivity.class);
+	        		startActivity(intent);
+	        	}
+	        });
+
+	        Button setGoalsButton = (Button)findViewById(R.id.set_goals_button);
+	        setGoalsButton.setOnClickListener(new View.OnClickListener() 
+	        {
+	        	public void onClick(View v)
+	        	{
+	        		Intent intent = new Intent(MainActivity.this, NewGoalActivity.class);
+	        		startActivity(intent);
+	        	}
+	        });
+	        
+	        Button viewGoalsButton = (Button)findViewById(R.id.view_goals_button);
+	        viewGoalsButton.setOnClickListener(new View.OnClickListener() 
+	        {
+	        	public void onClick(View v)
+	        	{
+	        		Intent intent = new Intent(MainActivity.this, GoalListActivity.class);
+	        		startActivity(intent);
+	        	}
+	        });	
+	}
+}
+
 
 
 //package com.parse.starter;

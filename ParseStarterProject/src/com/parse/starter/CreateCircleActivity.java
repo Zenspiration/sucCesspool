@@ -9,9 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+import android.app.Activity;
 import android.app.ListActivity;
 
-public class CreateCircleActivity extends ListActivity {
+public class CreateCircleActivity extends Activity {
 
 ParseUser currentUser = ParseUser.getCurrentUser();
 
@@ -20,12 +21,9 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_circle);
         
-        //when user clicks "Click me to calculate money per day",
-        	//app takes user input for inputCycle Length and inputMoneyCommitted
-        	//to calculate what each day is worth and to print it out to the screen
-        //Button buttonCalculate = (Button)findViewById(R.id.buttonCalculate);      
-        //buttonCalculate.setOnClickListener(new View.OnClickListener()
-
+        //FIX EDITTEXT STUFF BELOW...
+        
+        /*
 		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
         EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
         EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
@@ -61,15 +59,23 @@ ParseUser currentUser = ParseUser.getCurrentUser();
         
         Circle c1= new Circle();
         c1.setCircleName(inputCircleName.getText().toString());
-        c1.setDollarsCommitted(moneyCommitted);
-        c1.setCycleLength((int)cycleLength);
+        //c1.setDollarsCommitted(inputMoneyCommitted);
+        //c1.setCycleLength((int)inputCycleLength);
         c1.setCharity(inputCharity.getText().toString());
         c1.setFirstUser(currentUser);
         c1.setUserId(currentUser.getObjectId());
         c1.saveInBackground();
+ */
     }
+    
    }
-        
+
+//when user clicks "Click me to calculate money per day",
+//app takes user input for inputCycle Length and inputMoneyCommitted
+//to calculate what each day is worth and to print it out to the screen
+//Button buttonCalculate = (Button)findViewById(R.id.buttonCalculate);      
+//buttonCalculate.setOnClickListener(new View.OnClickListener()
+
 /*        {
         	public void onClick(View v)
         	{

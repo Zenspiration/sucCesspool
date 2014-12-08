@@ -11,22 +11,12 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.parse.ParseQueryAdapter;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
-import com.parse.ParseObject;
-
-import android.content.Intent;
-import android.os.CountDownTimer;
-
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -35,22 +25,9 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.parse.ParseQueryAdapter;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
-import com.parse.ParseObject;
-
 //import android.support.v7.app.ActionBarActivity;
 
-	public class CircleDisplayActivity extends ListActivity //extends ParseQueryAdapter<Circle> 
+	public class CircleDisplayActivity extends ListActivity
 	{ 
 		ParseUser currentUser = ParseUser.getCurrentUser();
 

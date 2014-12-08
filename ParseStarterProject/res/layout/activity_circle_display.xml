@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -15,6 +15,8 @@
         android:id="@+id/labelCircleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:text="@string/labelCircleName"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -22,45 +24,78 @@
         android:id="@+id/inputCircleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
-
-    <TextView
-        android:id="@+id/labelCommitment1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/labelCommitment1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/labelCircleName"
+        android:text="Textview" />
 
     <TextView
         android:id="@+id/labelCommitment2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/labelCommitment1"
         android:text="@string/labelCommitment2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/labelCommitment3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputMoneyCommitted"
+        android:text="@string/labelCommitment3"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/inputCharity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/labelCharity"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/timeRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/labelTimeRemaining"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/labelCommitment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/labelCommitment2"
+        android:layout_below="@+id/inputCircleName"
+        android:layout_marginTop="15dp"
+        android:text="@string/labelCommitment1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/inputMoneyCommitted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
-
-    <TextView
-        android:id="@+id/labelCommitment3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/labelCommitment3"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignBottom="@+id/labelCommitment2"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/labelCommitment2"
+        android:text="Textview" />
 
     <TextView
         android:id="@+id/inputCycleLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/labelCommitment3"
+        android:layout_alignRight="@+id/labelCharity"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/labelCommitment4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/labelCommitment2"
+        android:layout_centerHorizontal="true"
         android:text="@string/labelCommitment4"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -68,27 +103,20 @@
         android:id="@+id/labelCharity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputCharity"
+        android:layout_below="@+id/labelCommitment3"
+        android:layout_marginTop="14dp"
         android:text="@string/labelCharity"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/inputCharity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
     <TextView
         android:id="@+id/labelTimeRemaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/timeRemaining"
+        android:layout_below="@+id/inputCharity"
+        android:layout_marginTop="20dp"
         android:text="Time Remaining:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/timeRemaining"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-</LinearLayout>
+</RelativeLayout>
