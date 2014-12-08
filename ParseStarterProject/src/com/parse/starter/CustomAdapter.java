@@ -23,6 +23,7 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 			public ParseQuery create() {
 				ParseQuery query = new ParseQuery("title");
 				query.whereEqualTo("userId", currentUser.getObjectId());
+				query.whereEqualTo("archive", false);
 				return query;
 			}
 		});

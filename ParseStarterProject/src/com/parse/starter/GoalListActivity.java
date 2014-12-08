@@ -79,8 +79,10 @@ public class GoalListActivity extends ListActivity {
 		goal.setCompleted(!goal.isCompleted());
 		
 		if(goal.isCompleted()) {
-			goal.setTitle("Goal Completed!");
+		//	goal.setTitle("Goal Completed!");
 		}
+		goal.saveInBackground();
+		
 		boolean[] goalsCompleted = areAllGoalsCompleted();
 		boolean allGoalsCompleted = true;
 		for (int i = 0; i < goalsCompleted.length; i++) {
@@ -140,6 +142,7 @@ public class GoalListActivity extends ListActivity {
 		 				// TODO Auto-generated method stub
 		 				   if (e == null) {
 		 			            circle.setArchived(true); 
+		 			            circle.saveInBackground();
 		 				   } 
 		 			}
 		 		});
@@ -175,6 +178,7 @@ public class GoalListActivity extends ListActivity {
 	private void archiveCompletedGoals() {
 		for (int i=0; i < mainAdapter.getCount(); i++) {
 			mainAdapter.getItem(i).setCompleted(true);
+			mainAdapter.getItem(i).saveInBackground();
 		}
 	}
 	

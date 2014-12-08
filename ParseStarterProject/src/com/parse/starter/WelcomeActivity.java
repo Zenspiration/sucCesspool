@@ -18,10 +18,6 @@ public class WelcomeActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_welcome);
     
-    ParseUser currentUser = ParseUser.getCurrentUser();
-    if (currentUser != null) {
-    	Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-    } else {
     	// Log in button click handler
         Button loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new OnClickListener() {
@@ -43,4 +39,4 @@ public class WelcomeActivity extends Activity {
 
     
   }
-}
+

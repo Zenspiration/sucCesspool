@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     // Check if there is current user info
     ParseUser user= ParseUser.getCurrentUser();
-    String userId=user.getObjectId();
+    String userId = user.getObjectId();
     if (user != null) {
       // Start an intent for the logged in activity
     	// Query all the circles that exist
@@ -36,14 +36,15 @@ public class MainActivity extends Activity {
     	else {
     		startActivity(new Intent(this, CreateCircleActivity.class));
     	}
-    } 
-    else 
-    {
-      // Start an intent for the logged out activity
+     } 
+     else 
+     {
+      //Start an intent for the logged out activity
       startActivity(new Intent(this, WelcomeActivity.class));
-    }
-  }
+     }
+   }
 }
+
 
 //package com.parse.starter;
 //
