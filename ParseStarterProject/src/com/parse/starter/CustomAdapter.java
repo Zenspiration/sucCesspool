@@ -28,6 +28,7 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 	}
 
 	// Customize the layout by overriding getItemView
+<<<<<<< HEAD
 //	@Override
 //	public View getItemView(Goal goal, View v, ViewGroup parent) {
 //		if (v == null) {
@@ -43,5 +44,22 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 //		timestampView.setText(goal.getCreatedAt().toString());
 //		return v;
 //	}
+=======
+	//@Override
+	/*public View getItemView(Goal goal, View v, ViewGroup parent) {
+		if (v == null) {
+			v = View.inflate(getContext(), R.layout.list_item, null);
+		}
+
+		// Add the title view
+		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
+		titleTextView.setText(goal.getString("title"));
+
+		// Add a reminder of how long this item has been outstanding
+		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
+		timestampView.setText(goal.getCreatedAt().toString());
+		return v;
+	}*/
+>>>>>>> FETCH_HEAD
 
 }
