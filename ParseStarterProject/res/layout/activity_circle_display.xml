@@ -29,15 +29,6 @@
         android:text="Textview" />
 
     <TextView
-        android:id="@+id/labelCommitment2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/labelCommitment1"
-        android:text="@string/labelCommitment2"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/labelCommitment3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,16 +53,6 @@
         android:layout_below="@+id/labelTimeRemaining"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/labelCommitment1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/labelCommitment2"
-        android:layout_below="@+id/inputCircleName"
-        android:layout_marginTop="15dp"
-        android:text="@string/labelCommitment1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/inputMoneyCommitted"
@@ -119,12 +100,77 @@
         android:text="Time Remaining:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <TextView
+        android:id="@+id/labelCommitment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/labelCommitment2"
+        android:layout_below="@+id/inputCircleName"
+        android:layout_marginTop="18dp"
+        android:text="@string/labelCommitment1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/labelCommitment2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/labelCommitment3"
+        android:layout_below="@+id/labelCommitment1"
+        android:text="@string/labelCommitment2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textMoneyGained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/timeRemaining"
+        android:layout_below="@+id/timeRemaining"
+        android:layout_marginTop="24dp"
+        android:text="@string/textMoneyGained"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textMoneyGained2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textMoneyGained"
+        android:layout_below="@+id/textMoneyGained"
+        android:text="@string/textMoneyGained2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/inputMoneyGained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textMoneyGained2"
+        android:layout_alignLeft="@+id/inputMoneyCommitted"
+        android:text="TextView" />
+
     <Button
         android:id="@+id/buttonSetGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timeRemaining"
-        android:layout_marginTop="21dp"
+        android:layout_below="@+id/textMoneyGained3"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@+id/timeRemaining"
         android:text="@string/buttonSetGoals" />
+
+    <TextView
+        android:id="@+id/textMoneyGained3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textMoneyGained2"
+        android:layout_alignRight="@+id/labelCommitment1"
+        android:layout_below="@+id/textMoneyGained2"
+        android:text="@string/textMoneyGained3"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/inputMoneyCommitted2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textMoneyGained3"
+        android:layout_toRightOf="@+id/textMoneyGained3"
+        android:text="TextView" />
 
 </RelativeLayout>

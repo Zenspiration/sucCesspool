@@ -72,7 +72,8 @@ import com.parse.ParseUser;
 			final TextView inputDollarsCommitted = (TextView)findViewById(R.id.inputMoneyCommitted);
 			final TextView inputCharity = (TextView)findViewById(R.id.inputCharity);
 			final TextView timeRemaining= (TextView) findViewById(R.id.timeRemaining);
-			//text view for the timer 
+			final TextView inputMoneyGained = (TextView) findViewById(R.id.inputMoneyGained);
+			final TextView inputDollarsCommitted2 = (TextView) findViewById(R.id.inputMoneyCommitted2);
 			
 			
 	    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");	    	
@@ -85,23 +86,21 @@ import com.parse.ParseUser;
 		    	{
 		    		if (e == null) 
 		    		{
-		    			
-		    			
-		    			
 		    			String circleName = circle.getString("name");
 	    	            int cycleLength = circle.getInt("cycleLength");
 	    	            int dollarsCommitted = circle.getInt("dollars");
 		    	        String charity = circle.getString("charity");
-		    	        
+		    	        //int moneyGained = circle.getInt("moneyGained"); //Jarrell you can add the moneyGained variable into Circle.java
 		    	        
 		    	     	inputCircleName.setText(circleName);
 		    	     	inputCycleLength.setText("" + cycleLength);
 		    	     	inputDollarsCommitted.setText("" + dollarsCommitted);
-		    	     	inputCharity.setText(charity); 
+		    	     	inputCharity.setText(charity);
+		    	     	//inputMoneyGained.setText("" + moneyGained); //Jarrell you can add the moneyGained variable into Circle.java
+		    	     	inputDollarsCommitted2.setText("" + dollarsCommitted);
 		    		    
 		    	     	
 		    	     	//sets up a timer
-		    	     
 		    	    	int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
