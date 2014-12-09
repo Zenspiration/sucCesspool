@@ -71,6 +71,7 @@ Circle circle = new Circle();
                 //c1.setFirstUser(currentUser);
                 circle.setUserId(currentUser.getObjectId());
                 circle.saveInBackground();
+                circle.setArchived(false);
         		
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);

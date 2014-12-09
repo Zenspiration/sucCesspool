@@ -119,4 +119,12 @@
         android:text="Time Remaining:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <Button
+        android:id="@+id/buttonSetGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeRemaining"
+        android:layout_marginTop="21dp"
+        android:text="@string/buttonSetGoals" />
+
 </RelativeLayout>

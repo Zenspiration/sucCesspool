@@ -94,7 +94,7 @@
     <string name="labelCommitment2">You have committed $</string>
     <string name="labelCommitment3"> over </string>
     <string name="labelCommitment4"> days.</string>    
-    <string name="labelCharity">Your Charity: </string>
-    
+    <string name="labelCharity">Your Charity:</string>  
+    <string name="buttonSetGoals">Click Here to Add Your Goals</string>    
     
 </resources>

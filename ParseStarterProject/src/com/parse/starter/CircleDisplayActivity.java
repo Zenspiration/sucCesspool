@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.parse.GetCallback;
@@ -27,7 +28,7 @@ import com.parse.ParseUser;
 
 //import android.support.v7.app.ActionBarActivity;
 
-	public class CircleDisplayActivity extends ListActivity
+	public class CircleDisplayActivity extends Activity
 	{ 
 		ParseUser currentUser = ParseUser.getCurrentUser();
 
@@ -62,19 +63,21 @@ import com.parse.ParseUser;
 		
 		public void onCreate(Bundle savedInstanceState) 
 		{
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.activity_circle_display);
+			
+			
 			final TextView inputCircleName = (TextView)findViewById(R.id.inputCircleName);
 			final TextView inputCycleLength = (TextView)findViewById(R.id.inputCycleLength);
 			final TextView inputDollarsCommitted = (TextView)findViewById(R.id.inputMoneyCommitted);
 			final TextView inputCharity = (TextView)findViewById(R.id.inputCharity);
-			
-			//text view for the timer 
 			final TextView timeRemaining= (TextView) findViewById(R.id.timeRemaining);
+			//text view for the timer 
 			
-			super.onCreate(savedInstanceState);
-
+			
 	    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");	    	
 	    	query.whereEqualTo("userId", currentUser.getObjectId());
-	    	query.whereEqualTo("archive", false);
+	    	//query.whereEqualTo("archive", false);
 	    	query.getFirstInBackground(new GetCallback<Circle>() 
 	    	{
 
@@ -82,18 +85,23 @@ import com.parse.ParseUser;
 		    	{
 		    		if (e == null) 
 		    		{
-		    			String circleName = circle.getString("circleName");
+		    			
+		    			
+		    			
+		    			String circleName = circle.getString("name");
 	    	            int cycleLength = circle.getInt("cycleLength");
 	    	            int dollarsCommitted = circle.getInt("dollars");
 		    	        String charity = circle.getString("charity");
 		    	        
+		    	        
 		    	     	inputCircleName.setText(circleName);
-		    	     	inputCycleLength.setText(cycleLength);
-		    	     	inputDollarsCommitted.setText(dollarsCommitted);
-		    	     	inputCharity.setText(charity);
+		    	     	inputCycleLength.setText("" + cycleLength);
+		    	     	inputDollarsCommitted.setText("" + dollarsCommitted);
+		    	     	inputCharity.setText(charity); 
+		    		    
 		    	     	
 		    	     	//sets up a timer
-		    	     	
+		    	     
 		    	    	int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
@@ -103,6 +111,7 @@ import com.parse.ParseUser;
 		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
 		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
 		    			    }
+		    			    
 		    			    public void onFinish() {
 		    			       timeRemaining.setText("done!");
 		    			    }
@@ -112,8 +121,18 @@ import com.parse.ParseUser;
 	
 		    	}
 	    	});
-		}
+	
+    Button buttonSetGoals = (Button)findViewById(R.id.buttonSetGoals);
+    buttonSetGoals.setOnClickListener(new View.OnClickListener() {
+    	public void onClick(View v)
+    	{
+    		Intent intent = new Intent(CircleDisplayActivity.this, GoalListActivity.class);
+    		startActivity(intent);
+    	}
+	});
 	}
+}
+
 	
 
 
