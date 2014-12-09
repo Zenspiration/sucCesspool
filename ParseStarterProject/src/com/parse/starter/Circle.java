@@ -22,7 +22,7 @@ import com.parse.ParseUser;
 	  	  }
 	      
 	      public String getCircleName() {
-	          return getString("circleName");
+	          return getString("name");
 	      }
 	   
 	      public void setCircleName(String name) {
@@ -36,21 +36,22 @@ import com.parse.ParseUser;
 	    	  put("cycleLength", days);
 	      }
 	      
-	      public ParseUser getFirstUser() {
+	     /* public ParseUser getFirstUser() {
 	          return getParseUser("firstUser");
 	      }
 	   
 	      public void setFirstUser(ParseUser user) {
 	          put("firstUser", user);
 	      }
+	      */
 	   
-	      public String getGoals() {
+	     /* public String getGoals() {
 	          return getString("goals");
 	      }
 	   
 	      public void setGoals(String goals) {
 	          put("goals", goals);
-	      } 
+	      } */ 
 	      
 	      public String getCharity() {
 	    	  return getString("charity");
@@ -59,19 +60,19 @@ import com.parse.ParseUser;
 	    	  put("charity", charity);
 	      }
 	     	      
-	      public int getFirstUsersPoints() {
+	      /*public int getFirstUsersPoints() {
 	          return getInt("points");
 	      }
 	   
 	      public void setFirstUsersPoints(int points) {
 	          put("points", points);
-	      } 
+	      } */ 
 	      
 	      public double getDollarsCommitted(){
 	    	  return getDouble("dollars");
 	      }
-	      public void setDollarsCommitted(double money){
-	    	  put("dollars", money);
+	      public void setDollarsCommitted(double dollars){
+	    	  put("dollars", dollars);
 	      }
 	      public String getUserId(){
 	    	  return getString("userId");

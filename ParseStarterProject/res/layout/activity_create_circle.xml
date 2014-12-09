@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inputMoneyCommitted"
+        android:layout_below="@+id/textMoneyCommitted"
         android:text="@string/money_committed_sign"
         android:textAppearance="?android:attr/textAppearanceMedium" />    
     
@@ -73,7 +73,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/textMoneyCommitted"
+        android:id="@+id/inputMoneyCommitted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/labelMoneyCommittedSign"
@@ -104,7 +104,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/inputMoneyCommitted"
+        android:id="@+id/textMoneyCommitted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/labelMoneyCommittedSign"
@@ -117,8 +117,8 @@
         android:id="@+id/labelCharity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textMoneyCommitted"
-        android:layout_below="@+id/textMoneyCommitted"
+        android:layout_alignLeft="@+id/inputMoneyCommitted"
+        android:layout_below="@+id/inputMoneyCommitted"
         android:layout_marginTop="23dp"
         android:text="@string/choose_charity"
         android:textAppearance="?android:attr/textAppearanceSmall" />
