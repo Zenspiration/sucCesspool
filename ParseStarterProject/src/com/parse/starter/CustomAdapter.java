@@ -1,3 +1,5 @@
+package com.parse.starter;
+
 import com.parse.ParseFile;
 import com.parse.ParseImageView;
 import com.parse.ParseObject;
@@ -26,8 +28,8 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 	}
 
 	// Customize the layout by overriding getItemView
-	@Override
-	public View getItemView(Goal goal, View v, ViewGroup parent) {
+	//@Override
+	/*public View getItemView(Goal goal, View v, ViewGroup parent) {
 		if (v == null) {
 			v = View.inflate(getContext(), R.layout.list_item, null);
 		}
@@ -40,6 +42,6 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
 		timestampView.setText(goal.getCreatedAt().toString());
 		return v;
-	}
+	}*/
 
 }
