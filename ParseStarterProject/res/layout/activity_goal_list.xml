@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
@@ -9,12 +9,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/goal_list_header" 
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+   
+   <TextView
+       android:id="@+id/goal_list_hint1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/goal_list_header"
+       android:text="(Click '+' to add a new goal)"
+       android:textAppearance="?android:attr/textAppearanceSmall" />
+   
+    <TextView
+       android:id="@+id/goal_list_hint2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/goal_list_hint1"
+       android:text="(Click on each goal when you complete it)"
+       android:textAppearance="?android:attr/textAppearanceSmall" />
     
     <ListView
-        android:id="@+id/goal_list"
+        android:id="@+android:id/list"
         android:layout_width="match_parent"
         android:layout_height="195dp" 
+        android:layout_below="@+id/goal_list_hint2"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -22,7 +39,8 @@
         android:id="@+id/goal_moneyearned"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+android:id/list"
         android:text="@string/goal_moneyearned"
         android:textAppearance="?android:attr/textAppearanceMedium" /> 
 
-</LinearLayout>
+</RelativeLayout>

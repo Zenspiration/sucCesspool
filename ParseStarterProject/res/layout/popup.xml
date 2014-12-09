@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:background="@android:color/background_light">
- <LinearLayout 
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:orientation="vertical" 
-     android:layout_margin="1dp"
-     android:background="@android:color/darker_gray">
-     
-     <LinearLayout 
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical" 
-      android:layout_margin="20dp">
+    android:id="@+id/popup_element"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"> 
+
       <TextView
           android:id="@+id/goals_completed"
           android:layout_width="fill_parent"
-          android:layout_height="wrap_content" />
+          android:layout_height="wrap_content" 
+          android:text="Congrats!"/>
+      
       <ImageView
+          android:contentDescription="Description"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:src="@drawable/ic_launcher" />
@@ -29,6 +21,5 @@
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:text="@+string/create_new_circle" />
-      </LinearLayout>
- </LinearLayout>
+   
 </LinearLayout>

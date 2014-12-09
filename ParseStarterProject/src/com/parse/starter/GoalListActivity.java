@@ -4,12 +4,15 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -31,6 +34,7 @@ public class GoalListActivity extends ListActivity {
 	ParseUser currentUser = ParseUser.getCurrentUser();
 	private CustomAdapter mainAdapter;
 	private ListView listView;
+
 	
 	
 	@Override
@@ -38,16 +42,31 @@ public class GoalListActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_goal_list);
 		mainAdapter = new CustomAdapter(this);
+		mainAdapter.setTextKey("title");
 
-		listView = (ListView) findViewById(R.id.goal_list);
+		listView = (ListView) findViewById(android.R.id.list);
 		listView.setAdapter(mainAdapter);
 		mainAdapter.loadObjects();
-		listView.setOnItemClickListener((OnItemClickListener) mainAdapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			Goal goal = mainAdapter.getItem(position);
+			goal.setCompleted(true);
+			goal.saveInBackground();
+		
+			boolean[] goalsCompleted = areAllGoalsCompleted();
+			boolean allGoalsCompleted = true;
+			for (int i = 0; i < goalsCompleted.length; i++) {
+				if (goalsCompleted[i] == false) {
+					allGoalsCompleted = false;
+				}
+			}
+			if (allGoalsCompleted) {
+				popUp();
+			}
 
-		
-		
+		}
+		});
 	}
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_goal_list, menu);
@@ -74,100 +93,81 @@ public class GoalListActivity extends ListActivity {
 
 	//http://www.michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/
 	
-	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		Goal goal = mainAdapter.getItem(position);
-		goal.setCompleted(!goal.isCompleted());
-		
-		if(goal.isCompleted()) {
-		//	goal.setTitle("Goal Completed!");
-		}
-		goal.saveInBackground();
-		
-		boolean[] goalsCompleted = areAllGoalsCompleted();
-		boolean allGoalsCompleted = true;
-		for (int i = 0; i < goalsCompleted.length; i++) {
-			if (goalsCompleted[i] == false) {
-				allGoalsCompleted = false;
-			}
-			if (allGoalsCompleted) {
-				popUp();
-			}
-			
-		}
-		updateGoalList();
-	}
-	
 	private void updateGoalList() {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
 	}
-	
+
 	private void popUp() {
 		LayoutInflater layoutInflater 
 	     = (LayoutInflater)getBaseContext()
 	      .getSystemService(LAYOUT_INFLATER_SERVICE);  
-	    View popupView = layoutInflater.inflate(R.layout.popup, null);  
+	    final View popupView = layoutInflater.inflate(R.layout.popup,
+	    		(ViewGroup) findViewById(R.id.popup_element));  
 	             final PopupWindow popupWindow = new PopupWindow(
 	               popupView, 
-	               LayoutParams.WRAP_CONTENT,  
-	                     LayoutParams.WRAP_CONTENT); 
-	             final TextView message = (TextView) findViewById (R.id.goals_completed);
-	      	           
-	             ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
-		 			query.whereEqualTo("userId", currentUser.getObjectId());
-		 			query.getFirstInBackground(new GetCallback<Circle>() {
-		 			public void done(Circle circle, ParseException e) {
-		 				// TODO Auto-generated method stub
-		 				   if (e == null) {
-		 			            String dollarsCommitted = circle.getString("dollars");
-		 			            String charity = circle.getString("charity");
-		 			 
-		 			           message.setText("Congratulations! You have completed your goals for this cycle and earned back $" + dollarsCommitted +
-		 			        		   "/n Please still consider donating to " + charity + " though! :)");
-		 				      	 
-		 				   } 
-		 			}
-		 		});
-	            
-	    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+	               300, 370, true);
+	             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+	             
+	                  	         
+				             ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
+					 			query.whereEqualTo("userId", currentUser.getObjectId());
+					 			query.getFirstInBackground(new GetCallback<Circle>() {
+					 			public void done(Circle circle, ParseException e) {
+					 				// TODO Auto-generated method stub
+					 				   if (e == null) {
+					 			            int dollarsCommitted = circle.getInt("dollars");
+					 			            String dollarsCommittedText = ("" + dollarsCommitted);
+					 			           TextView message = (TextView) popupView.findViewById (R.id.goals_completed);
+ 
+					 			            message.setText("Congratulations! You have completed your goals for this cycle and earned back $" + dollarsCommittedText);
+					 			        		  
+					 				   } 
+					 			}
+					 		});
+				           
+				    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
 
-			@Override
-			public void onDismiss() {
-				archiveCompletedGoals();// TODO Auto-generated method stub			
-				updateGoalList();
-				ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
-		 			query.whereEqualTo("userId", currentUser.getObjectId());
-		 			query.getFirstInBackground(new GetCallback<Circle>() {
-		 			public void done(Circle circle, ParseException e) {
-		 				// TODO Auto-generated method stub
-		 				   if (e == null) {
-		 			            circle.setArchived(true); 
-		 			            circle.saveInBackground();
-		 				   } 
-		 			}
-		 		});
-		 		Intent intent = new Intent(GoalListActivity.this, CreateCircleActivity.class);
-		 		startActivity(intent);
+						@Override
+						public void onDismiss() {
+							archiveCompletedGoals();// TODO Auto-generated method stub		
+							updateGoalList();
+							ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
+					 			query.whereEqualTo("userId", currentUser.getObjectId());
+					 			query.getFirstInBackground(new GetCallback<Circle>() {
+					 			public void done(Circle circle, ParseException e) {
+					 				// TODO Auto-generated method stub
+					 				   if (e == null) {
+					 			            circle.setArchived(true); 
+					 			            circle.saveInBackground();
+					 				   } 
+					 			}
+					 		});
+					 		Intent intent = new Intent(GoalListActivity.this, CreateCircleActivity.class);
+					 		startActivity(intent);
+							
+						}
+				    	
+				    });
+					        
+				                
+				             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+				             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+				     @Override
+				     public void onClick(View v) {				      
+				      popupWindow.dismiss();
+				     }});
+			
+	
 				
 			}
-	    	
-	    });
-		        
-	                
-	             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+		
 
-	     @Override
-	     public void onClick(View v) {
-	      // TODO Auto-generated method stub
-	      popupWindow.dismiss();
-	     }});
-	               
-	}
-	
 	private boolean[] areAllGoalsCompleted() {
-		boolean[] goalCompletion = new boolean[mainAdapter.getCount()];
-		for (int i = 0; i< mainAdapter.getCount(); i++) {
+		int count = (listView.getLastVisiblePosition() - listView.getFirstVisiblePosition() + 1);
+		boolean[] goalCompletion = new boolean[count];
+		for (int i = 0; i< count; i++) {
 			if (mainAdapter.getItem(i).isCompleted()) {
 				goalCompletion[i] = true;
 			}
@@ -177,7 +177,7 @@ public class GoalListActivity extends ListActivity {
 	
 	private void archiveCompletedGoals() {
 		for (int i=0; i < mainAdapter.getCount(); i++) {
-			mainAdapter.getItem(i).setCompleted(true);
+			mainAdapter.getItem(i).setArchived(true);
 			mainAdapter.getItem(i).saveInBackground();
 		}
 	}

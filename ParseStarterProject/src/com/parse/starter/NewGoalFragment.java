@@ -13,8 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +36,7 @@ public class NewGoalFragment extends Fragment {
 
 	private Button saveButton;
 	private Button cancelButton;
-	private TextView goalName;
+	private EditText goalName;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,14 +46,13 @@ public class NewGoalFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent,
 			Bundle SavedInstanceState) {
-		View v = inflater.inflate(R.layout.activity_new_goal, parent, false);
+		View v = inflater.inflate(R.layout.fragment_new_goal, parent, false);
 
-		goalName = ((EditText) v.findViewById(R.id.goal_name));
+		goalName = (EditText) v.findViewById(R.id.goal_name);
 
-		saveButton = ((Button) v.findViewById(R.id.save_button));
+		saveButton = (Button) v.findViewById(R.id.save_button);
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				Goal goal = ((NewGoalActivity) getActivity()).getCurrentGoal();
 
@@ -87,7 +84,7 @@ public class NewGoalFragment extends Fragment {
 			}
 		});
 
-		cancelButton = ((Button) v.findViewById(R.id.cancel_button));
+		cancelButton = (Button) v.findViewById(R.id.cancel_button);
 		cancelButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
