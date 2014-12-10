@@ -156,6 +156,7 @@ import com.parse.ParseUser;
     	public void onClick(View v)
     	{
     		Intent intent = new Intent(CircleDisplayActivity.this, GoalListActivity.class);
+    		startActivity(intent);
     		startService(serviceIntent);
     	}
 	});

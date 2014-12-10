@@ -86,7 +86,7 @@ AlarmManager am;*/
                 //int cycleLength=0;
         		//double moneyCommitted=0;
         		boolean validationError = false;
-        		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
+        		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro2));
 
         		
                 //makes sure inputCycleLength is an integer
