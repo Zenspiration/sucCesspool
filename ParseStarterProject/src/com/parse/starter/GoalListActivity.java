@@ -49,6 +49,8 @@ public class GoalListActivity extends ListActivity {
 		listView = (ListView) findViewById(android.R.id.list);
 		listView.setAdapter(mainAdapter);
 		mainAdapter.loadObjects();
+		listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		
 		
 		 ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
 			query.whereEqualTo("userId", currentUser.getObjectId());
@@ -72,14 +74,10 @@ public class GoalListActivity extends ListActivity {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Goal goal = mainAdapter.getItem(position);
 			goal.setCompleted(true);
+			goal.setBackgroundColor(17170452);
 			goal.saveInBackground();
+			updateGoalList();
 			updateDollarsEarned();
-			
-			 if (row != null) {
-			        row.setBackgroundResource(android.R.color.holo_green_light);
-			    }
-			    row = view;
-			    view.setBackgroundResource(android.R.color.holo_green_light);
 		
 			boolean[] goalsCompleted = areAllGoalsCompleted();
 			boolean allGoalsCompleted = true;
@@ -211,9 +209,8 @@ public class GoalListActivity extends ListActivity {
 		}
 	
 	private boolean[] areAllGoalsCompleted() {
-		int count = (listView.getLastVisiblePosition() - listView.getFirstVisiblePosition() + 1);
-		boolean[] goalCompletion = new boolean[count];
-		for (int i = 0; i< count; i++) {
+		boolean[] goalCompletion = new boolean[mainAdapter.getCount()];
+		for (int i = 0; i< mainAdapter.getCount(); i++) {
 			if (mainAdapter.getItem(i).isCompleted()) {
 				goalCompletion[i] = true;
 			}

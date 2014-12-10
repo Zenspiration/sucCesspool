@@ -25,19 +25,19 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 			}
 		});
 	}
-/*
+	
 	@Override
 	public View getItemView(Goal goal, View v, ViewGroup parent) {
 	super.getItemView(goal, v, parent);
 		if (v == null) {
 			v = View.inflate(getContext(), R.layout.goal_list_item, null);
 		}
-
+		int color = goal.getInt("backgroundColor");
 		// Add the title view
 		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
 		titleTextView.setText(goal.getString("title"));
+		titleTextView.setBackgroundResource(color);
+		
 		return v;
 	}
-	*/
-
 }

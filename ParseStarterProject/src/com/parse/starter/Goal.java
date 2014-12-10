@@ -33,6 +33,10 @@ public class Goal extends ParseObject{
         put("title", title);
     }
     
+    public void setBackgroundColor (int color) {
+    	put("backgroundColor", color);
+    }
+    
     public void setAuthor(String author) {
         put("userId", author);
     }

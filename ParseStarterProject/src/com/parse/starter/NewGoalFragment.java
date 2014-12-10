@@ -61,8 +61,9 @@ public class NewGoalFragment extends Fragment {
 				goal.setTitle(goalName.getText().toString());
 				goal.setCompleted(false);
 				goal.setArchived(false);
+				goal.setBackgroundColor(17170446);
 
-				// Associate the meal with the current user
+				// Associate the goal with the current user
 				goal.setAuthor(ParseUser.getCurrentUser().getObjectId());
 				goal.saveInBackground(new SaveCallback() {
 			
