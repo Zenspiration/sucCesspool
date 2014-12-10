@@ -28,7 +28,6 @@ public final class R {
         public static final int action_refresh=0x7f08003d;
         public static final int buttonCreatePool=0x7f080018;
         public static final int buttonSetGoals=0x7f080010;
-<<<<<<< Updated upstream
         public static final int cancel_button=0x7f080038;
         public static final int create_pool_button=0x7f080023;
         public static final int dismiss=0x7f08003b;
@@ -36,16 +35,6 @@ public final class R {
         public static final int edittext_action_signup=0x7f080030;
         public static final int firstName_edit_text=0x7f08002b;
         public static final int fragmentContainer=0x7f080029;
-=======
-        public static final int cancel_button=0x7f080037;
-        public static final int create_pool_button=0x7f080022;
-        public static final int dismiss=0x7f080039;
-        public static final int edittext_action_login=0x7f08001f;
-        public static final int edittext_action_signup=0x7f08002f;
-        public static final int firstName_edit_text=0x7f08002a;
-        public static final int fragmentContainer=0x7f080028;
-        public static final int goal_list=0x7f08001a;
->>>>>>> Stashed changes
         public static final int goal_list_header=0x7f080019;
         public static final int goal_list_hint1=0x7f08001a;
         public static final int goal_list_hint2=0x7f08001b;
@@ -87,17 +76,10 @@ public final class R {
         public static final int textMoneyGained=0x7f08000d;
         public static final int textMoneyGained2=0x7f08000e;
         public static final int textMoneyGained3=0x7f080011;
-<<<<<<< Updated upstream
         public static final int textReview=0x7f080026;
         public static final int textview_1=0x7f080031;
         public static final int textview_2=0x7f080032;
         public static final int textview_3=0x7f080033;
-=======
-        public static final int textReview=0x7f080025;
-        public static final int textview_1=0x7f080030;
-        public static final int textview_2=0x7f080031;
-        public static final int textview_3=0x7f080032;
->>>>>>> Stashed changes
         public static final int timeRemaining=0x7f080007;
         public static final int username=0x7f08001e;
         public static final int username_edit_text=0x7f08002d;

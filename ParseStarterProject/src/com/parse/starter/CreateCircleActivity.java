@@ -44,7 +44,12 @@ AlarmManager am;*/
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_circle);       
+        setContentView(R.layout.activity_create_circle);  
+        
+        final Intent serviceIntent;
+        
+        serviceIntent = new Intent(CreateCircleActivity.this, MyService.class);
+
         
       /*  private void setup() {
             br = new BroadcastReceiver() {
@@ -113,6 +118,8 @@ AlarmManager am;*/
         		
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
+        		
+        		startService(serviceIntent);
         	}
         });    
      }

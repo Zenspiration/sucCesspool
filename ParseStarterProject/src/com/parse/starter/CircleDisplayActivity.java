@@ -79,6 +79,10 @@ import com.parse.ParseUser;
 			final TextView inputMoneyGained = (TextView) findViewById(R.id.inputMoneyGained);
 			final TextView inputDollarsCommitted2 = (TextView) findViewById(R.id.inputMoneyCommitted2);
 			
+			final Button btnStart = (Button) findViewById(R.id.buttonSetGoals);
+		    final Intent serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
+
+			
 			
 	    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");	    	
 	    	query.whereEqualTo("userId", currentUser.getObjectId());
@@ -106,7 +110,7 @@ import com.parse.ParseUser;
 		    	     	
 		    	     	//sets up a timer
 		    	     	
-		    	    	int millisecondsInCycle=cycleLength*24*60*60*1000;
+		    	    	/*int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
 		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
@@ -120,7 +124,17 @@ import com.parse.ParseUser;
 		    			       timeRemaining.setText("done!");
 		    			    }
 		    			  };
-		    	    	  aCounter.start();
+		    	    	  aCounter.start();*/
+		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
+
+		    	     	btnStart.setOnClickListener(new View.OnClickListener() {
+
+		    	            @Override
+		    	            public void onClick(View v) {
+		    	                // TODO Auto-generated method stub
+		    	                startService(serviceIntent);
+		    	            }
+		    	        });
 		    	    }
 	
 		    	}
