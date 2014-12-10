@@ -1,5 +1,9 @@
 package com.parse.starter;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -117,6 +121,12 @@ import com.parse.ParseUser;
 		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
 		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;*/
 		    			        timeRemaining.setText(MyService.hours+" hours "+MyService.minutes+" minutes "+MyService.seconds+" seconds");
+		    			        //Calendar rightNow= Calendar.getInstance();
+		    			        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		    			        int currentYear=Integer.parseInt(timeStamp.substring(0,4));
+		    			        int currentMonth=Integer.parseInt(timeStamp.substring(4,6));
+		    			        int currentDate=Integer.parseInt(timeStamp.substring(6,8));
+		    			        
 		    			   // }
 		    			    
 		    			   // public void onFinish() {
