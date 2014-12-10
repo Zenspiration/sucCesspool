@@ -1,6 +1,7 @@
 package com.parse.starter;
 
 import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import com.parse.ParseObject;
@@ -55,7 +56,29 @@ import android.app.ListActivity;
 import android.widget.Button;
 import android.view.View;
 
+//trying to get alarm to run in background
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
+
 public class MainActivity extends Activity {
+	
+	//trying to get alarm to run in background
+	final static private long ONE_SECOND = 1000;
+    final static private long TWENTY_SECONDS = ONE_SECOND * 20;
+    PendingIntent pi;
+    BroadcastReceiver br;
+    AlarmManager am;
+
 
 	@Override
 	    protected void onCreate(Bundle savedInstanceState) {

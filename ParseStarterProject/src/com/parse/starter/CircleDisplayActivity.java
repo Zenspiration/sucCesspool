@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.app.Service;
+import android.os.IBinder;
+import android.util.Log;
 
 
 import com.parse.ParseObject;
@@ -59,6 +62,7 @@ import com.parse.ParseUser;
 	        return v;			
 		}
 */
+	
 
 		
 		public void onCreate(Bundle savedInstanceState) 
@@ -101,6 +105,7 @@ import com.parse.ParseUser;
 		    		    
 		    	     	
 		    	     	//sets up a timer
+		    	     	
 		    	    	int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
@@ -116,10 +121,12 @@ import com.parse.ParseUser;
 		    			    }
 		    			  };
 		    	    	  aCounter.start();
-		    	    } 
+		    	    }
 	
 		    	}
+		    	
 	    	});
+	    	
 	
     Button buttonSetGoals = (Button)findViewById(R.id.buttonSetGoals);
     buttonSetGoals.setOnClickListener(new View.OnClickListener() {
