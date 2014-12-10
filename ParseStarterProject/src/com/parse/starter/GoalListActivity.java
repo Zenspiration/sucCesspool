@@ -34,7 +34,7 @@ public class GoalListActivity extends ListActivity {
 	ParseUser currentUser = ParseUser.getCurrentUser();
 	private CustomAdapter mainAdapter;
 	private ListView listView;
-
+	int dollarsCommitted;
 	
 	
 	@Override
@@ -47,12 +47,32 @@ public class GoalListActivity extends ListActivity {
 		listView = (ListView) findViewById(android.R.id.list);
 		listView.setAdapter(mainAdapter);
 		mainAdapter.loadObjects();
+		
+		 ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
+			query.whereEqualTo("userId", currentUser.getObjectId());
+			query.whereEqualTo("archive", false);
+			query.getFirstInBackground(new GetCallback<Circle>() {
+			public void done(Circle circle, ParseException e) {
+				// TODO Auto-generated method stub
+				   if (e == null) {
+			            dollarsCommitted = circle.getInt("dollars");
+				   }
+			
+			if(mainAdapter.getCount() == 0) {
+			TextView dollarsearned = (TextView) findViewById(R.id.goal_moneyearned);
+			dollarsearned.setText("You have not earned any money back yet");
+			}
+			else {
+				updateDollarsEarned();
+			}
+			
 		listView.setOnItemClickListener(new OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Goal goal = mainAdapter.getItem(position);
 			goal.setCompleted(true);
 			goal.saveInBackground();
-		
+			updateDollarsEarned();
+			
 			boolean[] goalsCompleted = areAllGoalsCompleted();
 			boolean allGoalsCompleted = true;
 			for (int i = 0; i < goalsCompleted.length; i++) {
@@ -67,6 +87,8 @@ public class GoalListActivity extends ListActivity {
 		}
 		});
 	}
+			});
+			}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_goal_list, menu);
@@ -96,6 +118,7 @@ public class GoalListActivity extends ListActivity {
 	private void updateGoalList() {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
+		updateDollarsEarned();
 	}
 
 	private void popUp() {
@@ -110,21 +133,21 @@ public class GoalListActivity extends ListActivity {
 	             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 	             
 	                  	         
-				             ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
+				             /*ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
 					 			query.whereEqualTo("userId", currentUser.getObjectId());
 					 			query.getFirstInBackground(new GetCallback<Circle>() {
 					 			public void done(Circle circle, ParseException e) {
 					 				// TODO Auto-generated method stub
 					 				   if (e == null) {
 					 			            int dollarsCommitted = circle.getInt("dollars");
+					 			            */
 					 			            String dollarsCommittedText = ("" + dollarsCommitted);
 					 			           TextView message = (TextView) popupView.findViewById (R.id.goals_completed);
  
 					 			            message.setText("Congratulations! You have completed your goals for this cycle and earned back $" + dollarsCommittedText);
 					 			        		  
-					 				   } 
-					 			}
-					 		});
+					 				   
+					 	
 				           
 				    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
 
@@ -134,6 +157,7 @@ public class GoalListActivity extends ListActivity {
 							updateGoalList();
 							ParseQuery<Circle> query = ParseQuery.getQuery("Circle");
 					 			query.whereEqualTo("userId", currentUser.getObjectId());
+					 			query.whereEqualTo("archive", false);
 					 			query.getFirstInBackground(new GetCallback<Circle>() {
 					 			public void done(Circle circle, ParseException e) {
 					 				// TODO Auto-generated method stub
@@ -164,6 +188,20 @@ public class GoalListActivity extends ListActivity {
 			}
 		
 
+	private void updateDollarsEarned() {
+		double dollarsPerGoal = (double)dollarsCommitted / (double)mainAdapter.getCount();
+		double dollarsEarnedBack = 0;
+		for (int i = 0; i< mainAdapter.getCount(); i++) {
+			if (mainAdapter.getItem(i).isCompleted()) {
+				dollarsEarnedBack = dollarsEarnedBack + dollarsPerGoal;
+			}
+		}
+		String dollarsEarnedBackText = String.format("%.2f", dollarsEarnedBack);
+		String dollarsPerGoalText = String.format("%.2f", dollarsPerGoal);
+		TextView dollarsearned = (TextView) findViewById(R.id.goal_moneyearned);
+		dollarsearned.setText("Each goal is worth $" + dollarsPerGoalText + "\nYou have earned back $" + dollarsEarnedBackText);
+		}
+	
 	private boolean[] areAllGoalsCompleted() {
 		int count = (listView.getLastVisiblePosition() - listView.getFirstVisiblePosition() + 1);
 		boolean[] goalCompletion = new boolean[count];

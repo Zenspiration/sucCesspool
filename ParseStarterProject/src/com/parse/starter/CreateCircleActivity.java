@@ -70,8 +70,9 @@ Circle circle = new Circle();
                 circle.setCharity(inputCharity.getText().toString());
                 //c1.setFirstUser(currentUser);
                 circle.setUserId(currentUser.getObjectId());
-                circle.saveInBackground();
                 circle.setArchived(false);
+                circle.saveInBackground();
+                
         		
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);

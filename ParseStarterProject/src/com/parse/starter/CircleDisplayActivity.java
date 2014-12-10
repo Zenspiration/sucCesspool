@@ -1,7 +1,6 @@
 package com.parse.starter;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.CountDownTimer;
 
@@ -78,7 +77,7 @@ import com.parse.ParseUser;
 			
 	    	ParseQuery<Circle> query = ParseQuery.getQuery("Circle");	    	
 	    	query.whereEqualTo("userId", currentUser.getObjectId());
-	    	//query.whereEqualTo("archive", false);
+	    	query.whereEqualTo("archive", false);
 	    	query.getFirstInBackground(new GetCallback<Circle>() 
 	    	{
 
