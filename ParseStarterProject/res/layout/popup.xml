@@ -3,16 +3,17 @@
     android:id="@+id/popup_element"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"> 
+    android:orientation="vertical"
+    android:background="#202020"> 
 
       <TextView
           android:id="@+id/goals_completed"
           android:layout_width="fill_parent"
-          android:layout_height="wrap_content" 
-          android:text="Congrats!"/>
+          android:layout_height="wrap_content"
+          android:padding="8dp" />
       
       <ImageView
-          android:contentDescription="Description"
+          android:contentDescription="@string/popup_description"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:src="@drawable/ic_launcher" />
@@ -20,6 +21,8 @@
           android:id="@+id/dismiss"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="@+string/create_new_circle" />
+          android:padding="8dp"
+          android:text="@+string/create_new_circle"
+          android:textAppearance="?android:attr/textAppearanceSmall" />
    
 </LinearLayout>

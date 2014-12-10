@@ -1,7 +1,6 @@
 package com.parse.starter;
 
 import java.util.List;
-
 import android.R.color;
 import android.app.Activity;
 import android.app.ListActivity;
