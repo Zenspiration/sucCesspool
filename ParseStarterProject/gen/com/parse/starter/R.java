@@ -24,13 +24,13 @@ public final class R {
     public static final class id {
         public static final int RelativeLayout1=0x7f080000;
         public static final int action_button=0x7f080021;
-        public static final int action_new=0x7f08003f;
-        public static final int action_refresh=0x7f08003e;
+        public static final int action_new=0x7f08003e;
+        public static final int action_refresh=0x7f08003d;
         public static final int buttonCreatePool=0x7f080018;
         public static final int buttonSetGoals=0x7f080010;
         public static final int cancel_button=0x7f080038;
         public static final int create_pool_button=0x7f080023;
-        public static final int dismiss=0x7f08003c;
+        public static final int dismiss=0x7f08003b;
         public static final int edittext_action_login=0x7f080020;
         public static final int edittext_action_signup=0x7f080030;
         public static final int firstName_edit_text=0x7f08002b;
@@ -40,7 +40,7 @@ public final class R {
         public static final int goal_list_hint2=0x7f08001b;
         public static final int goal_moneyearned=0x7f08001c;
         public static final int goal_name=0x7f080036;
-        public static final int goals_completed=0x7f08003b;
+        public static final int goals_completed=0x7f08003a;
         public static final int inputCharity=0x7f080005;
         public static final int inputCircleName=0x7f080002;
         public static final int inputCycleLength=0x7f08000a;
@@ -61,16 +61,15 @@ public final class R {
         public static final int lastName_edit_text=0x7f08002c;
         public static final int login_button=0x7f080035;
         public static final int login_form=0x7f08001d;
-        public static final int menu_title=0x7f08003d;
+        public static final int menu_title=0x7f08003c;
         public static final int password=0x7f08001f;
         public static final int password_again_edit_text=0x7f08002f;
         public static final int password_edit_text=0x7f08002e;
-        public static final int popup_element=0x7f08003a;
+        public static final int popup_element=0x7f080039;
         public static final int save_button=0x7f080037;
         public static final int set_goals_button=0x7f080025;
         public static final int signup_button=0x7f080034;
         public static final int signup_form=0x7f08002a;
-        public static final int text1=0x7f080039;
         public static final int textAchieve=0x7f080024;
         public static final int textCreate=0x7f080022;
         public static final int textMoneyCommitted=0x7f080016;
@@ -97,8 +96,7 @@ public final class R {
         public static final int activity_signup=0x7f030006;
         public static final int activity_welcome=0x7f030007;
         public static final int fragment_new_goal=0x7f030008;
-        public static final int goal_list_item=0x7f030009;
-        public static final int popup=0x7f03000a;
+        public static final int popup=0x7f030009;
     }
     public static final class menu {
         public static final int activity_goal_list=0x7f070000;
