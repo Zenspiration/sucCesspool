@@ -2,6 +2,7 @@ package com.parse.starter;
 
 import java.util.List;
 
+import android.R.color;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ListFragment;
@@ -35,6 +36,7 @@ public class GoalListActivity extends ListActivity {
 	private CustomAdapter mainAdapter;
 	private ListView listView;
 	int dollarsCommitted;
+	public View row;
 	
 	
 	@Override
@@ -73,6 +75,12 @@ public class GoalListActivity extends ListActivity {
 			goal.saveInBackground();
 			updateDollarsEarned();
 			
+			 if (row != null) {
+			        row.setBackgroundResource(android.R.color.holo_green_light);
+			    }
+			    row = view;
+			    view.setBackgroundResource(android.R.color.holo_green_light);
+		
 			boolean[] goalsCompleted = areAllGoalsCompleted();
 			boolean allGoalsCompleted = true;
 			for (int i = 0; i < goalsCompleted.length; i++) {
@@ -102,6 +110,7 @@ public class GoalListActivity extends ListActivity {
 
 		case R.id.action_refresh: {
 			updateGoalList();
+			updateDollarsEarned();
 			break;
 		}
 
@@ -118,7 +127,6 @@ public class GoalListActivity extends ListActivity {
 	private void updateGoalList() {
 		mainAdapter.loadObjects();
 		setListAdapter(mainAdapter);
-		updateDollarsEarned();
 	}
 
 	private void popUp() {
@@ -229,6 +237,7 @@ public class GoalListActivity extends ListActivity {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == Activity.RESULT_OK) {
 			updateGoalList();
+			updateDollarsEarned();
 		}
 	}
 

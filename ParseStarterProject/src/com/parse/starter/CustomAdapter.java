@@ -25,9 +25,10 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 			}
 		});
 	}
-
-	/*@Override
-	/*public View getItemView(Goal goal, View v, ViewGroup parent) {
+/*
+	@Override
+	public View getItemView(Goal goal, View v, ViewGroup parent) {
+	super.getItemView(goal, v, parent);
 		if (v == null) {
 			v = View.inflate(getContext(), R.layout.goal_list_item, null);
 		}
@@ -35,10 +36,8 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 		// Add the title view
 		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
 		titleTextView.setText(goal.getString("title"));
-
-		Button button = (Button) v.findViewById(R.id.timestamp);
-		timestampView.setText(goal.getCreatedAt().toString());
 		return v;
-	}*/
+	}
+	*/
 
 }

@@ -16,7 +16,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@+id/goal_list_header"
-       android:text="(Click '+' to add a new goal)"
+       android:text="@string/goal_add_hint"
        android:textAppearance="?android:attr/textAppearanceSmall" />
    
     <TextView
@@ -24,7 +24,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@+id/goal_list_hint1"
-       android:text="(Click on each goal when you complete it)"
+       android:text="@string/goal_complete_hint"
        android:textAppearance="?android:attr/textAppearanceSmall" />
     
     <ListView

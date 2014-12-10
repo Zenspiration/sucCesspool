@@ -77,27 +77,36 @@ AlarmManager am;*/
                 EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
                 EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
 
-        		//int cycleLength=0;
+                circle.setCircleName(inputCircleName.getText().toString());
+                circle.setCharity(inputCharity.getText().toString());
+                //c1.setFirstUser(currentUser);
+                circle.setUserId(currentUser.getObjectId());
+                circle.setArchived(false);
+                
+                //int cycleLength=0;
         		//double moneyCommitted=0;
-        		/*boolean validationError = false;
-        		//StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
+        		boolean validationError = false;
+        		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
 
-        		/*
+        		
                 //makes sure inputCycleLength is an integer
                 try{
-                	cycleLength = Integer.parseInt(inputCycleLength.getText().toString());	
+                	 circle.setCycleLength(Integer.parseInt(inputCycleLength.getText().toString()));
                 } catch (Exception e){
                 	validationError=true;
                 	validationErrorMessage.append(getString(R.string.cycle_length_error));
                 }
                 
-                //makes sure inputMoneyCommitted is an integer
                 try{
-                	moneyCommitted = Double.parseDouble(inputMoneyCommitted.getText().toString());
+                	 circle.setDollarsCommitted(Double.parseDouble(inputMoneyCommitted.getText().toString()));
                 } catch (Exception e){
                 	validationError=true;
                 	validationErrorMessage.append(getString(R.string.money_committed_error));
                 }
+                
+                
+                //makes sure inputMoneyCommitted is an integer
+                
                 
                 //displays validation error
                 if (validationError) {
@@ -105,15 +114,9 @@ AlarmManager am;*/
                         .show();
                     return;
                   }
-                */
-                
-                circle.setCircleName(inputCircleName.getText().toString());
-                circle.setDollarsCommitted(Double.parseDouble(inputMoneyCommitted.getText().toString()));
-                circle.setCycleLength(Integer.parseInt(inputCycleLength.getText().toString()));
-                circle.setCharity(inputCharity.getText().toString());
-                //c1.setFirstUser(currentUser);
-                circle.setUserId(currentUser.getObjectId());
-                circle.setArchived(false);
+                       
+               
+          
                 circle.saveInBackground();
                 
         		
