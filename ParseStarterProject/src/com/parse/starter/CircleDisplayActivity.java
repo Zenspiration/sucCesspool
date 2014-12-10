@@ -1,5 +1,9 @@
 package com.parse.starter;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -109,31 +113,37 @@ import com.parse.ParseUser;
 		    	     	
 		    	     	//sets up a timer
 		    	     	
-		    	    	/*int millisecondsInCycle=cycleLength*24*60*60*1000;
+		    	       /*int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
 		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
 		    			    	int hours= millisUntilFinishedInt/3600000;
 		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
-		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
-		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
-		    			    }
+		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;*/
+		    			        timeRemaining.setText(MyService.hours+" hours "+MyService.minutes+" minutes "+MyService.seconds+" seconds");
+		    			        //Calendar rightNow= Calendar.getInstance();
+		    			        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		    			        int currentYear=Integer.parseInt(timeStamp.substring(0,4));
+		    			        int currentMonth=Integer.parseInt(timeStamp.substring(4,6));
+		    			        int currentDate=Integer.parseInt(timeStamp.substring(6,8));
+		    			        
+		    			   // }
 		    			    
-		    			    public void onFinish() {
-		    			       timeRemaining.setText("done!");
-		    			    }
-		    			  };
-		    	    	  aCounter.start();*/
+		    			   // public void onFinish() {
+		    			     //  timeRemaining.setText("done!");
+		    			    //}
+		    			  //};
+		    	    	  //aCounter.start();
 		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
 
-		    	     	btnStart.setOnClickListener(new View.OnClickListener() {
+		    	     	//btnStart.setOnClickListener(new View.OnClickListener() {
 
-		    	            @Override
-		    	            public void onClick(View v) {
+		    	            //@Override
+		    	          //  public void onClick(View v) {
 		    	                // TODO Auto-generated method stub
-		    	                startService(serviceIntent);
-		    	            }
-		    	        });
+		    	                
+		    	            //}
+		    	        //});
 		    	    }
 	
 		    	}
@@ -146,7 +156,7 @@ import com.parse.ParseUser;
     	public void onClick(View v)
     	{
     		Intent intent = new Intent(CircleDisplayActivity.this, GoalListActivity.class);
-    		startActivity(intent);
+    		startService(serviceIntent);
     	}
 	});
 	}

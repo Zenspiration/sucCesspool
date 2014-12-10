@@ -123,7 +123,7 @@ AlarmManager am;*/
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
         		
-        		startService(serviceIntent);
+        		//startService(serviceIntent);
         	}
         });    
      }

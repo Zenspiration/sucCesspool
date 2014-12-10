@@ -22,3 +22,5 @@ ParseStarterProject/gen/com/parse/starter/R.java
 ParseStarterProject/bin/classes/com/parse/starter/WelcomeActivity.class
 
 ParseStarterProject/src/com/parse/starter/CircleDisplayActivity.java
+
+*.class
