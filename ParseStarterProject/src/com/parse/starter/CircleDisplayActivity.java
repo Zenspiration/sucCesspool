@@ -136,14 +136,14 @@ import com.parse.ParseUser;
 		    	    	  //aCounter.start();
 		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
 
-		    	     	btnStart.setOnClickListener(new View.OnClickListener() {
+		    	     	//btnStart.setOnClickListener(new View.OnClickListener() {
 
-		    	            @Override
-		    	            public void onClick(View v) {
+		    	            //@Override
+		    	          //  public void onClick(View v) {
 		    	                // TODO Auto-generated method stub
-		    	                startService(serviceIntent);
-		    	            }
-		    	        });
+		    	                
+		    	            //}
+		    	        //});
 		    	    }
 	
 		    	}
@@ -156,7 +156,7 @@ import com.parse.ParseUser;
     	public void onClick(View v)
     	{
     		Intent intent = new Intent(CircleDisplayActivity.this, GoalListActivity.class);
-    		startActivity(intent);
+    		startService(serviceIntent);
     	}
 	});
 	}
