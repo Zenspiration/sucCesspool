@@ -60,11 +60,15 @@ public int onStartCommand(Intent intent, int flags, int startId) {
 }
 private class MyCounter extends CountDownTimer{
 
+	int millisecondsInCycle=cycleLength*24*60*60*1000;
+	long millisInFuture=(long)millisecondsInCycle;
+	long countDownInterval=1000;
+	
     public MyCounter(long millisInFuture, long countDownInterval) {
         super(millisInFuture, countDownInterval);
     }
     
-    int millisecondsInCycle=cycleLength*24*60*60*1000;
+    
     //new CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
    
 
