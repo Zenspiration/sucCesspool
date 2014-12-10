@@ -2,6 +2,7 @@ package com.parse.starter;
 
 //import android.support.v7.app.ActionBarActivity;
 import com.parse.ParseObject;
+
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -13,19 +14,61 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 
+//trying to get alarm to run in background
+/*import android.os.Bundle;
+import android.os.SystemClock;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Toast;*/
+
 public class CreateCircleActivity extends Activity {
 
 ParseUser currentUser = ParseUser.getCurrentUser();
 Circle circle = new Circle();
 
+//trying to get alarm to run in background
+/*final static private long ONE_SECOND = 1000;
+final static private long TWENTY_SECONDS = ONE_SECOND * 20;
+PendingIntent pi;
+BroadcastReceiver br;
+AlarmManager am;*/
+
+
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_circle);        
+        setContentView(R.layout.activity_create_circle);  
         
+        final Intent serviceIntent;
         
+        serviceIntent = new Intent(CreateCircleActivity.this, MyService.class);
+
+        
+      /*  private void setup() {
+            br = new BroadcastReceiver() {
+                   @Override
+                   public void onReceive(Context c, Intent i) {
+                          Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
+                          }
+                   };
+            registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey") );
+            pi = PendingIntent.getBroadcast( this, 0, new Intent("com.authorwjf.wakeywakey"),
+      0 );
+            am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
+      }*/
+        
+       // setup();
         Button buttonCreatePool = (Button)findViewById(R.id.buttonCreatePool);
-        buttonCreatePool.setOnClickListener(new View.OnClickListener() 
+        buttonCreatePool.setOnClickListener(new View.OnClickListener()
+        
+
         {
         	public void onClick(View v)
         	{
@@ -76,6 +119,8 @@ Circle circle = new Circle();
         		
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
+        		
+        		startService(serviceIntent);
         	}
         });    
      }
