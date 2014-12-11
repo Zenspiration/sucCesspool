@@ -4,13 +4,11 @@
 
 package com.parse.starter;
 
-<<<<<<< HEAD
 //import android.support.v7.app.ActionBarActivity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-=======
->>>>>>> FETCH_HEAD
+
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -51,27 +49,19 @@ PendingIntent pi;
 BroadcastReceiver br;
 AlarmManager am;*/
 
-<<<<<<< HEAD
 public static int launchYear;
 public static int launchMonth;
 public static int launchDay;
 public static long launchTime;
 
 
-=======
->>>>>>> FETCH_HEAD
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_circle);  //sets layout of the page to activity_create_circle.xml
         
         final Intent serviceIntent;
-<<<<<<< HEAD
-        
-        
-        
-=======
->>>>>>> FETCH_HEAD
+
         serviceIntent = new Intent(CreateCircleActivity.this, MyService.class);
         
         //creates a "Create Pool" button that saves user input to Circle class and send user to "View Your Pool" page

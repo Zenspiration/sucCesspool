@@ -92,7 +92,7 @@ public class LoginActivity extends Activity {
       return;
     }
 
-    ]
+    
     final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
     dialog.setMessage(getString(R.string.progress_login));
     dialog.show();
@@ -105,16 +105,16 @@ public class LoginActivity extends Activity {
           // Toast/pop-up screen to report the error 
           Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         } else {
-<<<<<<< HEAD
+
           // Start an intent for the dispatch activity
           String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	      logInYear=Integer.parseInt(timeStamp.substring(0,4));
 	      logInMonth=Integer.parseInt(timeStamp.substring(4,6));
 	      logInDay=Integer.parseInt(timeStamp.substring(6,8));
 	      logInTime= Calendar.getInstance().getTimeInMillis();
-=======
+	      
           // Intent to connect the user to MainAcitivty after they log in
->>>>>>> FETCH_HEAD
+
           Intent intent = new Intent(LoginActivity.this, MainActivity.class);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);

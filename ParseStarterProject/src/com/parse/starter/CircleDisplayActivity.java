@@ -35,7 +35,6 @@ import android.os.CountDownTimer;
 	{ 
 		//displays the pool created by the current logged in user
 		ParseUser currentUser = ParseUser.getCurrentUser();
-<<<<<<< HEAD
 		long timePassedInMillis;
 		/*
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
@@ -67,9 +66,6 @@ import android.os.CountDownTimer;
 	
 
 		
-=======
-
->>>>>>> FETCH_HEAD
 		public void onCreate(Bundle savedInstanceState) 
 		{
 			super.onCreate(savedInstanceState);
@@ -108,7 +104,6 @@ import android.os.CountDownTimer;
 		    	     	inputDollarsCommitted.setText("" + dollarsCommitted);
 		    	     	inputCharity.setText(charity);		    		    
 		    	     	
-<<<<<<< HEAD
 		    	     	//sets up a timer
 		    	    
 		    	
@@ -144,10 +139,8 @@ import android.os.CountDownTimer;
 		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 		    	     		
 		    	     	}
-=======
-		    	     //sets up a timer
->>>>>>> FETCH_HEAD
 		    	     	
+		    	     //sets up a timer
 		    	       
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
