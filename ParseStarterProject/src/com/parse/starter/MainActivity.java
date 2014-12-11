@@ -85,6 +85,7 @@ public class MainActivity extends Activity {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.activity_main);
 	        
+	        //sets up a button that takes the user to CircleDisplayActivity when clicked
 	        Button viewPoolsButton = (Button)findViewById(R.id.view_pools_button);
 	        viewPoolsButton.setOnClickListener(new View.OnClickListener() 
 	        {
@@ -94,9 +95,10 @@ public class MainActivity extends Activity {
 	        		startActivity(intent);
 	        	}
 	        });
-	        
+
+	        //sets up a button that takes the user to CreateCircleActivity when clicked
 	        Button createPoolButton = (Button)findViewById(R.id.create_pool_button);
-        createPoolButton.setOnClickListener(new View.OnClickListener() 
+	        createPoolButton.setOnClickListener(new View.OnClickListener() 
 	        {
 	        	public void onClick(View v)
         	{
@@ -105,6 +107,7 @@ public class MainActivity extends Activity {
 	        	}
 	        });
 
+	        //sets up a button that takes the user to NewGoalActivity when clicked
 	        Button setGoalsButton = (Button)findViewById(R.id.set_goals_button);
 	        setGoalsButton.setOnClickListener(new View.OnClickListener() 
 	        {
@@ -114,7 +117,8 @@ public class MainActivity extends Activity {
 	        		startActivity(intent);
 	        	}
 	        });
-	        
+
+	        //sets up a button that takes the user to GoalListActivity when clicked
 	        Button viewGoalsButton = (Button)findViewById(R.id.view_goals_button);
 	        viewGoalsButton.setOnClickListener(new View.OnClickListener() 
 	        {
@@ -127,7 +131,8 @@ public class MainActivity extends Activity {
 	}
 }
 
-
+//the code below is an alternate version of MainActivity that sends the user to CreateCircleActivity if there is no circle under the current user yet
+	//and sends the user to CircleDisplayActivity if there already exists a circle under the current user
 
 //package com.parse.starter;
 //
@@ -187,16 +192,6 @@ public class MainActivity extends Activity {
 //	        		startActivity(intent);
 //	        	}
 //	        });	
-//}
-//
-//	
-//	public static void storeGoalObject(){
-//		ParseObject goal = new ParseObject("GameScore");
-//		goal.put("poolCreater", 1337);
-//		goal.put("poolMembers", "Sean Plott");
-//		goal.put("amountEachMemberContributes", false);
-//		goal.put("amountLeftForTheWeek", 8);
-//		goal.saveInBackground();
 //	}
 //}
 //
