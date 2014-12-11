@@ -35,37 +35,9 @@ import android.os.CountDownTimer;
 	{ 
 		//displays the pool created by the current logged in user
 		ParseUser currentUser = ParseUser.getCurrentUser();
-		long timePassedInMillis;
-		/*
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
-		String inputCircleName = Circle.getString("circleName");
-		double inputMoneyCommitted = Circle.getDouble("dollarsCommitted");
-		String inputCycleLength = Circle.getString("cycleLength");
-		String inputCharity = Circle.getString("charity");
-		*/
-	
-		/*query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-		  public void done(ParseObject object, ParseException e) {
-		    if (e == null) {
-@@ -46,9 +42,8 @@ import com.parse.ParseObject;
-		    }
-		  }
-		}); */
-		
-		
-				
-/*		public View getItemView(Circle circle, View v, ViewGroup parent) 
-		{
-			super.getItemView(circle, v, parent);
-			
-@@ -66,12 +61,45 @@ import com.parse.ParseObject;
-	        
-	        return v;			
-		}
-*/
-	
 
-		
+		long timePassedInMillis;
+			
 		public void onCreate(Bundle savedInstanceState) 
 		{
 			super.onCreate(savedInstanceState);
@@ -105,9 +77,7 @@ import android.os.CountDownTimer;
 		    	     	inputCharity.setText(charity);		    		    
 		    	     	
 		    	     	//sets up a timer
-		    	    
-		    	
-		    	
+		    	     	
 		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	     	
 		    	     	boolean pastTime=true;
@@ -146,15 +116,13 @@ import android.os.CountDownTimer;
 		    	       
 		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
-//		    			    	millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    			    	//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
 		    			    	int hours= millisUntilFinishedInt/3600000;
 		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
 		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
 		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
-		    			        //Calendar rightNow= Calendar.getInstance();
-		    			        
-		    			        
+		    			        //Calendar rightNow= Calendar.getInstance();        
 		    			   }
 		    			    
 		    			  public void onFinish() {
