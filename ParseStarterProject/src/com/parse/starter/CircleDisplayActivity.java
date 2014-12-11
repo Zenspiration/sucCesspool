@@ -132,7 +132,7 @@ import android.os.CountDownTimer;
 						   }
 						 };
 				    	 aCounter.start();
-				    	 inputCharity.setText(("" + millisecondsInCycle) + " " + ("" + logInTimeCopy) + " " + ("" + launchTimeCopy) + " " + ("" + timePassedInMillis));
+				 
 		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
 
 		    	     	//btnStart.setOnClickListener(new View.OnClickListener() {
