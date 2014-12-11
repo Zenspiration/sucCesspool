@@ -85,16 +85,17 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_circle_display=0x7f030000;
-        public static final int activity_create_circle=0x7f030001;
-        public static final int activity_goal_list=0x7f030002;
-        public static final int activity_login=0x7f030003;
-        public static final int activity_main=0x7f030004;
-        public static final int activity_new_goal=0x7f030005;
-        public static final int activity_signup=0x7f030006;
-        public static final int activity_welcome=0x7f030007;
-        public static final int fragment_new_goal=0x7f030008;
-        public static final int goal_list_item=0x7f030009;
-        public static final int popup=0x7f03000a;
+        public static final int activity_circle_expired=0x7f030001;
+        public static final int activity_create_circle=0x7f030002;
+        public static final int activity_goal_list=0x7f030003;
+        public static final int activity_login=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_new_goal=0x7f030006;
+        public static final int activity_signup=0x7f030007;
+        public static final int activity_welcome=0x7f030008;
+        public static final int fragment_new_goal=0x7f030009;
+        public static final int goal_list_item=0x7f03000a;
+        public static final int popup=0x7f03000b;
     }
     public static final class menu {
         public static final int activity_goal_list=0x7f070000;
