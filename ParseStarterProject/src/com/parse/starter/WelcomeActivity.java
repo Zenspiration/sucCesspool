@@ -1,3 +1,6 @@
+//This page makes the first page that the user sees, where they can sign up or login
+//We set up buttons & intents that send the user to SignUpActivity.java and LoginAcitivity.java 
+
 package com.parse.starter;
 
 import com.parse.ParseUser;
@@ -8,9 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-/**
- * Activity which displays a registration screen to the user.
- */
 public class WelcomeActivity extends Activity {
 
   @Override
@@ -18,7 +18,7 @@ public class WelcomeActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_welcome);
     
-    	// Log in button click handler
+    	// Click button to log in, intent sends user to LoginActivity.class 
         Button loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new OnClickListener() {
           public void onClick(View v) {
@@ -27,7 +27,7 @@ public class WelcomeActivity extends Activity {
           }
         });
 
-        // Sign up button click handler
+        // Click button to sign up, intent sends user to SignUpActivity.class
         Button signupButton = (Button) findViewById(R.id.signup_button);
         signupButton.setOnClickListener(new OnClickListener() {
           public void onClick(View v) {
