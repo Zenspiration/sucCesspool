@@ -42,6 +42,7 @@ public class GoalListActivity extends ListActivity {
 //We need to use the amount of money the user committed to this cycle in a few methods,
 	//so we set it up as a global variable 
 	int dollarsCommitted;
+	Circle currentCircle;
 
 //Most of the code from here to "(end)" was taken from the MealSpotting tutorial, but we add in a setContentView
 //line because we wanted to customize the layout of our goal list. (Added a header at the top and a 
@@ -71,6 +72,7 @@ public class GoalListActivity extends ListActivity {
 				// TODO Auto-generated method stub
 				   if (e == null) {
 			            dollarsCommitted = circle.getInt("dollars");
+			            currentCircle = circle;
 				   }
 /*we added in this code to ensure that no error is thrown when the user first loads 
 *GoalListActivity and hasn't set up any goals. When mainAdapter.getCount() == 0 our
@@ -233,6 +235,9 @@ public class GoalListActivity extends ListActivity {
 		String dollarsPerGoalText = String.format("%.2f", dollarsPerGoal);
 		TextView dollarsearned = (TextView) findViewById(R.id.goal_moneyearned);
 		dollarsearned.setText("You have $" + dollarsCommitted + " in your pool \nEach goal is worth $" + dollarsPerGoalText + "\nYou have earned back $" + dollarsEarnedBackText);
+		
+		currentCircle.setDollarsEarned(dollarsEarnedBack);
+		currentCircle.saveInBackground();	
 	}
 
 /*We had to set up a separate method to update the dollars earned after goal add because somehow no matter how 
@@ -252,7 +257,10 @@ public class GoalListActivity extends ListActivity {
 		String dollarsPerGoalText = String.format("%.2f", dollarsPerGoal);
 		TextView dollarsearned = (TextView) findViewById(R.id.goal_moneyearned);
 		dollarsearned.setText("You have $" + dollarsCommitted + " in your pool \nEach goal is worth $" + dollarsPerGoalText + "\nYou have earned back $" + dollarsEarnedBackText);
-		}
+		
+		currentCircle.setDollarsEarned(dollarsEarnedBack);
+		currentCircle.saveInBackground();	
+	}
 
 	private boolean[] areAllGoalsCompleted() {
 		boolean[] goalCompletion = new boolean[mainAdapter.getCount()];
@@ -264,7 +272,7 @@ public class GoalListActivity extends ListActivity {
 		return goalCompletion;
 	}
 	
-	private void archiveCompletedGoals() {
+	public void archiveCompletedGoals() {
 		for (int i=0; i < mainAdapter.getCount(); i++) {
 			mainAdapter.getItem(i).setArchived(true);
 			mainAdapter.getItem(i).saveInBackground();

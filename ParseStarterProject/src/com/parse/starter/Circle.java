@@ -79,6 +79,12 @@ import com.parse.ParseUser;
 	      public void setDollarsCommitted(double dollars){
 	    	  put("dollars", dollars);
 	      }
+	      public double getDollarsEarned(){
+	    	  return getDouble("dollarsEarned");
+	      }
+	      public void setDollarsEarned(double dollars){
+	    	  put("dollarsEarned", dollars);
+	      }
 	      public String getUserId(){
 	    	  return getString("userId");
 	      }
