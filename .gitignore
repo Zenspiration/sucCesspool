@@ -24,3 +24,5 @@ ParseStarterProject/bin/classes/com/parse/starter/WelcomeActivity.class
 ParseStarterProject/src/com/parse/starter/CircleDisplayActivity.java
 
 *.class
+
+ParseStarterProject/bin/classes/com/parse/starter/CreateCircleActivity$1.class
