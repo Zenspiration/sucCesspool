@@ -11,8 +11,6 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
-import android.app.Service;
-import android.os.IBinder;
 import android.util.Log;
 
 import com.parse.ParseObject;
@@ -23,13 +21,9 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.os.CountDownTimer;
 
 	public class CircleDisplayActivity extends Activity
 	{ 

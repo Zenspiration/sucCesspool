@@ -1,161 +1,175 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/messageFrag2_2"
+       
+     <TextView
+        android:id="@+id/messageStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inputMoneyCommitted"
-        android:text="@string/messageFrag2_2"
+        android:layout_marginLeft="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/messageStart"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+     
+      <TextView
+        android:id="@+id/inputCircleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_alignBaseline="@+id/messageStart"
+        android:layout_toRightOf="@+id/messageStart"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+     <TextView
+        android:id="@+id/messageFrag1_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/messageStart"
+        android:layout_alignLeft="@+id/messageStart"
+        android:text="@string/messageFrag1_1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+      <TextView
+          android:id="@+id/inputCycleLength"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/messageStart"
+          android:layout_marginLeft="8dp"
+          android:layout_marginRight="8dp"
+          android:layout_alignBaseline="@+id/messageFrag1_1"
+          android:layout_toRightOf="@+id/messageFrag1_1"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+      <TextView
+        android:id="@+id/messageFrag1_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonCreatePool"
+        android:layout_below="@+id/messageStart"
+        android:layout_toRightOf="@+id/inputCycleLength"
+        android:text="@string/messageFrag1_2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+        <TextView
         android:id="@+id/messageFrag2_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/messageFrag1_2"
-        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@+id/messageFrag1_1"
+        android:layout_below="@+id/messageFrag1_1"
+        android:layout_marginTop="24dp"
         android:text="@string/messageFrag2_1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
+     <TextView
         android:id="@+id/inputMoneyCommitted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/messageFrag2_1"
-        android:layout_alignBottom="@+id/messageFrag2_1"
-        android:layout_toRightOf="@+id/messageFrag2_1"
-        android:text=""
+        android:layout_toRightOf="@+id/messageStart"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+     
+     <TextView
+        android:id="@+id/messageFrag2_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/messageFrag1_1"
+        android:layout_below="@+id/messageFrag2_1"
+        android:text="@string/messageFrag2_2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+       <TextView
         android:id="@+id/messageFrag3_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/messageFrag2_2"
-        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@+id/messageFrag1_1"
+        android:layout_below="@+id/messageFrag2_1"
+        android:layout_marginTop="48dp"
         android:text="@string/messageFrag3_1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+     
+     <TextView
+        android:id="@+id/inputDollarsEarned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/messageFrag3_1"
+        android:layout_alignBottom="@+id/messageFrag3_1"
+        android:layout_toRightOf="@+id/messageFrag3_1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
     <TextView
         android:id="@+id/messageFrag4_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/messageFrag3_1"
         android:layout_below="@+id/messageFrag3_1"
-        android:layout_marginTop="25dp"
-        android:layout_toLeftOf="@+id/inputMoneyCommitted"
+        android:layout_marginTop="26dp"
         android:text="@string/messageFrag4_1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+    
+     <TextView
         android:id="@+id/inputDollarsDonated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/messageFrag4_1"
-        android:layout_alignBottom="@+id/messageFrag4_1"
         android:layout_toRightOf="@+id/messageFrag4_1"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/inputCircleName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/messageStart"
-        android:layout_alignBottom="@+id/messageStart"
-        android:layout_alignRight="@+id/buttonCreatePool"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/inputCycleLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/messageFrag1_1"
-        android:layout_alignBottom="@+id/messageFrag1_1"
-        android:layout_toRightOf="@+id/messageFrag1_1"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/inputDollarsEarned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/messageFrag4_1"
-        android:layout_toRightOf="@+id/messageFrag3_1"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/inputCharity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/messageFrag4_2"
-        android:layout_alignBottom="@+id/messageFrag4_2"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/messageFrag4_2"
-        android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/messageFrag4_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/messageFrag4_1"
+        android:layout_alignLeft="@+id/messageFrag4_1"
         android:text="@string/messageFrag4_2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    
     <TextView
-        android:id="@+id/messageStart"
+        android:id="@+id/inputCharity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/messageStart"
+        android:layout_alignBaseline="@+id/messageFrag4_2"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/messageFrag4_2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/messageFrag1_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/messageFrag2_1"
-        android:layout_alignParentLeft="true"
-        android:text="@string/messageFrag1_1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/messageFrag1_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/messageFrag3_1"
-        android:layout_below="@+id/messageStart"
-        android:text="@string/messageFrag1_2"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+  <TextView
         android:id="@+id/tryAgain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inputCharity"
-        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/messageFrag4_1"
+        android:layout_marginTop="60dp"
         android:text="@string/tryAgain"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        android:textAppearance="?android:attr/textAppearanceMedium" />  
+    
+   <ImageView
+         android:id="@+id/pool"
+         android:contentDescription="@string/popup_description"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="14dp"
+         android:src="@drawable/ic_launcher" 
+         android:layout_centerHorizontal="true"
+         android:layout_below="@+id/tryAgain"/>
+   
     <Button
         android:id="@+id/buttonCreatePool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tryAgain"
+        android:layout_below="@+id/pool"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="14dp"
         android:text="@string/create_new_pool_button" />
+
+   
+
+  
+
+   
+
+   
+   
 
 </RelativeLayout>

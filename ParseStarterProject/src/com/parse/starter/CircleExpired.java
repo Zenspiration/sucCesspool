@@ -3,29 +3,30 @@ package com.parse.starter;
 import java.util.List;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.CountDownTimer;
-import android.app.Service;
-import android.os.IBinder;
-import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 
+/*CircleExpired activity runs when the countdown timer reaches 0 
+* This means the user has not completed all the goals in his/her pool 
+by the end of the cycle 
 
+* It displays how much money the user earned during the cycle, and how much money 
+he/she has to send to his chosen charity 
+
+*It also sets up a button for the user to try again and create a new pool
+
+*/
 public class CircleExpired extends Activity
 
 {
@@ -69,17 +70,17 @@ public class CircleExpired extends Activity
 	    	public void done(Circle circle, ParseException e) 
 	    	{
 	    		if (e == null) 
-	    		{
+	    		{	
 	    			currentCircle = circle;
 	    			//gets pool name, cycle length, money committed, and charity name from the Circle class
 	    			String circleName = currentCircle.getString("name");
     	            int cycleLength = currentCircle.getInt("cycleLength");
     	            int dollarsCommitted = currentCircle.getInt("dollars");
     	            double dollarsEarned = currentCircle.getDouble("dollarsEarned");
-    	            String dollarsEarnedRounded = String.format("%.2f", dollarsEarned);
+    	            String dollarsEarnedRounded = String.format("%.2f", dollarsEarned); //rounds money earned to 2 decimal places
 	    	        String charity = currentCircle.getString("charity");
 	    	        double dollarsDonated = (double)dollarsCommitted - dollarsEarned;
-	    	        String dollarsDonatedRounded = String.format("%.2f", dollarsDonated);
+	    	        String dollarsDonatedRounded = String.format("%.2f", dollarsDonated);//rounds money donated to 2 decimal places
 	    	        
 	    	        //sets textview of relevant variables in activity_circle_display.xml to what was pulled from the Circle class
 	    	     	CircleName.setText(circleName);
@@ -93,7 +94,7 @@ public class CircleExpired extends Activity
 	    	}
     	});
 
-	    		//creates the "Create a New Pool" button that links to the front-end layout for the button in activity_circle_expired
+	    		//creates the "Dive Into A New Pool" button that links to the front-end layout for the button in activity_circle_expired
 	    	    Button buttonCreatePool = (Button)findViewById(R.id.buttonCreatePool);
 	    	    //when button is clicked, sets up an intent that takes the user to CreateCircleActivity
 	    	    buttonCreatePool.setOnClickListener(new View.OnClickListener() {
