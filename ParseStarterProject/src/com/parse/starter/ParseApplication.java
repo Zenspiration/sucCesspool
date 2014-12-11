@@ -15,14 +15,12 @@ public class ParseApplication extends Application {
   public void onCreate() {
     super.onCreate();
 
-    // Add your initialization code here
+    // Initialization code for our Parse account
     Parse.initialize(this, "0v803PGEiJuMloiMs2UAU1SGC56oEqhhV3VrM7Zg", "WCHokdalpkPU9qPmZyoSXTC71KaRSTjHJtmyiMqq");
 
 
     ParseUser.enableAutomaticUser();
     ParseACL defaultACL = new ParseACL();
-      
-    // If you would like all objects to be private by default, remove this line.
     defaultACL.setPublicReadAccess(true);
     
     ParseACL.setDefaultACL(defaultACL, true);

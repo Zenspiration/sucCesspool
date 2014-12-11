@@ -2,36 +2,24 @@ package com.parse.starter;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.GetDataCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 /*
- * This fragment manages the data entry for a
- * new Meal object. It lets the user input a 
- * meal name, give it a rating, and take a 
- * photo. If there is already a photo associated
- * with this meal, it will be displayed in the 
- * preview at the bottom, which is a standalone
- * ParseImageView.
- */
+This fragment manages the data entry for a
+ new goal. Code was mostly adapted directly from Parse's MealSpotting Tutorial 
+*/
 public class NewGoalFragment extends Fragment {
 
 	private Button saveButton;
@@ -56,14 +44,15 @@ public class NewGoalFragment extends Fragment {
 			public void onClick(View v) {
 				Goal goal = ((NewGoalActivity) getActivity()).getCurrentGoal();
 
-				// When the user clicks "Save," upload the meal to Parse
-				// Add data to the meal object:
+				// When the user clicks "Save," goal is uploaded to Parse with the following info:
 				goal.setTitle(goalName.getText().toString());
 				goal.setCompleted(false);
 				goal.setArchived(false);
+				//Default background color is set to black (Constant for which is 17170446). When user clicks
+				//goal to complete it, the background color will be changed to green [see GoalListActivity.java]
 				goal.setBackgroundColor(17170446);
 
-				// Associate the goal with the current user
+				// This code associates the goal with the current user
 				goal.setAuthor(ParseUser.getCurrentUser().getObjectId());
 				goal.saveInBackground(new SaveCallback() {
 			

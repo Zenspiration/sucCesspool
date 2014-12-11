@@ -4,18 +4,15 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.*;
 import android.view.*;
-import android.view.View.OnClickListener;
 import android.widget.*;
-import com.parse.ParseACL;
-import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
 
+/*
+ * This code launches NewGoalFragment, the window the user uses to enter new goals. 
+ * Code was mostly adapted directly from Parse's MealSpotting Tutorial
+ */
 
 public class NewGoalActivity extends Activity {
 	  private Goal goal;

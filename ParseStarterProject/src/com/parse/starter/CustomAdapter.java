@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.view.ViewGroup;
 import android.content.Context;
 
+//Custom ParseQueryAdapter called by the ListView in GoalListActivity
+//Code adapted mostly from ParseQueryAdapter tutorial 
 public class CustomAdapter extends ParseQueryAdapter<Goal> {
 
 static ParseUser currentUser = ParseUser.getCurrentUser();
@@ -25,13 +27,17 @@ static ParseUser currentUser = ParseUser.getCurrentUser();
 			}
 		});
 	}
-	
+
+//Overrides view of each row item in the ListView. We set this up primarily to 
+//change the background color of each goal permanently on click 
 	@Override
 	public View getItemView(Goal goal, View v, ViewGroup parent) {
 	super.getItemView(goal, v, parent);
 		if (v == null) {
 			v = View.inflate(getContext(), R.layout.goal_list_item, null);
 		}
+		//calls the goal's backgroundColor as saved in Parse. It's set to black upon
+		//initial saving of the goal, and green after the user clicks it to register completion
 		int color = goal.getInt("backgroundColor");
 		// Add the title view
 		TextView titleTextView = (TextView) v.findViewById(R.id.text1);
