@@ -1,4 +1,6 @@
-//This page 
+//This page is where the user logs in 
+//We use booleans & if statements to make sure that they do not enter blank submissions for username or password 
+//We use toast to pop up with an error message 
 
 package com.parse.starter;
 
@@ -19,9 +21,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-/**
- * Activity which displays a login screen to the user, offering registration as well.
- */
+
 public class LoginActivity extends Activity {
   // front end 
   private EditText usernameEditText;
