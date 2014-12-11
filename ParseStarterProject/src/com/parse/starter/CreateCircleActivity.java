@@ -71,32 +71,21 @@ public static long launchTime;
         {
         	public void onClick(View v)
         	{
-    			//learned how to connect front-end and back-end of user input text boxes from Android Development Tutorial
         		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
                 EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
                 EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
                 EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
 
-<<<<<<< HEAD
                 //c1.setFirstUser(currentUser);
-=======
-                //sends pool name, cycle length, money committed, and charity name to the Circle class
-                circle.setCircleName(inputCircleName.getText().toString());
-                circle.setCharity(inputCharity.getText().toString());
->>>>>>> FETCH_HEAD
                 circle.setUserId(currentUser.getObjectId());
                 circle.setArchived(false);
-
+                
+                //int cycleLength=0;
+        		//double moneyCommitted=0;
         		boolean validationError = false;
         		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro2));
-        		
-        		//gets launch time
-        		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		        launchYear=Integer.parseInt(timeStamp.substring(0,4));
-		        launchMonth=Integer.parseInt(timeStamp.substring(4,6));
-		        launchDay=Integer.parseInt(timeStamp.substring(6,8));
-		        launchTime= Calendar.getInstance().getTimeInMillis();
 
+        		
                 //makes sure inputCycleLength is an integer
                 try{
                 	 circle.setCycleLength(Integer.parseInt(inputCycleLength.getText().toString()));
@@ -105,11 +94,7 @@ public static long launchTime;
                 	validationErrorMessage.append(getString(R.string.cycle_length_error));
                 }
                 
-<<<<<<< HEAD
                 //makes sure inputMoneyCommitted is an integer
-=======
-                //makes sure inputMoneyCommitted is a double
->>>>>>> FETCH_HEAD
                 try{
                 	 circle.setDollarsCommitted(Double.parseDouble(inputMoneyCommitted.getText().toString()));
                 } catch (Exception e){
@@ -140,7 +125,6 @@ public static long launchTime;
                 }
                 circle.setCircleName(inputCircleName.getText().toString());
                 
-<<<<<<< HEAD
                 //makes sure inputCharity is a real string
                 String charity = new String(inputCharity.getText().toString());
                 if (charity.length() == 0)
@@ -164,41 +148,25 @@ public static long launchTime;
                 }
                 circle.setCharity(inputCharity.getText().toString());
                 
-=======
->>>>>>> FETCH_HEAD
                 //displays validation error
                 if (validationError) {
                     Toast.makeText(CreateCircleActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
                         .show();
                     return;
-<<<<<<< HEAD
                 }
 
                 circle.saveInBackground();
                 
-=======
-                  }
-                
-                //learned how to save user input to Circle class from Parse Android tutorial
-                circle.saveInBackground();
-                
-        		//when "Create Pool" button is clicked, sets up an intent that takes the user to CircleDisplayActivity
->>>>>>> FETCH_HEAD
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
         		
         		//startService(serviceIntent);
-<<<<<<< HEAD
         	}  
      });
     
-=======
-        	}
-        });    
-     }  
->>>>>>> FETCH_HEAD
    }
 }
+
 
 //deleted this functionality:
 	//when user clicks "Click me to calculate money per day", app takes user input for inputCycle Length and inputMoneyCommitted
