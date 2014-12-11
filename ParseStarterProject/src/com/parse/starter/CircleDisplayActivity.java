@@ -117,7 +117,9 @@ import android.os.CountDownTimer;
 		    	     	int launchMonthCopy=CreateCircleActivity.launchMonth;
 		    	     	int logInDayCopy=LoginActivity.logInDay;
 		    	     	int launchDayCopy=CreateCircleActivity.launchDay;
-		    	     	long logInTimeCopy=LoginActivity.logInTime;
+		    	     	
+		    	     	//long logInTimeCopy=LoginActivity.logInTime;
+		    	     	long logInTimeCopy=Calendar.getInstance().getTimeInMillis();
 		    	     	long launchTimeCopy=CreateCircleActivity.launchTime;
 		    	     	long differenceInMillis;
 		    	     	if (logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy==logInDayCopy){
