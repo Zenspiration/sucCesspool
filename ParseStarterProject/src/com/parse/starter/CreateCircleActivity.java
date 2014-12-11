@@ -82,6 +82,21 @@ public static long launchTime;
                 
         		boolean validationError = false;
         		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro2));
+<<<<<<< HEAD
+        		
+        		//gets launch time
+        		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		        launchYear=Integer.parseInt(timeStamp.substring(0,4));
+		        launchMonth=Integer.parseInt(timeStamp.substring(4,6));
+		        launchDay=Integer.parseInt(timeStamp.substring(6,8));
+		        launchTime= Calendar.getInstance().getTimeInMillis();
+		        
+		        circle.put("launchTime", launchTime);
+		        circle.put("launchYear", launchYear);
+		        circle.put("launchMonth",launchMonth);
+		        circle.put("launchDay", launchDay);
+=======
+>>>>>>> FETCH_HEAD
 
                 //the following section of code sends pool name, cycle length, money committed, and charity name to the Circle class
         		
