@@ -77,8 +77,6 @@ AlarmManager am;*/
                 EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
                 EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
 
-                circle.setCircleName(inputCircleName.getText().toString());
-                circle.setCharity(inputCharity.getText().toString());
                 //c1.setFirstUser(currentUser);
                 circle.setUserId(currentUser.getObjectId());
                 circle.setArchived(false);
@@ -97,38 +95,78 @@ AlarmManager am;*/
                 	validationErrorMessage.append(getString(R.string.cycle_length_error));
                 }
                 
+                //makes sure inputMoneyCommitted is an integer
                 try{
                 	 circle.setDollarsCommitted(Double.parseDouble(inputMoneyCommitted.getText().toString()));
                 } catch (Exception e){
                 	validationError=true;
                 	validationErrorMessage.append(getString(R.string.money_committed_error));
                 }
+                      
+                //makes sure inputcircleName is a real string
+                String name = new String(inputCircleName.getText().toString());
+                if (name.length() == 0)
+                {
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.circle_name_error));
+                }
+                else if (name.length() != 0 && name.charAt(0) == (' '))
+                {
+                	char firstCharacter = name.charAt(0);
+                	while (firstCharacter == ' ' && name.length() > 0)
+                	{
+                		name = name.substring(1,name.length());
+                	}
+                	if (name.length() == 0)
+                    {
+                    	validationError=true;
+                    	validationErrorMessage.append(getString(R.string.circle_name_error));
+                    }
+                	circle.setCircleName(inputCircleName.getText().toString());
+                }
+                circle.setCircleName(inputCircleName.getText().toString());
                 
-                
-                //makes sure inputMoneyCommitted is an integer
-                
+                //makes sure inputCharity is a real string
+                String charity = new String(inputCharity.getText().toString());
+                if (charity.length() == 0)
+                {
+                	validationError=true;
+                	validationErrorMessage.append(getString(R.string.charity_input_error));
+                }
+                else if (charity.length() != 0 && charity.charAt(0) == (' '))
+                {
+                	char firstCharacter = charity.charAt(0);
+                	while (firstCharacter == ' ' && charity.length() > 0)
+                	{
+                		charity = charity.substring(1,charity.length());
+                	}
+                	if (charity.length() == 0)
+                	{
+                		validationError=true;
+                    	validationErrorMessage.append(getString(R.string.charity_input_error));
+                	}
+                	circle.setCharity(inputCharity.getText().toString());
+                }
+                circle.setCharity(inputCharity.getText().toString());
                 
                 //displays validation error
                 if (validationError) {
                     Toast.makeText(CreateCircleActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
                         .show();
                     return;
-                  }
-                       
-               
-          
+                }
+
                 circle.saveInBackground();
                 
-        		
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
         		
         		//startService(serviceIntent);
-        	}
-        });    
-     }
+        	}  
+     });
     
    }
+}
 
 
 
