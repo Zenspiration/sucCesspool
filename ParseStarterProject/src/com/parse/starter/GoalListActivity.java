@@ -272,7 +272,7 @@ public class GoalListActivity extends ListActivity {
 		return goalCompletion;
 	}
 	
-	public void archiveCompletedGoals() {
+	private void archiveCompletedGoals() {
 		for (int i=0; i < mainAdapter.getCount(); i++) {
 			mainAdapter.getItem(i).setArchived(true);
 			mainAdapter.getItem(i).saveInBackground();

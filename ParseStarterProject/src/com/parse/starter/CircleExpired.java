@@ -94,13 +94,13 @@ public class CircleExpired extends Activity
     	});
 
 	    		//creates the "Create a New Pool" button that links to the front-end layout for the button in activity_circle_expired
-	    	    Button buttonCreatePool = (Button)findViewById(R.id.buttonSetGoals);
+	    	    Button buttonCreatePool = (Button)findViewById(R.id.buttonCreatePool);
 	    	    //when button is clicked, sets up an intent that takes the user to CreateCircleActivity
 	    	    buttonCreatePool.setOnClickListener(new View.OnClickListener() {
 	    		    	public void onClick(View v)
 	    		    	{
 	    		    		currentCircle.setArchived(true);
-	   
+	    		    		currentCircle.saveInBackground();
 	    		    		Intent intent = new Intent(CircleExpired.this, CreateCircleActivity.class);
 	    		    		startActivity(intent);
 	    		    	}
