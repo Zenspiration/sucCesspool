@@ -1,10 +1,13 @@
+//This page is where the user logs in 
+//We use booleans & if statements to make sure that they do not enter blank submissions for username or password 
+//We use toast to pop up with an error message 
+
 package com.parse.starter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import android.app.Activity;
-
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,11 +24,9 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-/**
- * Activity which displays a login screen to the user, offering registration as well.
- */
+
 public class LoginActivity extends Activity {
-  // UI references.
+  // front end 
   private EditText usernameEditText;
   private EditText passwordEditText;
   public static int logInYear;
@@ -67,7 +68,8 @@ public class LoginActivity extends Activity {
     String username = usernameEditText.getText().toString().trim();
     String password = passwordEditText.getText().toString().trim();
 
-    // Validate the log in data
+    // Make sure there are no erorrs (blank submissions) when logging in 
+    // Use booleans & if statements to see if there is a blank statement, then save it as validationError = true
     boolean validationError = false;
     StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
     if (username.length() == 0) {
@@ -83,14 +85,14 @@ public class LoginActivity extends Activity {
     }
     validationErrorMessage.append(getString(R.string.error_end));
 
-    // If there is a validation error, display the error
+    // If validationError = true, then report the error w/ a Toast/pop-up screen 
     if (validationError) {
       Toast.makeText(LoginActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
           .show();
       return;
     }
 
-    // Set up a progress dialog
+    ]
     final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
     dialog.setMessage(getString(R.string.progress_login));
     dialog.show();
@@ -100,15 +102,19 @@ public class LoginActivity extends Activity {
       public void done(ParseUser user, ParseException e) {
         dialog.dismiss();
         if (e != null) {
-          // Show the error message
+          // Toast/pop-up screen to report the error 
           Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         } else {
+<<<<<<< HEAD
           // Start an intent for the dispatch activity
           String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	      logInYear=Integer.parseInt(timeStamp.substring(0,4));
 	      logInMonth=Integer.parseInt(timeStamp.substring(4,6));
 	      logInDay=Integer.parseInt(timeStamp.substring(6,8));
 	      logInTime= Calendar.getInstance().getTimeInMillis();
+=======
+          // Intent to connect the user to MainAcitivty after they log in
+>>>>>>> FETCH_HEAD
           Intent intent = new Intent(LoginActivity.this, MainActivity.class);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);

@@ -11,6 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cpsc112yale.successpoolapp.MainActivity" >
 
+<!--  creates layout for CircleDisplayActivity -->    
     <TextView
         android:id="@+id/labelCircleName"
         android:layout_width="wrap_content"
@@ -20,6 +21,7 @@
         android:text="@string/labelCircleName"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+<!-- displays pool name -->
     <TextView
         android:id="@+id/inputCircleName"
         android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
         android:text="@string/labelCommitment3"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+<!-- displays charity name -->
     <TextView
         android:id="@+id/inputCharity"
         android:layout_width="wrap_content"
@@ -45,6 +48,7 @@
         android:layout_below="@+id/labelCharity"
         android:text="TextView" />
 
+<!-- displays time remaining -->
     <TextView
         android:id="@+id/timeRemaining"
         android:layout_width="wrap_content"
@@ -54,6 +58,7 @@
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+<!-- displays amount of money committed at the beginning of the cycle -->
     <TextView
         android:id="@+id/inputMoneyCommitted"
         android:layout_width="wrap_content"
@@ -63,6 +68,7 @@
         android:layout_toRightOf="@+id/labelCommitment2"
         android:text="Textview" />
 
+<!-- displays number of days in the cycle -->
     <TextView
         android:id="@+id/inputCycleLength"
         android:layout_width="wrap_content"
@@ -118,17 +124,8 @@
         android:layout_below="@+id/labelCommitment1"
         android:text="@string/labelCommitment2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textMoneyGained"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/timeRemaining"
-        android:layout_below="@+id/timeRemaining"
-        android:layout_marginTop="24dp"
-        android:text="@string/textMoneyGained"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    
+ <!-- displays money gained back so far (this feature has been moved to GoalListActivity)   
     <TextView
         android:id="@+id/textMoneyGained2"
         android:layout_width="wrap_content"
@@ -137,24 +134,16 @@
         android:layout_below="@+id/textMoneyGained"
         android:text="@string/textMoneyGained2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+    
+    
+ 	<TextView
         android:id="@+id/inputMoneyGained"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textMoneyGained2"
         android:layout_alignLeft="@+id/inputMoneyCommitted"
         android:text="TextView" />
-
-    <Button
-        android:id="@+id/buttonSetGoals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textMoneyGained3"
-        android:layout_marginTop="24dp"
-        android:layout_toRightOf="@+id/timeRemaining"
-        android:text="@string/buttonSetGoals" />
-
+ 
     <TextView
         android:id="@+id/textMoneyGained3"
         android:layout_width="wrap_content"
@@ -172,5 +161,25 @@
         android:layout_alignBottom="@+id/textMoneyGained3"
         android:layout_toRightOf="@+id/textMoneyGained3"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textMoneyGained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/timeRemaining"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:text="@string/textMoneyGained"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+-->
+
+    <Button
+        android:id="@+id/buttonSetGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeRemaining"
+        android:layout_marginTop="23dp"
+        android:layout_toRightOf="@+id/inputCharity"
+        android:text="@string/buttonSetGoals" />
 
 </RelativeLayout>
