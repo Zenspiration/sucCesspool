@@ -49,9 +49,8 @@ import android.os.CountDownTimer;
 			final TextView inputDollarsCommitted = (TextView)findViewById(R.id.inputMoneyCommitted);
 			final TextView inputCharity = (TextView)findViewById(R.id.inputCharity);
 			final TextView timeRemaining= (TextView) findViewById(R.id.timeRemaining);
-			
-			final Button btnStart = (Button) findViewById(R.id.buttonSetGoals);
-		    final Intent serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
+		
+		   
 			
 		    
 		    //learned how to set up a ParseQuery from Parse Android tutorial
@@ -81,7 +80,9 @@ import android.os.CountDownTimer;
 		    	    
 		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
 				     	
-				     	boolean pastTime=true;
+		    	     	//declares integers that represent log in time and the launch time (time the circle was created)
+		    	     	//launch time saved in Parse cloud, log in time from Login Activity
+		    	     	//Recall that launch time values were put into the cloud in Create Circle Activity
 				     	int logInYearCopy=LoginActivity.logInYear;
 				     	int launchYearCopy=circle.getInt("launchYear");
 				     	int logInMonthCopy=LoginActivity.logInMonth;
@@ -89,26 +90,25 @@ import android.os.CountDownTimer;
 				     	int logInDayCopy=LoginActivity.logInDay;
 				     	int launchDayCopy=circle.getInt("launchDay");
 				     	long logInTimeCopy=Calendar.getInstance().getTimeInMillis();
-				     	//long logInTimeCopy=LoginActivity.logInTime;
 				     	long launchTimeCopy=circle.getLong("launchTime");
-				     	long differenceInMillis;
+				     	
+				     	//CountDownTimer does not run when the application closes, so we must update the time until the cycle is over
+				     	//each time the application is opened. This is achieved by using the data above to find the time passed
+				     	//between the time the circle was created and the time the circle page is opened.
 				     	if (logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy==logInDayCopy){
 				     		timePassedInMillis = logInTimeCopy - launchTimeCopy;
 				     		
 				     	}
 				     	if(logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy<logInDayCopy){
 				     		timePassedInMillis = (logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
-				     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 				     		
 				     	}
 				     	if(logInYearCopy==launchYearCopy&&launchMonthCopy<logInDayCopy){
 				     		timePassedInMillis=(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
-				     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 				     		
 				     	}
 				     	if(logInYearCopy<launchYearCopy){
 				     		timePassedInMillis=(logInYearCopy-launchYearCopy)*365*24*3600*1000+(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
-				     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 				     		
 				     	}
 				     	
@@ -116,14 +116,13 @@ import android.os.CountDownTimer;
 				       
 				    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis, 1000) {
 						    public void onTick(long millisUntilFinished) {
-//						    	millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+						    	// casts long as an int
 						    	int millisUntilFinishedInt= (int) millisUntilFinished;
+						    	//sets values up for the display
 						    	int hours= millisUntilFinishedInt/3600000;
 						    	int minutes= (millisUntilFinishedInt%3600000)/60000;
 						    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
 						        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
-						        //Calendar rightNow= Calendar.getInstance();
-						        
 						        
 						   }
 						    
@@ -151,7 +150,6 @@ import android.os.CountDownTimer;
 	    	{
 	    		Intent intent = new Intent(CircleDisplayActivity.this, GoalListActivity.class);
 	    		startActivity(intent);
-	    		startService(serviceIntent);
 	    	}
 		});
 	}

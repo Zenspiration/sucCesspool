@@ -60,9 +60,6 @@ public static long launchTime;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_circle);  //sets layout of the page to activity_create_circle.xml
         
-        final Intent serviceIntent;
-
-        serviceIntent = new Intent(CreateCircleActivity.this, MyService.class);
         
         //creates a "Create Pool" button that saves user input to Circle class and send user to "View Your Pool" page
         Button buttonCreatePool = (Button)findViewById(R.id.buttonCreatePool);
