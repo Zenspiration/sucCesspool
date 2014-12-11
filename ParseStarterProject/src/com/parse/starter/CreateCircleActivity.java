@@ -92,6 +92,11 @@ public static long launchTime;
 		        launchMonth=Integer.parseInt(timeStamp.substring(4,6));
 		        launchDay=Integer.parseInt(timeStamp.substring(6,8));
 		        launchTime= Calendar.getInstance().getTimeInMillis();
+		        
+		        circle.put("launchTime", launchTime);
+		        circle.put("launchYear", launchYear);
+		        circle.put("launchMonth",launchMonth);
+		        circle.put("launchDay", launchDay);
 
                 //makes sure inputCycleLength is an integer
                 try{
