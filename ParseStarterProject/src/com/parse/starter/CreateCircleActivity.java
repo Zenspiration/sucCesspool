@@ -71,20 +71,19 @@ public static long launchTime;
         {
         	public void onClick(View v)
         	{
+    			//learned how to connect front-end and back-end of user input text boxes from Android Development Tutorial
         		EditText inputCircleName = (EditText)findViewById(R.id.inputCircleName);
                 EditText inputCycleLength = (EditText)findViewById(R.id.inputCycleLength);
                 EditText inputMoneyCommitted = (EditText)findViewById(R.id.inputMoneyCommitted);
                 EditText inputCharity = (EditText)findViewById(R.id.inputCharity);
 
-                //c1.setFirstUser(currentUser);
                 circle.setUserId(currentUser.getObjectId());
                 circle.setArchived(false);
                 
-                //int cycleLength=0;
-        		//double moneyCommitted=0;
         		boolean validationError = false;
         		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro2));
 
+                //the following section of code sends pool name, cycle length, money committed, and charity name to the Circle class
         		
                 //makes sure inputCycleLength is an integer
                 try{
@@ -154,9 +153,11 @@ public static long launchTime;
                         .show();
                     return;
                 }
-
+                
+                //learned how to save user input to Circle class from Parse Android tutorial
                 circle.saveInBackground();
                 
+                //when "Create Pool" button is clicked, sets up an intent that takes the user to CircleDisplayActivity
         	    Intent intent = new Intent(CreateCircleActivity.this, CircleDisplayActivity.class);
         		startActivity(intent);
         		
