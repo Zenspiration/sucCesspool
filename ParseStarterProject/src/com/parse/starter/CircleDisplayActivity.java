@@ -114,7 +114,7 @@ import android.os.CountDownTimer;
 				     	
 				     //sets up a timer
 				       
-				    	CountDownTimer aCounter = new CountDownTimer(10000, 1000) {
+				    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis, 1000) {
 						    public void onTick(long millisUntilFinished) {
 						    	// casts long as an int
 						    	int millisUntilFinishedInt= (int) millisUntilFinished;
