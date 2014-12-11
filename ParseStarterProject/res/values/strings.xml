@@ -60,6 +60,7 @@
     
     <string name="circle_name">Give your pool a name:</string>
     <string name="circle_name_text">Choose your name</string>
+    <string name="circle_name_error">Please enter a valid pool name.</string>
     
     <string name="cycle_length">How many days will your pool be active?</string>
     <string name="cycle_length_number">Choose your cycle</string>
@@ -75,6 +76,7 @@
     
     <string name="choose_charity">If goals remain uncompleted at the end of this cycle, some of your money committed will go towards a charity of your choice. Where will your money go?</string>
     <string name="choose_charity_input">Choose your charity</string>
+    <string name="charity_input_error">Please try again.</string>
     
     <string name="buttonCreatePool">Create Pool</string>
     

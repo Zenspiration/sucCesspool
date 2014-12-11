@@ -35,37 +35,9 @@ import android.os.CountDownTimer;
 	{ 
 		//displays the pool created by the current logged in user
 		ParseUser currentUser = ParseUser.getCurrentUser();
-		long timePassedInMillis;
-		/*
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
-		String inputCircleName = Circle.getString("circleName");
-		double inputMoneyCommitted = Circle.getDouble("dollarsCommitted");
-		String inputCycleLength = Circle.getString("cycleLength");
-		String inputCharity = Circle.getString("charity");
-		*/
-	
-		/*query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-		  public void done(ParseObject object, ParseException e) {
-		    if (e == null) {
-@@ -46,9 +42,8 @@ import com.parse.ParseObject;
-		    }
-		  }
-		}); */
-		
-		
-				
-/*		public View getItemView(Circle circle, View v, ViewGroup parent) 
-		{
-			super.getItemView(circle, v, parent);
-			
-@@ -66,12 +61,45 @@ import com.parse.ParseObject;
-	        
-	        return v;			
-		}
-*/
-	
 
-		
+		long timePassedInMillis;
+			
 		public void onCreate(Bundle savedInstanceState) 
 		{
 			super.onCreate(savedInstanceState);
@@ -109,6 +81,7 @@ import android.os.CountDownTimer;
 		    	     	inputCharity.setText(charity);		    		    
 		    	     	
 		    	     	//sets up a timer
+<<<<<<< HEAD
 		    	    
 		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
 				     	
@@ -165,6 +138,61 @@ import android.os.CountDownTimer;
 				    	 aCounter.start();
 			    	
 				    	 inputCharity.setText(("" + timePassedInMillis) + " " + ("" + logInTimeCopy) + " " + ("" + launchTimeCopy));
+=======
+		    	     	
+		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
+		    	     	
+		    	     	boolean pastTime=true;
+		    	     	int logInYearCopy=LoginActivity.logInYear;
+		    	     	int launchYearCopy=CreateCircleActivity.launchYear;
+		    	     	int logInMonthCopy=LoginActivity.logInMonth;
+		    	     	int launchMonthCopy=CreateCircleActivity.launchMonth;
+		    	     	int logInDayCopy=LoginActivity.logInDay;
+		    	     	int launchDayCopy=CreateCircleActivity.launchDay;
+		    	     	
+		    	     	//long logInTimeCopy=LoginActivity.logInTime;
+		    	     	long logInTimeCopy=Calendar.getInstance().getTimeInMillis();
+		    	     	long launchTimeCopy=CreateCircleActivity.launchTime;
+		    	     	long differenceInMillis;
+		    	     	if (logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy==logInDayCopy){
+		    	     		timePassedInMillis = logInTimeCopy - launchTimeCopy;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy<logInDayCopy){
+		    	     		timePassedInMillis = (logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy==launchYearCopy&&launchMonthCopy<logInDayCopy){
+		    	     		timePassedInMillis=(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy<launchYearCopy){
+		    	     		timePassedInMillis=(logInYearCopy-launchYearCopy)*365*24*3600*1000+(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	
+		    	     //sets up a timer
+		    	       
+		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis , 1000) {
+		    			    public void onTick(long millisUntilFinished) {
+		    			    	//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
+		    			    	int hours= millisUntilFinishedInt/3600000;
+		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
+		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
+		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
+		    			        //Calendar rightNow= Calendar.getInstance();        
+		    			   }
+		    			    
+		    			  public void onFinish() {
+		    			     timeRemaining.setText("done!");
+		    			   }
+		    			 };
+		    	    	 aCounter.start();
+>>>>>>> FETCH_HEAD
 		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
 
 		    	     	//btnStart.setOnClickListener(new View.OnClickListener() {
