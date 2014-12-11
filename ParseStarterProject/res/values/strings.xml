@@ -106,4 +106,17 @@
     <string name="textMoneyGained3">out of a total of $</string>  
     <string name="buttonSetGoals">View Your Goals</string>    
     
+    <!--  Strings from CircleExpired -->
+    <string name="messageStart">Your circle </string>
+    <string name="messageFrag1_1">of </string>
+    <string name="messageFrag1_2"> days has expired. </string>
+    <string name="messageFrag2_1">You committed $</string>
+    <string name="messageFrag2_2"> at the beginning of this cycle. </string>
+    <string name="messageFrag3_1">You have earned back $</string>
+    <string name="messageFrag4_1">You will donate $ </string>
+    <string name="messageFrag4_2">to </string>
+    <string name="tryAgain">Thanks for using SuccessPool! Dive into a new pool by clicking the button below.</string>
+    <string name="create_new_pool_button">Create a New Pool</string>
+    
+    
 </resources>
