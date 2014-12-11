@@ -1,3 +1,8 @@
+//This is a class called "Circle" 
+//This class stores all user input from CreateCircleActivity.java, and keeps it in this class 
+//The purpose is so other pages can call this information from Circle.java in the future
+//Ex: CircleDisplayActivity.java calls "cycleLength" from this file 
+
 package com.parse.starter;
 
 import com.parse.ParseClassName;
@@ -5,12 +10,12 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+//Initiate the class, "Circle"
 @ParseClassName("Circle")
 	  public class Circle extends ParseObject {
 	   
 	 //pulling each of the items & setting them: Circles Title, First User, Goals, (Second User, Third User...).  
 	      public Circle() {
-	          // A default constructor is required.
 	      }
 	   
 	      public boolean isArchived(){
