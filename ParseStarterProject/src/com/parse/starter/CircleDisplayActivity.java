@@ -74,35 +74,37 @@ import android.widget.TextView;
 		    	    
 		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
 				     	
-		    	     	//declares integers that represent log in time and the launch time (time the circle was created)
-		    	     	//launch time saved in Parse cloud, log in time from Login Activity
+		    	     	//declares integers that represent current time (time user opened circle display page)
+		    	     	//and the launch time (time the circle was created)
+		    	     	//launch time was saved in and then queried from Parse
 		    	     	//Recall that launch time values were put into the cloud in Create Circle Activity
-				     	int logInYearCopy=LoginActivity.logInYear;
+		    	     	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+				     	int currentYear=Integer.parseInt(timeStamp.substring(0,4));
 				     	int launchYearCopy=circle.getInt("launchYear");
-				     	int logInMonthCopy=LoginActivity.logInMonth;
+				     	int currentMonth=Integer.parseInt(timeStamp.substring(4,6));
 				     	int launchMonthCopy=circle.getInt("launchMonth");
-				     	int logInDayCopy=LoginActivity.logInDay;
+				     	int currentDay=Integer.parseInt(timeStamp.substring(6,8));
 				     	int launchDayCopy=circle.getInt("launchDay");
-				     	long logInTimeCopy=Calendar.getInstance().getTimeInMillis();
+				     	long currentTime=Calendar.getInstance().getTimeInMillis();
 				     	long launchTimeCopy=circle.getLong("launchTime");
 				     	
 				     	//CountDownTimer does not run when the application closes, so we must update the time until the cycle is over
 				     	//each time the application is opened. This is achieved by using the data above to find the time passed
 				     	//between the time the circle was created and the time the circle page is opened.
-				     	if (logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy==logInDayCopy){
-				     		timePassedInMillis = logInTimeCopy - launchTimeCopy;
+				     	if (currentYear==launchYearCopy&&currentMonth==launchMonthCopy&&launchDayCopy==currentDay){
+				     		timePassedInMillis = currentTime - launchTimeCopy;
 				     		
 				     	}
-				     	if(logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy<logInDayCopy){
-				     		timePassedInMillis = (logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+				     	if(currentYear==launchYearCopy&&currentMonth==launchMonthCopy&&launchDayCopy<currentDay){
+				     		timePassedInMillis = (currentDay-launchDayCopy)*24*3600*1000+(currentTime-launchTimeCopy);
 				     		
 				     	}
-				     	if(logInYearCopy==launchYearCopy&&launchMonthCopy<logInDayCopy){
-				     		timePassedInMillis=(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+				     	if(currentYear==launchYearCopy&&launchMonthCopy<currentDay){
+				     		timePassedInMillis=(currentMonth-launchMonthCopy)*30*24*3600*1000+(currentDay-launchDayCopy)*24*3600*1000+(currentTime-launchTimeCopy);
 				     		
 				     	}
-				     	if(logInYearCopy<launchYearCopy){
-				     		timePassedInMillis=(logInYearCopy-launchYearCopy)*365*24*3600*1000+(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+				     	if(currentYear<launchYearCopy){
+				     		timePassedInMillis=(currentYear-launchYearCopy)*365*24*3600*1000+(currentMonth-launchMonthCopy)*30*24*3600*1000+(currentDay-launchDayCopy)*24*3600*1000+(currentTime-launchTimeCopy);
 				     		
 				     	}
 				     	
