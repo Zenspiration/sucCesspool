@@ -1,5 +1,8 @@
 package com.parse.starter;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import android.app.Activity;
 
 
@@ -25,6 +28,10 @@ public class LoginActivity extends Activity {
   // UI references.
   private EditText usernameEditText;
   private EditText passwordEditText;
+  public static int logInYear;
+  public static int logInMonth;
+  public static int logInDay;
+  public static long logInTime;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +104,11 @@ public class LoginActivity extends Activity {
           Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         } else {
           // Start an intent for the dispatch activity
+          String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	      logInYear=Integer.parseInt(timeStamp.substring(0,4));
+	      logInMonth=Integer.parseInt(timeStamp.substring(4,6));
+	      logInDay=Integer.parseInt(timeStamp.substring(6,8));
+	      logInTime= Calendar.getInstance().getTimeInMillis();
           Intent intent = new Intent(LoginActivity.this, MainActivity.class);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);

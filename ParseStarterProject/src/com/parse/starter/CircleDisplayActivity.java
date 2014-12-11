@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.os.CountDownTimer;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -37,7 +38,7 @@ import com.parse.ParseUser;
 	public class CircleDisplayActivity extends Activity
 	{ 
 		ParseUser currentUser = ParseUser.getCurrentUser();
-
+		long timePassedInMillis;
 		/*
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Circle");
 		String inputCircleName = Circle.getString("circleName");
@@ -112,28 +113,60 @@ import com.parse.ParseUser;
 		    		    
 		    	     	
 		    	     	//sets up a timer
+		    	    
+		    	
+		    	
+		    	     	final int millisecondsInCycle=cycleLength*24*60*60*1000;
 		    	     	
-		    	       /*int millisecondsInCycle=cycleLength*24*60*60*1000;
-		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle , 1000) {
+		    	     	boolean pastTime=true;
+		    	     	int logInYearCopy=LoginActivity.logInYear;
+		    	     	int launchYearCopy=CreateCircleActivity.launchYear;
+		    	     	int logInMonthCopy=LoginActivity.logInMonth;
+		    	     	int launchMonthCopy=CreateCircleActivity.launchMonth;
+		    	     	int logInDayCopy=LoginActivity.logInDay;
+		    	     	int launchDayCopy=CreateCircleActivity.launchDay;
+		    	     	long logInTimeCopy=LoginActivity.logInTime;
+		    	     	long launchTimeCopy=CreateCircleActivity.launchTime;
+		    	     	long differenceInMillis;
+		    	     	if (logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy==logInDayCopy){
+		    	     		timePassedInMillis = logInTimeCopy - launchTimeCopy;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy==launchYearCopy&&logInMonthCopy==launchMonthCopy&&launchDayCopy<logInDayCopy){
+		    	     		timePassedInMillis = (logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy==launchYearCopy&&launchMonthCopy<logInDayCopy){
+		    	     		timePassedInMillis=(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	if(logInYearCopy<launchYearCopy){
+		    	     		timePassedInMillis=(logInYearCopy-launchYearCopy)*365*24*3600*1000+(logInMonthCopy-launchMonthCopy)*30*24*3600*1000+(logInDayCopy-launchDayCopy)*24*3600*1000+(logInTimeCopy-launchTimeCopy);
+		    	     		//millisUntilFinished=millisecondsInCycle-timePassedInMillis;
+		    	     		
+		    	     	}
+		    	     	
+		    	       
+		    	    	CountDownTimer aCounter = new CountDownTimer(millisecondsInCycle-timePassedInMillis , 1000) {
 		    			    public void onTick(long millisUntilFinished) {
+//		    			    	millisUntilFinished=millisecondsInCycle-timePassedInMillis;
 		    			    	int millisUntilFinishedInt= (int) millisUntilFinished;
 		    			    	int hours= millisUntilFinishedInt/3600000;
 		    			    	int minutes= (millisUntilFinishedInt%3600000)/60000;
-		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;*/
-		    			        timeRemaining.setText(MyService.hours+" hours "+MyService.minutes+" minutes "+MyService.seconds+" seconds");
+		    			    	int seconds= ((millisUntilFinishedInt%3600000)%60000)/1000;
+		    			        timeRemaining.setText(hours+" hours "+minutes+" minutes "+seconds+" seconds");
 		    			        //Calendar rightNow= Calendar.getInstance();
-		    			        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		    			        int currentYear=Integer.parseInt(timeStamp.substring(0,4));
-		    			        int currentMonth=Integer.parseInt(timeStamp.substring(4,6));
-		    			        int currentDate=Integer.parseInt(timeStamp.substring(6,8));
 		    			        
-		    			   // }
+		    			        
+		    			   }
 		    			    
-		    			   // public void onFinish() {
-		    			     //  timeRemaining.setText("done!");
-		    			    //}
-		    			  //};
-		    	    	  //aCounter.start();
+		    			  public void onFinish() {
+		    			     timeRemaining.setText("done!");
+		    			   }
+		    			 };
+		    	    	 aCounter.start();
 		    	     	//serviceIntent = new Intent(CircleDisplayActivity.this, MyService.class);
 
 		    	     	//btnStart.setOnClickListener(new View.OnClickListener() {

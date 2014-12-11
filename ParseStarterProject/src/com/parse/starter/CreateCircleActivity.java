@@ -1,6 +1,9 @@
 package com.parse.starter;
 
 //import android.support.v7.app.ActionBarActivity;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import com.parse.ParseObject;
 
 import com.parse.ParseUser;
@@ -40,6 +43,11 @@ PendingIntent pi;
 BroadcastReceiver br;
 AlarmManager am;*/
 
+public static int launchYear;
+public static int launchMonth;
+public static int launchDay;
+public static long launchTime;
+
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,8 @@ AlarmManager am;*/
         setContentView(R.layout.activity_create_circle);  
         
         final Intent serviceIntent;
+        
+        
         
         serviceIntent = new Intent(CreateCircleActivity.this, MyService.class);
 
@@ -87,6 +97,13 @@ AlarmManager am;*/
         		//double moneyCommitted=0;
         		boolean validationError = false;
         		StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro2));
+        		
+        		//gets launch time
+        		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		        launchYear=Integer.parseInt(timeStamp.substring(0,4));
+		        launchMonth=Integer.parseInt(timeStamp.substring(4,6));
+		        launchDay=Integer.parseInt(timeStamp.substring(6,8));
+		        launchTime= Calendar.getInstance().getTimeInMillis();
 
         		
                 //makes sure inputCycleLength is an integer
