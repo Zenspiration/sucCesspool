@@ -14,7 +14,7 @@ import com.parse.ParseUser;
 @ParseClassName("Circle")
 	  public class Circle extends ParseObject {
 	   
-	 //pulling each of the items & setting them: Circles Title, First User, Goals, (Second User, Third User...).  
+	 //pulling each of the items & setting them: Circle title, length, charity associated, etc.   
 	      public Circle() {
 	      }
 	   
@@ -41,38 +41,13 @@ import com.parse.ParseUser;
 	    	  put("cycleLength", days);
 	      }
 	      
-	     /* public ParseUser getFirstUser() {
-	          return getParseUser("firstUser");
-	      }
-	   
-	      public void setFirstUser(ParseUser user) {
-	          put("firstUser", user);
-	      }
-	      */
-	   
-	     /* public String getGoals() {
-	          return getString("goals");
-	      }
-	   
-	      public void setGoals(String goals) {
-	          put("goals", goals);
-	      } */ 
-	      
 	      public String getCharity() {
 	    	  return getString("charity");
 	      }
 	      public void setCharity(String charity) {
 	    	  put("charity", charity);
 	      }
-	     	      
-	      /*public int getFirstUsersPoints() {
-	          return getInt("points");
-	      }
-	   
-	      public void setFirstUsersPoints(int points) {
-	          put("points", points);
-	      } */ 
-	      
+
 	      public double getDollarsCommitted(){
 	    	  return getDouble("dollars");
 	      }
