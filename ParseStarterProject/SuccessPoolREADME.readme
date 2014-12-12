@@ -1,49 +1,63 @@
-SuccessPool App for Android
-===========================
+Overview of the SuccessPool App for Android
+===================================================
 
-SuccessPool is a productivity app for Android. Users can "dive in" to a goal pool 
-by committing an initial amount of money, selecting the number of days the pool will
-be active, and setting goals that they want to complete during that period. As users
-complete their goals, they will incrementally earn back the money they initially
-committed. As the cycle reaches its end, any uncompleted goals that remain translates
-into money that the user did not earn back. This money is will be donated to a charity
-of the user's choice. Leveraging psychological concepts such as loss aversion and
-mental accounting, SuccessPool segregates gains and integrates losses to optimize
-productivity and goal commitment. 
+SuccessPool is a productivity app for Android. Users can "dive in" to a goal pool by:
+	1. Setting goals that they want to complete
+	2. Committing a certain amount of money to achieving those goals
+	3. Setting the number of days the pool will last (i.e. when they must complete goals by)
+	4. Selecting a charity to donate to. 
 
+As users complete their goals, they will incrementally earn back a % of the money they 
+initially committed. When the cycle end, the user will lose a % of the money from
+uncompleted goals. This money is will be donated to a charity of the user's choice. 
+
+Leveraging psychological concepts such as loss aversion and mental accounting, SuccessPool
+segregates gains and integrates losses to optimize productivity and goal commitment. 
+
+
+*Important Notes, from us to the graders*
+===================================================
+	- We used Parse as a base for our project, especially for the database. A lot of effort was 
+	  devoted to learning Parse-specific syntax! 
+	- Our code is a mix of original code & adapted code from Parse tutorials. Our annotations
+	  indicate which parts are original vs adapted. 
+	- Circle = Pool. We used the word "circle" in our code, but "pool" on the front end because 
+	  we switched terms halfway through the project (sorry!).
+	- Below is an overview of each page's functionality & code. Please follow along as you review
+	  each page of code :) 
+	
+*********************************************************************************************************
 
 Sign Up or Log In
-=================
+===================================================
 
 Upon opening the Successpool app, users will see a WelcomeActivity where they can
-log in or sign up. After clicking the "Sign up" button, new users will be taken to the
-SignUpActivity where they can enter their first and last name, username, and password.
-A pop-up warning will appear if the user left a field blank. This information is
-subsequently stored in the User class on Parse. Users are then taken to the LogInActivity, 
-where they can enter their username and password. A pop-up warning will again
-appear if the username or password does not match what was stored in the User class.
-After a user successfully logs in, the app will run the Main Activity, which sends the user
-to the "Create a New Pool" page if the user currently does not have a goal pool, and to the
-"View Your Pool" page if the user currently has a goal pool. 
+log in or sign up. Main features of Signup & Sign in pages: 
 
+	1. User input info is stored in the User class on Parse.
+	2. A pop-up warning appears if the user left a field blank. 
+	3. Pop-up warning if the username/pw doesn't match what was stored in the User class. 
+	4. After a user logs in, the app will run the Main Activity, which either sends 
+	the user to the "Create a New Pool" page, or to "View Your Pool", depending on 
+	whether they currently have an active pool. 
+	
 
 Create a New Pool
-=================
-If the user currently does not have a goal pool (this could be because the user is new to
-the app and has never before created a pool, or because an existing pool is no longer
-active because its cycle has ended or the user has completed all the goals in that pool),
-the user will be directed to CreateCircleActivity, where they can create a new pool.
-Please note that we used the word "circle" in place of "pool" in our previous nomenclature,
-so the majority of the activity and class files still uses this outdated nomenclature. For
-future reference, please treat "circle" and "pool" as synonymous.
+===================================================
+***NOTE: We used the words circle & pool interchangeably, because we changed terms halfway
+through the project.
 
-On the "Create a New Pool" page, users will choose a name for their goal pool, select how
-many days their pool will be active, commit an integer amount of money to over the course
-of this cycle, and enter a charity to donate the remaining money should they fail to complete
-all their goals. There will be validation checks to ensure that the user does not input an
-empty string (or a string with only spaces) in the pool name and charity name fields, and that
-the user inputs a valid integer for the cycle length and money committed fields. The information
-that the user inputs will be saved to the User class on Parse. 
+"Create a New Pool" is used when 1) a new user joins, or 2) an existing user's circle expired. 
+Main features of this page:
+   1. Choose a name for their goal pool, select how many days their pool will be active, 
+   commit an integer amount of money to over the course of this cycle, and enter a charity 
+   to donate the remaining money should they fail to complete all their goals. 
+   2. The information that the user inputs will be saved to the User class on Parse. 
+   
+For all user input, we validate to make sure that:
+   1. No empty strings in pool name & charity name fields 
+   2. No string with only spaces in pool name & charity name fields  
+   3. There is a valid integer for the cycle length and money committed fields. 
 
 Two things happen once the user clicks the "Create Pool" button after inputting all the relevant 
 information. The user will be directed to the "View Your Pool" page, and a countdown timer that
@@ -51,78 +65,76 @@ runs for the length of the cycle will be launched.
 
 
 View Your Pool
-==============
-If the user currently has a goal pool (whether it was previously created, or was just recently
-created in the "Create a New Pool" page, he/she will be directed to CircleDisplayActivity. This
-page will summarize the name of the pool, the amount of money committed, the cycle length, and
-the chosen charity. At this stage, this app uses "virtual money," expecting the user to commit
-real money to his/her pool outside of the app in real life. The user is then expected to donate
-however much money that is not earned back to a real charity. In a more advanced version of this
-app, the user's SuccessPool account would be connected to Venmo or to a bank account, where money
-would be physically transferred back to the user as he/she completes goals, or be paid to a
-charity is goals in the pool are left incomplete by cycle's end. 
+===================================================
+If the user currently has a goal pool, they will be directed to CircleDisplayActivity. 
+This page summarizes the facts about your pool, like the name & length of cycle.
 
-This page additionally displays a live-updating "time remaining" feature, which shows how many 
-hours, minutes, and seconds remain in the cycle. This countdown timer is a salient motivation 
-for users to complete their goals before the cycle ends. As users watch their seconds slip away
-in real time, they will be motivated to complete their goals before their money slips away, too.
+*COUNTDOWN TIMER: This page also displays a live-updating "time remaining" feature, which shows 
+how many hours, minutes, and seconds remain in the cycle as motivation. As users watch their 
+seconds slip away in real time, they'll be motivated to complete their goals before their money 
+slips away, too.
+
+At this stage, our app uses "virtual money," expecting the user to commit real money to his/her 
+pool outside of the app in real life. The user is expected to donate however much money that 
+is not earned back to a real charity. In a more advanced version of this app, the user's SuccessPool 
+account would be connected to Venmo or a bank account, where money would be physically transferred.
 
 
 View Your Goals
-===============
-By clicking the "View Your Goals" button at the bottom of the "View Your Pool" page, the user is
-directed to GoalListActivity. This page will display all the goals the user has added to his/her
-pool. The user can click on a goal when it is complete, and that goal item will adopt a green background
-to show that it has been completed. This page additionally displays how much money is left in the pool
-(this amount starts at the initial amount the user committed, then gradually decreases as the user
-completes more goals). Below that, how much money the user has earned back so far is also displayed (this
-amount starts at $0, then gradually increases as the user completes more goals). Each goal is worth
-a certain amount of money based on how much money is initially committed to the pool, and the total
-number of goals that the user has added. The user can use the "refresh" button in the action bar in
-order to update these numbers as new goals are added.
+===================================================
+The "View Your Goals" button at the bottom of the "View Your Pool" page directs you to 
+GoalListActivity. Main features of this page: 
+	1. Displays all goals the user has added (see below to add a goal)
+	2. User can click on a goal when it is complete, and the background will turn green to 
+	indicate that it's completed. 
+	3. Shows how much money is in the pool vs. how much has been returned to you. (This is based
+	on what percentage of the goals you've completed). 
+
+How the $/goal works:
+The amount in the pool starts at your total commitment, say $20. It decreases as the user 
+completes their goals. The worth of each goal is the total $20 divided by the number of goals 
+the user has listed. For example, if you have 5 goals, each is worth $4. If you update to 
+6 goals, each one becomes worth $3.33. 
 
 
 Add a New Goal
-==============
-By clicking the "+" icon in the action bar of the "View Your Goals" page, users can add new goals
-within the NewGoalActivity. A new page will load where the user can input a description of the goal
-and "Dive In!" to an updated display of the "View Your Goals" page. Users also have the option of
-cancelling out from this page before they add a new goal to take them directly back to the
-"View your Goals" page.
+===================================================
+Click "+" in the top action bar to add a new goal. A new page will load where the user can input
+a description of the goal and "Dive In!" to an updated display of the "View Your Goals" page. 
 
-As new goals are added, they are saved into the Goal class in Parse. When a goal is completed, the
-"completed" Boolean that is stored in this class changes from false to true. When all goals have
-been completed before the cycle ends, or when the cycle ends before all goals have been completed,
-the "archived" Boolean that is also stored in this class changes from false to true. These goals
-will no longer appear on the "View Your Goals" page as a user is going through the app, but will
-instead be archived in Parse. 
+How the code works: Each new goal input is saved into the Goal class in Parse. When a goal is 
+completed, the "completed" Boolean that is stored in this class changes from false to true. When 
+the pool ends (either because all goals are completed, or because time is out), the "archived" 
+Boolean stored in this class changes from false to true. Archived goals no longer appear in the
+app, but are stored in Parse. 
 
 
-Completing All Your Goals
-=========================
-If the user completes all the goals in the pool before the cycle ends, then all goals will show up with
-a green background in the "View Your Goals" page. An automatic pop-up will then appear, congratulating
-the user for completing all of his/her goals and earning back all the money that was initially committed.
-All goals within this pool, as well as the pool itself, will be archived in their respective classes
-in Parse. A "Dive into a New Pool" button in this pop-up will take the user back to the "Create a New Pool" 
-page.
+Completing All Your Goals On Time 
+===================================================
+If the user completes all the goals in the pool before the cycle ends, then an automatic pop-up appears, 
+congratulating the user. All goals within this pool, as well as the pool itself, will be archived in 
+their respective classes in Parse. A "Dive into a New Pool" button in this pop-up will take the user 
+back to the "Create a New Pool" page.
 
 
 Uncompleted Goals at the End of the Cycle
-=========================================
+===================================================
 If the user is not so productive during his/her pool cycle, there may be goals left uncompleted by the
 time the cycle ends. When the countdown timer reaches 0, the user will automatically be directed to
-CircleExpired, an activity that tells the user that his/her cycle has ended. This page displays how
-much money the user has earned back in total, and how much money the user will have to donate to
-charity for failing to complete all of his/her goals. Again, all goals within this pool, as well as 
-the pool itself, will be archived in their respective classes in Parse. A "Dive into a New Pool" button 
-at the bottom of this page will direct the user back to the "Create a New Pool" page. Whether users 
-succeed or fail, they can always dive into a new pool and try again, creating cycles upon cycles of 
-commitment and productivity.    
+CircleExpired, an activity that tells the user that his/her cycle has ended. 
+
+Features of CircleExpired: 
+	1. Displays how much $ the user has earned back 
+	2. Displays how much $ will be donated to charity (for failed goals) 
+	3. Pool & goals will be archived
+	4. Prompts user to "Dive into a new pool!" with a button 
+
+Whether users succeed or fail, they can always dive into a new pool and try again, creating cycles 
+upon cycles of commitment and productivity.    
 
 
 Contacts
-========
+===================================================
 To be informed about new code releases, bug fixes, and general news and information about the 
 SuccessPool App for Android, please contact: 
 	 kaity.hsieh@yale.edu
